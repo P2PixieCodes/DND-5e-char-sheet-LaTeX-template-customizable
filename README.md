@@ -18,6 +18,12 @@
 
 ## Usage
 
+### Using empty character sheets
+
+If you're just here to use my layout, go ahead and download one of the empty sheets in `PDFs/`.
+
+Note: If you want to use a fillable one and are having trouble seeing the actual fields, I recommend trying a different PDF viewer. Personally, I've found that Firefox works quite well.
+
 ### Building a character sheet
 
 It is recommended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
