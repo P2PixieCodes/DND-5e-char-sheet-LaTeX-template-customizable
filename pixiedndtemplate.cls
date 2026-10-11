@@ -146,7 +146,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % DEFINE FONT FOR USER INPUTTED TEXT
-\newfontfamily\entryfont{Kalam}[Path=original/template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+\newfontfamily\entryfont{Kalam}[Path=fork-original/template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
 
 % HEADER BACKGROUND COLOR AND OPACITY
 \newrgbcolor{header-background-color}{0.87 0.87 0.87}
@@ -258,7 +258,7 @@
 \newtoggle{shields}
 % TODO: use toggles for ALL the proficiency stuff and mimic the original's behaviour
 
-\input{fork-original/template/character-sheet-commands} % keep only bc of color definition 
+\input{modified-copy-character-sheet-commands.tex} % keep only bc of color definition 
     % TODO: recreate using toggles and such
 
 \newcommand{\renderfirstpage}{\input{pixie-template/pixie-page-one}}
