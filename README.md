@@ -9,6 +9,7 @@
   * "maxlevel3": layout for low-level characters
   * *(default 5e layout WIP)*
 * Paper sizes: A4 and letter
+  * *(WIP - letter option bugged?)*
 * Fillable fields in the generated PDF
 * High degree of customisation: layout, language, colors
   * see below for [instructions](#customization-instructions)
