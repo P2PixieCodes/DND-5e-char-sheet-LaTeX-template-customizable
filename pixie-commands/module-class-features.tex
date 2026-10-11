@@ -1,0 +1,19 @@
+% SECTION CUSTOMISATION COMMANDS
+\newcommand{\pixieSelectedClassSectionOutline}[2]{\pixieOutlinedSectionFancyBottomDown{#1}{#2}}
+\newcommand{\pixieSelectedClassSectionBackground}[2]{\pixieOutlinedSectionFancyBottomDownBackground{#1}{#2}}
+
+\newcommand{\pixiePlaceClassSection}[4]{ % (#1,#2) = coords; #3 = width; #4 = height
+    % default: x = 540, y= 32.6, width = 240, height = 499.7
+    \pixieStyleSectionBackground\pscustom{\translate(#1,#2)\pixieSelectedClassSectionBackground{#3}{#4}}
+    \pixieMakeSectionGrid{#1}{#2}{#3}{#4}{\pixieSelectedClassSectionBackground{#3}{#4}}
+    \psline[linewidth=0.5,strokeopacity=1]
+        (\fpeval{#1+10+(6*(floor((floor(#3/6)-2)/2)))},\fpeval{#2+16})
+        (\fpeval{#1+10+(6*(floor((floor(#3/6)-2)/2)))},\fpeval{#2+10+(6*(floor(#4/6)-3))})
+    \pixieStyleSectionOutline\pscustom{\translate(#1,#2)\pixieSelectedClassSectionOutline{#3}{#4}}
+    \pixieMakeLabelBox{#1}{#2}{#3}{\pixieLabelLengthClass}{\pixieSectionLabelTextClass}
+    \iftoggle{interactive}{
+        \put(\fpeval{#1+7.5},\fpeval{#2+13.5}){\pixieTextField[fontsize=6pt,height=\fpeval{(#4-16)*0.75}pt,width=\fpeval{(6*(floor((floor(#3/6)-2)/2)))*0.75}pt,setFf=Multiline]{classFeaturesLeft}}
+        \put(\fpeval{#1+10+(6*floor(floor((#3-13.5)/6)/2))+4},\fpeval{#2+13.5}){\pixieTextField[fontsize=6pt,height=\fpeval{(#4-16)*0.75}pt,width=\fpeval{(6*floor(floor((#3-13.5)/6)/2))*0.75}pt,setFf=Multiline]{classFeaturesRight}}
+    }{}
+    \pixieStyleDefault
+}

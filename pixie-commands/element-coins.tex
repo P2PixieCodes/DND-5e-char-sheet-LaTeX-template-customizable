@@ -1,0 +1,83 @@
+% COPPER PIECES
+\newcommand{\pixieMakeCoinCopper}[2]{ % RELATIVE positioning
+    % CP LEFT BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftBackground{321.4189}{252.5872}}
+    % CP LEFT OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftOutline{318.1937}{235.8776}}
+    % CP BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinBackground{353.6768}{242.4869}}
+    % CP FANCY INNER LINES
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinCopper{#1}{#2}} % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    % CP OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinOutline{345.3173}{230.7604}}
+}
+
+% SILVER PIECES
+\newcommand{\pixieMakeCoinSilver}[2]{ % RELATIVE positioning
+    % SP LEFT BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftBackground{321.4189}{217.9799}}
+    % SP LEFT OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftOutline{318.1937}{201.2701}}
+    % SP BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinBackground{353.6768}{207.8796}}
+    % SP FANCY INNER LINES
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinSilver{#1}{#2}} % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    % SP OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinOutline{345.3173}{196.1529}}
+}
+
+% ELECTRUM
+\newcommand{\pixieMakeCoinElectrum}[2]{ % RELATIVE positioning
+    % EP LEFT BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftBackground{321.4189}{183.3711}}
+    % EP LEFT OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftOutline{318.1937}{166.6628}}
+    % EP BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinBackground{353.6768}{173.2721}}
+    % EP FANCY INNER LINES
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinElectrumOne{#1}{#2}}     % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinBackground\pscustom{\pixieGraphicCoinElectrumTwoBg{#1}{#2}}   % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinElectrumTwo{#1}{#2}}     % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinBackground\pscustom{\pixieGraphicCoinElectrumThreeBg{#1}{#2}} % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinElectrumThree{#1}{#2}}   % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    % EP OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinOutline{345.3173}{161.5456}}
+}
+
+% GOLD PIECES
+\newcommand{\pixieMakeCoinGold}[2]{ % RELATIVE positioning
+    % GP LEFT BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftBackground{321.4189}{148.7653}}
+    % GP LEFT OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftOutline{318.1937}{132.0556}}
+    % GP BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinBackground{353.6768}{138.6651}}
+    % GP FANCY INNER LINES
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinGoldOne{#1}{#2}}     % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinBackground\pscustom{\pixieGraphicCoinGoldTwoBg{#1}{#2}}   % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinGoldTwo{#1}{#2}}     % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinBackground\pscustom{\pixieGraphicCoinGoldThreeBg{#1}{#2}} % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinGoldThree{#1}{#2}}   % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    % GP OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinOutline{345.3173}{126.9385}}
+}
+
+% PLATINUM
+\newcommand{\pixieMakeCoinPlatinum}[2]{ % RELATIVE positioning
+    % PP LEFT BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftBackground{321.4189}{114.1579}}
+    %% PP LEFT OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinLeftOutline{318.1937}{97.4483}}
+    % PP BACKGROUND
+    \pixieStyleCoinBackground\pscustom{\translate(#1,#2)\pixieGraphicCoinBackground{353.6768}{104.0576}}
+    
+    % PP FANCY INNER LINES
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinPlatinumOne{#1}{#2}}     % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinBackground\pscustom{\pixieGraphicCoinPlatinumTwoBg{#1}{#2}}   % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinPlatinumTwo{#1}{#2}}     % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinBackground\pscustom{\pixieGraphicCoinPlatinumThreeBg{#1}{#2}} % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    \pixieStyleCoinFancyLines\pscustom{\pixieGraphicCoinPlatinumThree{#1}{#2}}   % TODO: change this to absolute positioning, then subtract from the other graphic commands
+    % PP OUTLINE
+    \pixieStyleCoinOutline\pscustom{\translate(#1,#2)\pixieGraphicCoinOutline{345.3173}{92.3311}}
+}
+

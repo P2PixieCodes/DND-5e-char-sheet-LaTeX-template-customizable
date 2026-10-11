@@ -1,0 +1,103 @@
+% CUSTOM COMMANDS FOR BETTER READABILITY (linebreaks)
+\newcommand{\pixiePut}[3]{\put(#1,#2){#3}}
+    % regex search: \\put\(\n?\s*([^\n]*)\n?\s*,\n?\s*([^\n]*)\n?\s*\)\n?\s*\{\n?\s*([^\n]*)\n?\s*\}\n
+    % regex replace: \\pixiePput\n\t{$1}\n\t{$2}\n\t{$3}\n
+\newcommand{\pixieRput}[4][]{\rput[#1](#2,#3){#4}}
+    % regex search: \\rput(\[[a-zA-Z]{2}\])?\n?\s*\(\n?\s*([^\n]*)\n?\s*,\n?\s*([^\n]*)\n?\s*\)\n?\s*\{\n?\s*([^\n]*)\n?\s*\}\n
+    % regex replace: \\pixieRput$1\n\t{$2}\n\t{$3}\n\t{$4}\n
+
+% GRAPHICS
+\input{pixie-commands/graphic-coins}
+    % provides all the commands to be called by the coin elements
+\input{pixie-commands/graphic-header}
+    % provides all the commands to be called by a header template
+\input{pixie-commands/graphic-radio-star}
+    % provides \pixieGraphicCheckStar{x-coord}{y-coord}
+\input{pixie-commands/graphic-battle}
+\input{pixie-commands/graphic-proficiency}
+\input{pixie-commands/graphic-stat}
+% ELEMENTS
+\input{pixie-commands/element-battle}
+    % provides \pixieMakeAC{x-coord}{y-coord}
+    % provides \pixieMakeInitiative{x-coord}{y-coord}
+    % provides \pixieMakeSpeed{x-coord}{y-coord}
+    % provides \pixieMakeHitPoints{x-coord}{y-coord}
+    % provides \pixieMakeTempHP{x-coord}{y-coord}
+    % provides \pixieMakeHitDice{x-coord}{y-coord}
+    % provides \pixieMakeDeathSaves{x-coord}{y-coord}
+\input{pixie-commands/element-coins}
+    % NOTE: relative positioning only!
+    % provides \pixieMakeCoinCopper{x-coord}{y-coord}
+    % provides \pixieMakeCoinSilver{x-coord}{y-coord}
+    % provides \pixieMakeCoinGold{x-coord}{y-coord}
+    % provides \pixieMakeCoinElectrum{x-coord}{y-coord}
+    % provides \pixieMakeCoinPlatinum{x-coord}{y-coord}
+\input{pixie-commands/element-grid}
+    % provides \pixieMakeSectionGrid{x-coord}{y-coord}{width}{height}{clip shape}
+    % provides \pixieMakeScetionGridReverseNonClip{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/element-label}
+\input{pixie-commands/element-spell-list}
+    % provides \pixieMakeSpellList{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/element-spell-slots}
+    % provides \pixieMakeSpellSlotsA{x-coord}{y-coord}{width}
+    % provides \pixieMakeSpellSlotsB{x-coord}{y-coord}
+% MODULES
+\input{pixie-commands/module-appearance}
+    % provides \pixiePlaceAppearanceSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-background-details}
+    % provides \pixiePlaceBackgroundSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-battle}
+\input{pixie-commands/module-class-features}
+    % provides \pixiePlaceClassSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-coins}
+\input{pixie-commands/module-feats}
+\input{pixie-commands/module-equipment}
+    % provides \pixiePlaceEquipmentSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-header}
+    % provides \pixieMakeHeaderDefaultOne{-}{-}
+    % provides \pixieMakeHeaderDefaultTwo{-}{-}
+\input{pixie-commands/module-other-profs}
+    % provides \pixiePlaceOtherProfsSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-personal-goal}
+    % provides \pixiePlacePersonalGoalSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-personality}
+    % provides \pixiePlacePersonalitySection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-proficiency}
+    % provides \pixiePlaceSaveProfs{x-coord}{y-coord}
+    % provides \pixiePlaceSkillProfs{x-coord}{y-coord}
+\input{pixie-commands/module-species-traits}
+    % provides \pixiePlaceSpeciesSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-spells}
+    % provides \pixiePlaceSpellSection{x-coord}{y-coord}{width}{height}
+\input{pixie-commands/module-stat}
+    % provides \pixiePlaceInspiration{x-coord}{y-coord}
+    % provides \pixiePlaceProfBonus{x-coord}{y-coord}
+    % provides \pixiePlacePassWisdom{x-coord}{y-coord}
+    % provides \pixiePlaceStatBlock{x-coord}{y-coord}
+\input{pixie-commands/module-weapons}
+    % provides \pixiePlaceWeaponSection{x-coord}{y-coord}{width}{height}
+    % provides \pixieWeaponEntry{One}{1}{section-x-coord}{section-y-coord}{section-width}{name}{bonus}{damage}{notes}
+% SECTION ART
+\input{pixie-commands/section-outline-fancy}
+    % provides \pixieOutlinedSectionFancy{width}{height}
+    % provides \pixieOutlinedSectionFancyBottomUp{width}{height}
+    % provides \pixieOutlinedSectionFancyBottomUpBackground{width}{height}
+    % provides \pixieOutlinedSectionFancyBottomDown{width}{height}
+    % provides \pixieOutlinedSectionFancyBottomDownBackground{width}{height}
+\input{pixie-commands/section-outline-column}
+    % provides \pixieOtherSectionBackground{width}{height}
+    % provides \pixieOtherSectionOutline{width}{height}
+\input{pixie-commands/section-outline-simple}
+    % provides \pixieOutlinedSectionSimpleBackground{width}{height}
+    % provides \pixieOutlinedSectionSimple{width}{height}
+\input{pixie-commands/section-outline-spell}
+    % provides \pixieOutlinedSectionSpell{x-coord}{y-coord}
+\input{pixie-commands/section-outline-stack}
+    % provides \pixieOutlinedSectionStackTopBackground{width}{height}
+    % provides \pixieOutlinedSectionStackTop{width}{height}
+    % provides \pixieOutlinedSectionStackMiddleBackground{width}{height}
+    % provides \pixieOutlinedSectionStackMiddle{width}{height}
+    % provides \pixieOutlinedSectionStackBottomBackground{width}{height}
+    % provides \pixieOutlinedSectionStackBottom{width}{height}
+\input{pixie-commands/section-shadowed}
+    % provides \pixieShadowedSection{width}{height}

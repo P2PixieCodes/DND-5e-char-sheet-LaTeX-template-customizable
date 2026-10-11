@@ -1,0 +1,12 @@
+\newcommand{\pixiePlaceBattleSection}[2]{
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=black,opacity=0.2]{\translate(#1,#2)\pixieShadowedSection{488.25}{92.5}}
+    %DEFAULT
+    \pixieMakeAC{\fpeval{#1+9.04}}{\fpeval{#2+9.2442}} % ARMOR CLASS
+    \pixieMakeInitiative{\fpeval{#1+80.6564}}{\fpeval{#2+13.1118}} % INITIATIVE
+    \pixieMakeSpeed{\fpeval{#1+157.7872}}{\fpeval{#2+13.1118}} % SPEED
+    %CUSTOM
+    \pixieMakeHitPoints{\fpeval{#1+330}}{\fpeval{#2+13.1118}} % HIT POINTS
+    \pixieMakeHitDice{\fpeval{#1+415}}{\fpeval{#2+13.1118}} % HIT DICE
+    \pixieMakeDeathSaves{\fpeval{#1+480}}{\fpeval{#2+13.1118}} % DEATH SAVES
+    \pixieStyleDefault
+}

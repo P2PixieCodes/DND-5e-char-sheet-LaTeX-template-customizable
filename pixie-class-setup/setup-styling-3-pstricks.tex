@@ -1,0 +1,146 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SHORTCUTS FOR STYLING PSTRICKS GRAPHICS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% DEFAULT PARAMETERS - see pstricks-doc.pdf
+\newcommand{\pixieStyleDefault}{\psset{
+    linestyle=solid,
+    linewidth=.8pt,
+    linecolor=black,
+    strokeopacity=1,
+    fillstyle=none,
+    fillcolor=white,
+    opacity=1,
+    shadow=false,
+    border=0pt
+}}
+
+% HEADER STYLING
+
+% background colour behind the entire banner
+\newcommand{\pixieStyleHeaderBackground}{\psset{
+    linestyle=none,
+    fillstyle=\iftoggle{pixiedraft}{solid}{\headercolorbackgroundfill},
+    fillcolor=\iftoggle{pixiedraft}{header-draft-background}{header-background-color!95!black},
+    opacity=\iftoggle{pixiedraft}{.3}{\headercolorbackgroundopacity},
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+% coloured dragon parts
+\newcommand{\pixieStyleHeaderDragonMain}{\psset{
+    linestyle=none,
+    fillstyle=\iftoggle{pixiedraft}{solid}{\headerdragonfill},
+    fillcolor=\iftoggle{pixiedraft}{header-draft-dragon}{character-sheet-dragon-color},
+    opacity=\iftoggle{pixiedraft}{.3}{\headerdragonopacity},
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+% header banner outline
+\newcommand{\pixieStyleBannerMain}{\psset{
+    linestyle=solid,
+    linewidth=1.83333329,
+    linecolor=\iftoggle{pixiedraft}{header-draft-outline}{header-color},
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1},
+    fillstyle=solid,
+    fillcolor=\iftoggle{pixiedraft}{header-draft-primary}{header-banner-background},
+    opacity=1
+}}
+% header banner small parallel lines
+\newcommand{\pixieStyleHeaderInner}{\psset{
+    linewidth=0.99999998,
+    linecolor=\iftoggle{pixiedraft}{header-draft-secondary}{header-color-accent},
+    linestyle=solid,
+    fillstyle=none,
+    fillcolor=black,
+    opacity=1,
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+% header details box outline
+\newcommand{\pixieStyleHeaderDetailsMain}{\psset{
+    linewidth=1.66666662,
+    linecolor=\iftoggle{pixiedraft}{header-draft-outline}{header-color},
+    linestyle=solid,
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1},
+    fillstyle=solid,
+    fillcolor=\iftoggle{pixiedraft}{header-draft-primary}{header-details-bg-color},
+    opacity=1
+}}
+% header details box fancy curves outside
+\newcommand{\pixieStyleHeaderDetailsOuter}{\psset{
+    linewidth=1.66666662,
+    linecolor=\iftoggle{pixiedraft}{header-draft-outline}{header-color},
+    linestyle=solid,
+    fillstyle=none,
+    fillcolor=black,
+    opacity=1,
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+% header details box inner lines
+\newcommand{\pixieStyleHeaderDetailsLines}{\psset{
+    linewidth=0.33333333,
+    linecolor=\iftoggle{pixiedraft}{header-draft-tertiary}{tertiary-indicator-color},
+    linestyle=solid,
+    fillstyle=none,
+    fillcolor=black,
+    opacity=1,
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+% "Dungeons & Dragons" title
+\newcommand{\pixieStyleHeaderTitle}{\psset{
+    linestyle=none,
+    fillstyle=\iftoggle{pixiedraft}{solid}{\headerdragonfill},
+    fillcolor=\iftoggle{pixiedraft}{header-draft-primary}{header-title-color},
+    opacity=\iftoggle{pixiedraft}{.8}{\headerdragonopacity},
+    strokeopacity=\iftoggle{pixiedraft}{.8}{1}
+}}
+
+\newcommand{\pixieStyleCoinBackground}{\psset{linestyle=none,fillstyle=solid,fillcolor=\iftoggle{pixiedraft}{money-outlines-draft-background}{white}}}
+\newcommand{\pixieStyleCoinOutline}{\psset{linestyle=none,fillstyle=solid,fillcolor=\iftoggle{pixiedraft}{money-outlines-draft-outline}{money-outline-color}}}
+\newcommand{\pixieStyleCoinFancyLines}{\psset{linestyle=none,fillstyle=solid,fillcolor=\iftoggle{pixiedraft}{money-outlines-draft-secondary}{money-outline-color-accent}}}
+
+
+\newcommand{\pixieStyleSectionBackground}{\psset{linestyle=none,fillstyle=solid,fillcolor=white,opacity=1}}
+\newcommand{\pixieStyleSectionOutline}{\psset{linestyle=none,fillstyle=solid,fillcolor=black,opacity=1}}
+\newcommand{\pixieStyleSectionLabelBox}{\psset{linestyle=solid,linecolor=black,linewidth=0.6666,strokeopacity=1,fillstyle=solid,fillcolor=gray!20!white,opacity=1}}
+\newcommand{\pixieStyleSectionGrid}{\psset{fillstyle=none,linestyle=solid,linewidth=0.4,linecolor=gray,strokeopacity=.2}}
+\newcommand{\pixieStyleWeaponTable}{\psset{linestyle=solid,linewidth=0.5,linecolor=gray,strokeopacity=.5,fillstyle=none}}
+
+\newcommand{\pixiePSsetBattleSubsectionBackground}{\psset{
+    linestyle=none,
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1},
+    fillstyle=solid,
+    fillcolor=\iftoggle{pixiedraft}{battle-draft-background}{white},
+    opacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+\newcommand{\pixiePSsetBattleSubsectionOutlines}{\psset{
+    linestyle=none,
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1},
+    fillstyle=solid,
+    fillcolor=\iftoggle{pixiedraft}{battle-draft-outline}{black},
+    opacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+\newcommand{\pixiePSsetBattleDeathSavingThrows}{\psset{
+    linestyle=none,
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1},
+    fillstyle=solid,
+    fillcolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},
+    opacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+\newcommand{\pixiePSsetBattleDetailLines}{\psset{
+    linestyle=solid,
+    linewidth=0.33333333,
+    linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},
+    strokeopacity=\iftoggle{pixiedraft}{.3}{1},
+    fillstyle=none
+}}
+
+% styling for outlines
+\newcommand{\pixieStyleStatsOutlines}{\psset{
+    linestyle=none,
+    fillstyle=solid,
+    fillcolor=\iftoggle{pixiedraft}{stats-draft-outline}{outline-color},
+    opacity=\iftoggle{pixiedraft}{.3}{1}
+}}
+
+%%%%% STYLING NOTES
+%\psset{linejoin=0} % sharp
+%\psset{linejoin=1} % round
+%\psset{linejoin=2} % bevel

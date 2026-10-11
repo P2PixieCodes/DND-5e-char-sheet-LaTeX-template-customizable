@@ -1,0 +1,259 @@
+% SEE p2pixie-drawing-commands.tex FOR DETAILS ON USAGE
+
+% DEFINE VALUES FOR VARIABLE LENGTH CALCULATIONS OF OUTLINED SECTION STACK
+\def\pixieOSstackEndbaseWidth{30.590000001}
+\def\pixieOSstackEndbaseHeight{45.321500002}
+\def\pixieOSstackCenterbaseWidth{30.590000001}
+\def\pixieOSstackCenterbaseHeight{62.629000002}
+
+% PATH DRAW COMMANDS - NOT TO BE CALLED DUE TO INCORRECT SCALING
+% DRAW OUTLINED SECTION STACK TOP
+\newcommand{\pixieOutlinedSectionStackEndDraw}[2]{ % #1 = width; #2 = height
+    \moveto(0,\fpeval{#2-5.152})
+    \rcurveto(3.864,1.288)(5.796,3.005334)(5.796,5.152)
+    %\rlineto(1247,0)
+        \rlineto(9.499,0)
+        \rlineto(\fpeval{max(#1,\pixieOSstackEndbaseWidth)-\pixieOSstackEndbaseWidth},0)
+        \rlineto(9.499,0)
+    \rcurveto(0,-2.146666613)(1.932000000,-3.864000000)(5.796,-5.152)
+    %\rlineto(0,-478.5)
+        \rlineto(0,-8.855)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSstackEndbaseHeight)-\pixieOSstackEndbaseHeight})
+        \rlineto(0,-31.314500001)
+    \rlineto(-4.347,0)
+    \rcurveto(-0.751333387,1.234333387)(-1.862233387,1.958833387)(-3.3327,2.1735)
+    \rcurveto(0,0)(-0.2093,-0.5635)(-0.9338,-0.5635)
+    \rcurveto(-0.7245,0)(-0.9338,0.5635)(-0.9338,0.5635)
+    \rcurveto(-1.899800000,-0.322000000)(-3.601033387,-1.046500000)(-5.5867,-2.1735)
+    %\rlineto(-1131,0)
+        \rlineto(-0.161,0)
+        \rlineto(-\fpeval{max(#1,\pixieOSstackEndbaseWidth)-\pixieOSstackEndbaseWidth},0)
+        \rlineto(-0.161,0)
+    \rcurveto(-1.899800000,1.12700000)(-3.601033387,1.851500000)(-5.5867,2.1735)
+    \rcurveto(0,0)(-0.2093,-0.5635)(-0.9338,-0.5635)
+    \rcurveto(-0.7245,0)(-0.9338,0.5635)(-0.9338,0.5635)
+    \rcurveto(-1.470466613,-0.214666613)(-2.581366613,-0.939166613)(-3.3327,-2.1735)
+    \rlineto(-4.347,0)
+    \closepath
+    \moveto(1.127,\fpeval{max(#2,\pixieOSstackEndbaseHeight)-11.431})
+    \rcurveto(2.683333387,4.83)(5.849666613,8.23783387)(9.4990,10.2235)
+    \rlineto(-3.7835,0)
+    \rcurveto(-0.375666613,-1.878333387)(-2.280833387,-3.515166613)(-5.7155,-4.9105)
+    \closepath
+    \moveto(\fpeval{max(#1,\pixieOSstackEndbaseWidth)-1.127},\fpeval{max(#2,\pixieOSstackEndbaseHeight)-6.118})
+    \rcurveto(-3.434666613,1.395333387)(-5.339833387,3.032166613)(-5.7155,4.9105)
+    \rlineto(-3.7835,0)
+    \rcurveto(3.756666613,-1.985666613)(6.923000000,-5.393500000)(9.4990,-10.2235)
+    \closepath
+    \moveto(2.4955,\fpeval{max(#2,\pixieOSstackEndbaseHeight)-11.592})
+    \rcurveto(-0.483000000,-0.751333387)(-0.939166613,-1.556333387)(-1.3685,-2.4150)
+    %\rlineto(0,-319)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSstackEndbaseHeight)-\pixieOSstackEndbaseHeight})
+        \rlineto(0,-14.490000001)
+    \rcurveto(0.751333387,4.508000000)(1.207500000,9.338000000)(1.3685,14.4900000010)
+    \closepath
+    \moveto(\fpeval{max(#1,\pixieOSstackEndbaseWidth)-2.4955},31.314500001)
+    \rcurveto(0.161000000,-5.152000000)(0.617166613,-9.982000000)(1.3685,-14.4900000010)
+    %\rlineto(0,319)
+        \rlineto(0,14.490000001)
+        \rlineto(0,\fpeval{max(#2,\pixieOSstackEndbaseHeight)-\pixieOSstackEndbaseHeight})
+    \rcurveto(-0.429333387,0.858666613)(-0.885500000,1.663666613)(-1.3685,2.4150)
+    \closepath
+    \moveto(3.059,31.314500001)
+    \rcurveto(-0.107333387,-6.654666613)(-0.751333387,-12.826333387)(-1.9320,-18.5150000010)
+    \rlineto(0,-11.6725)
+    \rlineto(2.4955,0)
+    \rcurveto(1.341666613,1.449000000)(2.694066613,2.173500000)(4.0572,2.1735)
+    \rcurveto(0,0)(0.2093,0.5635)(0.9338,0.5635)
+    \rcurveto(0.7245,0)(0.9338,-0.5635)(0.9338,-0.5635)
+    \rcurveto(1.899800000,-0.214666613)(3.815600000,-0.939166613)(5.7477,-2.1735)
+    \rlineto(\fpeval{max(#1,\pixieOSstackEndbaseWidth)-\pixieOSstackEndbaseWidth},0)
+    \rcurveto(1.932000000,1.234333387)(3.847900000,1.958833387)(5.7477,2.1735)
+    \rcurveto(0,0)(0.2093,0.5635)(0.9338,0.5635)
+    \rcurveto(0.7245,0)(0.9338,-0.5635)(0.9338,-0.5635)
+    \rcurveto(1.363133387,0.000000)(2.715533387,-0.724500000)(4.0572,-2.1735)
+    \rlineto(2.4955,0)
+    \rlineto(0,11.6725)
+    \rcurveto(-1.180666613,5.688666613)(-1.824666613,11.860333387)(-1.9320,18.5150000010)
+    %\rlineto(0,251)
+        \rlineto(0,\fpeval{max(#2,\pixieOSstackEndbaseHeight)-\pixieOSstackEndbaseHeight})
+        \rlineto(0,3.542)
+    \rcurveto(-3.864000000,5.903333387)(-7.889000000,8.989166613)(-12.0750,9.2575)
+    %\rlineto(-1131,0)
+        \rlineto(-0.161,0)
+        \rlineto(-\fpeval{max(#1,\pixieOSstackEndbaseWidth)-\pixieOSstackEndbaseWidth},0)
+        \rlineto(-0.161,0)
+    \rcurveto(-4.186000000,-0.268333387)(-8.211000000,-3.354166613)(-12.0750,-9.2575)
+    \closepath
+}
+% DRAW OUTLINED SECTION STACK TOP BACKGROUND
+\newcommand{\pixieOutlinedSectionStackEndDrawBackground}[2]{ % #1 = width; #2 = height
+    \moveto(0,\fpeval{max(#2,\pixieOSstackEndbaseHeight)-5.152})
+    \rcurveto(3.864000000,1.288000000)(5.796000000,3.005333387)(5.796,5.152)
+    %\rlineto(1247,0)
+        \rlineto(9.499,0)
+        \rlineto(\fpeval{max(#1,\pixieOSstackEndbaseWidth)-\pixieOSstackEndbaseWidth},0)
+        \rlineto(9.499,0)
+    \rcurveto(0.000000,-2.146666613)(1.932000000,-3.864000000)(5.796,-5.152)
+    %\rlineto(0,-478.5)
+        \rlineto(0,-8.855)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSstackEndbaseHeight)-\pixieOSstackEndbaseHeight})
+        \rlineto(0,-31.314500001)
+    \rlineto(-4.347,0)
+    \rcurveto(-0.751333387,1.234333387)(-1.862233387,1.958833387)(-3.3327,2.1735)
+    \rcurveto(0,0)(-0.2093,-0.5635)(-0.9338,-0.5635)
+    \rcurveto(-0.7245,0)(-0.9338,0.5635)(-0.9338,0.5635)
+    \rcurveto(-1.899800000,-0.322000000)(-3.601033387,-1.046500000)(-5.5867,-2.1735)
+    %\rlineto(-1131,0)
+        \rlineto(-0.161,0)
+        \rlineto(-\fpeval{max(#1,\pixieOSstackEndbaseWidth)-\pixieOSstackEndbaseWidth},0)
+        \rlineto(-0.161,0)
+    \rcurveto(-1.899800000,1.12700000)(-3.601033387,1.851500000)(-5.5867,2.1735)
+    \rcurveto(0,0)(-0.2093,-0.5635)(-0.9338,-0.5635)
+    \rcurveto(-0.7245,0)(-0.9338,0.5635)(-0.9338,0.5635)
+    \rcurveto(-1.470466613,-0.214666613)(-2.581366613,-0.939166613)(-3.3327,-2.1735)
+    \rlineto(-4.347,0)
+    \closepath
+}
+% DRAW OUTLINED SECTION STACK MIDDLE
+\newcommand{\pixieOutlinedSectionStackCenterDraw}[2]{ % #1 = width; #2 = height
+    \moveto(0,0)
+    \rlineto( 4.347,0)
+    \rcurveto( 0.751333387, 1.234333387)( 1.862233387, 1.958833387)( 3.3327, 2.1735)
+    \rcurveto(0,0)( 0.2093,- 0.5635)( 0.9338,- 0.5635)
+    \rcurveto( 0.7245,0)( 0.9338, 0.5635)( 0.9338, 0.5635)
+    \rcurveto( 1.824666613,- 0.322000000)( 3.686900000,- 1.046500000)( 5.5867,- 2.1735)
+    \rlineto( 0.161,0)
+    \rlineto(\fpeval{max(#1,\pixieOSstackCenterbaseWidth)-\pixieOSstackCenterbaseWidth},0)
+    \rlineto( 0.161,0)
+    \rcurveto( 1.824666613, 1.12700000)( 3.686900000, 1.851500000)( 5.5867, 2.1735)
+    \rcurveto(0,0)( 0.2093,- 0.5635)( 0.9338,- 0.5635)
+    \rcurveto( 0.7245,0)( 0.9338, 0.5635)( 0.9338, 0.5635)
+    \rcurveto( 1.470466613,- 0.214666613)( 2.581366613,- 0.939166613)( 3.3327,- 2.1735)
+    \rlineto( 4.347,0)
+    \rlineto(0, 31.314500001)
+    \rlineto(0,\fpeval{max(#2,\pixieOSstackCenterbaseHeight)-\pixieOSstackCenterbaseHeight})
+    \rlineto(0, 31.314500001)
+    \rlineto(- 4.347,0)
+    \rcurveto(- 0.751333387,- 1.234333387)(- 1.862233387,- 1.958833387)(- 3.3327,- 2.1735)
+    \rcurveto(0,0)(- 0.2093, 0.5635)(- 0.9338, 0.5635)
+    \rcurveto(- 0.7245,0)(- 0.9338,- 0.5635)(- 0.9338,- 0.5635)
+    \rcurveto(- 1.899800000, 0.322000000)(- 3.601033387, 1.046500000)(- 5.5867, 2.1735)
+    \rlineto(- 0.161,0)
+    \rlineto(-\fpeval{max(#1,\pixieOSstackCenterbaseWidth)-\pixieOSstackCenterbaseWidth},0)
+    \rlineto(- 0.161,0)
+    \rcurveto(- 1.899800000,- 1.12700000)(- 3.601033387,- 1.851500000)(- 5.5867,- 2.1735)
+    \rcurveto(0,0)(- 0.2093, 0.5635)(- 0.9338, 0.5635)
+    \rcurveto(- 0.7245,0)(- 0.9338,- 0.5635)(- 0.9338,- 0.5635)
+    \rcurveto(- 1.470466613, 0.214666613)(- 2.581366613, 0.939166613)(- 3.3327, 2.1735)
+    \rlineto(- 4.347,0)
+    \closepath
+    
+    \moveto( 1.127,\fpeval{max(#2,\pixieOSstackCenterbaseHeight)- 1.127})
+    \rlineto( 2.4955,0)
+    \rcurveto( 1.341666613,- 1.449000000)( 2.694066613,- 2.173500000)( 4.0572,- 2.1735)
+    \rcurveto(0,0)( 0.2093,- 0.5635)( 0.9338,- 0.5635)
+    \rcurveto( 0.7245,0)( 0.9338, 0.5635)( 0.9338, 0.5635)
+    \rcurveto( 1.899800000, 0.214666613)( 3.815600000, 0.939166613)( 5.7477, 2.1735)
+    \rlineto(\fpeval{max(#1,\pixieOSstackCenterbaseWidth)-\pixieOSstackCenterbaseWidth},0)
+    \rcurveto( 1.932000000,- 1.234333387)( 3.847900000,- 1.958833387)( 5.7477,- 2.1735)
+    \rcurveto(0,0)( 0.2093,- 0.5635)( 0.9338,- 0.5635)
+    \rcurveto( 0.7245,0)( 0.9338, 0.5635)( 0.9338, 0.5635)
+    \rcurveto( 1.363133387,0.000000)( 2.715533387, 0.724500000)( 4.0572, 2.1735)
+    \rlineto( 2.4955,0)
+    \rlineto(0,- 11.6725)
+    \rcurveto(- 1.180666613,- 5.688666613)(- 1.824666613,- 11.860333387)(- 1.9320,- 18.5150000010)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSstackCenterbaseHeight)-\pixieOSstackCenterbaseHeight})
+    \rcurveto( 0.107333387,- 6.654666613)( 0.751333387,- 12.826333387)( 1.9320,- 18.5150000010)
+    \rlineto(0,- 11.6725)
+    \rlineto(- 2.4955,0)
+    \rcurveto(- 1.341666613, 1.449000000)(- 2.694066613, 2.173500000)(- 4.0572, 2.1735)
+    \rcurveto(0,0)(- 0.2093, 0.5635)(- 0.9338, 0.5635)
+    \rcurveto(- 0.7245,0)(- 0.9338,- 0.5635)(- 0.9338,- 0.5635)
+    \rcurveto(- 1.899800000,- 0.214666613)(- 3.815600000,- 0.939166613)(- 5.7477,- 2.1735)
+    \rlineto(-\fpeval{max(#1,\pixieOSstackCenterbaseWidth)-\pixieOSstackCenterbaseWidth},0)
+    \rcurveto(- 1.932000000, 1.234333387)(- 3.847900000, 1.958833387)(- 5.7477, 2.1735)
+    \rcurveto(0,0)(- 0.2093, 0.5635)(- 0.9338, 0.5635)
+    \rcurveto(- 0.7245,0)(- 0.9338,- 0.5635)(- 0.9338,- 0.5635)
+    \rcurveto(- 1.363133387,0.000000)(- 2.715533387,- 0.724500000)(- 4.0572,- 2.1735)
+    \rlineto(- 2.4955,0)
+    \rlineto(0, 11.6725)
+    \rcurveto( 1.180666613, 5.688666613)( 1.824666613, 11.860333387)( 1.9320, 18.5150000010)
+    \rlineto(0,\fpeval{max(#2,\pixieOSstackCenterbaseHeight)-\pixieOSstackCenterbaseHeight})
+    \rcurveto(- 0.107333387, 6.654666613)(- 0.751333387, 12.826333387)(- 1.9320, 18.5150000010)
+    \moveto( 1.127,\fpeval{max(#2,\pixieOSstackCenterbaseHeight)- 16.824500001})
+    \rcurveto( 0.751333387,- 4.508000000)( 1.207500000,- 9.338000000)( 1.3685,- 14.4900000010)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSstackCenterbaseHeight)-\pixieOSstackCenterbaseHeight})
+    \rcurveto(-  0.161000000,- 5.152000000)(- 0.295166613,- 9.982000000)(- 1.3685,- 14.4900000010)
+
+    \moveto(\fpeval{max(#1,\pixieOSstackCenterbaseWidth)- 1.127}, 16.824500001)
+    \rcurveto(- 0.751333387, 4.508000000)(- 1.207500000, 9.338000000)(- 1.3685, 14.4900000010)
+    \rlineto(0,\fpeval{max(#2,\pixieOSstackCenterbaseHeight)-\pixieOSstackCenterbaseHeight})
+    \rcurveto(  0.161000000, 5.152000000)( 0.295166613, 9.982000000)( 1.3685, 14.4900000010)
+}
+% DRAW OUTLINED SECTION STACK MIDDLE BACKGROUND
+\newcommand{\pixieOutlinedSectionStackCenterDrawBackground}[2]{ % #1 = width; #2 = height
+    \moveto(0,0)
+    \rlineto( 4.347,0)
+    \rcurveto( 0.751333387, 1.234333387)( 1.862233387, 1.958833387)( 3.3327, 2.1735)
+    \rcurveto(0,0)( 0.2093,- 0.5635)( 0.9338,- 0.5635)
+    \rcurveto( 0.7245,0)( 0.9338, 0.5635)( 0.9338, 0.5635)
+    \rcurveto( 1.824666613,- 0.322000000)( 3.686900000,- 1.046500000)( 5.5867,- 2.1735)
+    \rlineto( 0.161,0)
+    \rlineto(\fpeval{max(#1,\pixieOSstackCenterbaseWidth)-\pixieOSstackCenterbaseWidth},0)
+    \rlineto( 0.161,0)
+    \rcurveto( 1.824666613, 1.12700000)( 3.686900000, 1.851500000)( 5.5867, 2.1735)
+    \rcurveto(0,0)( 0.2093,- 0.5635)( 0.9338,- 0.5635)
+    \rcurveto( 0.7245,0)( 0.9338, 0.5635)( 0.9338, 0.5635)
+    \rcurveto( 1.470466613,- 0.214666613)( 2.581366613,- 0.939166613)( 3.3327,- 2.1735)
+    \rlineto( 4.347,0)
+    \rlineto(0, 31.314500001)
+    \rlineto(0,\fpeval{max(#2,\pixieOSstackCenterbaseHeight)-\pixieOSstackCenterbaseHeight})
+    \rlineto(0, 31.314500001)
+    \rlineto(- 4.347,0)
+    \rcurveto(- 0.751333387,- 1.234333387)(- 1.862233387,- 1.958833387)(- 3.3327,- 2.1735)
+    \rcurveto(0,0)(- 0.2093, 0.5635)(- 0.9338, 0.5635)
+    \rcurveto(- 0.7245,0)(- 0.9338,- 0.5635)(- 0.9338,- 0.5635)
+    \rcurveto(- 1.899800000, 0.322000000)(- 3.601033387, 1.046500000)(- 5.5867, 2.1735)
+    \rlineto(- 0.161,0)
+    \rlineto(-\fpeval{max(#1,\pixieOSstackCenterbaseWidth)-\pixieOSstackCenterbaseWidth},0)
+    \rlineto(- 0.161,0)
+    \rcurveto(- 1.899800000,- 1.12700000)(- 3.601033387,- 1.851500000)(- 5.5867,- 2.1735)
+    \rcurveto(0,0)(- 0.2093, 0.5635)(- 0.9338, 0.5635)
+    \rcurveto(- 0.7245,0)(- 0.9338,- 0.5635)(- 0.9338,- 0.5635)
+    \rcurveto(- 1.470466613, 0.214666613)(- 2.581366613, 0.939166613)(- 3.3327, 2.1735)
+    \rlineto(- 4.347,0)
+    \closepath
+}
+
+% COMMANDS FOR SCALING PROPERLY
+\newcommand{\pixieOSstackEndWidthHalf}[1]{\fpeval{max(#1,\pixieOSstackEndbaseWidth)}}   % called to calculate the used width
+\newcommand{\pixieOSstackEndHeightHalf}[1]{\fpeval{max(#1,\pixieOSstackEndbaseHeight)}} % called to calculate the used height
+\newcommand{\pixieOSstackCenterWidthHalf}[1]{\fpeval{max(#1,\pixieOSstackCenterbaseWidth)}}   % called to calculate the used width
+\newcommand{\pixieOSstackCenterHeightHalf}[1]{\fpeval{max(#1,\pixieOSstackCenterbaseHeight)}} % called to calculate the used height
+
+% ACTUAL COMMANDS TO BE CALLED
+\newcommand{\pixieOutlinedSectionStackTop}[2]{ % #1 = width; #2 = height
+    \pixieOutlinedSectionStackEndDraw{\pixieOSstackEndWidthHalf{#1}}{\pixieOSstackEndHeightHalf{#2}}
+}
+\newcommand{\pixieOutlinedSectionStackTopBackground}[2]{ % #1 = width; #2 = height
+    \pixieOutlinedSectionStackEndDrawBackground{\pixieOSstackEndWidthHalf{#1}}{\pixieOSstackEndHeightHalf{#2}}
+}
+\newcommand{\pixieOutlinedSectionStackMiddle}[2]{ % #1 = width; #2 = height
+    \pixieOutlinedSectionStackCenterDraw{\pixieOSstackCenterWidthHalf{#1}}{\pixieOSstackCenterHeightHalf{#2}}
+    
+}
+\newcommand{\pixieOutlinedSectionStackMiddleBackground}[2]{ % #1 = width; #2 = height
+    \pixieOutlinedSectionStackCenterDrawBackground{\pixieOSstackCenterWidthHalf{#1}}{\pixieOSstackCenterHeightHalf{#2}}
+}
+\newcommand{\pixieOutlinedSectionStackBottom}[2]{ % #1 = width; #2 = height
+    \translate(0,\fpeval{max(#2,\pixieOSstackEndbaseHeight)})\scale{1 -1}
+    \pixieOutlinedSectionStackEndDraw{\pixieOSstackEndWidthHalf{#1}}{\pixieOSstackEndHeightHalf{#2}}
+    \translate(0,\fpeval{max(#2,\pixieOSstackEndbaseHeight)})\scale{1 -1}
+}
+\newcommand{\pixieOutlinedSectionStackBottomBackground}[2]{ % #1 = width; #2 = height
+    \translate(0,\fpeval{max(#2,\pixieOSstackEndbaseHeight)})\scale{1 -1}
+    \pixieOutlinedSectionStackEndDrawBackground{\pixieOSstackEndWidthHalf{#1}}{\pixieOSstackEndHeightHalf{#2}}
+    \translate(0,\fpeval{max(#2,\pixieOSstackEndbaseHeight)})\scale{1 -1}
+}
+

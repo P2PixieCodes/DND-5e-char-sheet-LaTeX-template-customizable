@@ -1,0 +1,705 @@
+% HEADER TERMS
+\newcommand{\pixieHeaderTerm}[1]{\iftoggle{english}{\MakeUppercase{#1}}{#1}}
+\newcommand{\pixieTermCharacterName}{%
+    \iftoggle{deutsch}{Charaktername}{}%
+    \iftoggle{english}{Character Name}{}%
+}
+\newcommand{\pixieTermClass}{%
+    \iftoggle{deutsch}{Klasse}{}%
+    \iftoggle{english}{Class}{}%
+}
+\newcommand{\pixieTermLevel}{%
+    \iftoggle{deutsch}{Stufe}{}%
+    \iftoggle{english}{Level}{}%
+}
+\newcommand{\pixieTermClassLevel}{%
+    \iftoggle{deutsch}{Klasse \& Stufe}{}%
+    \iftoggle{english}{Class \& Level}{}%
+}
+\newcommand{\pixieTermSubclass}{%
+    \iftoggle{deutsch}{Unterklasse}{}%
+    \iftoggle{english}{Subclass}{}%
+}
+\newcommand{\pixieTermBackground}{%
+    \iftoggle{deutsch}{Hintergrund}{}%
+    \iftoggle{english}{Background}{}%
+}
+\newcommand{\pixieTermPlayerName}{%
+    \iftoggle{deutsch}{Spielername}{}%
+    \iftoggle{english}{Player Name}{}%
+}
+\newcommand{\pixieTermSpecies}{%
+    \iftoggle{deutsch}{Spezies}{}%
+    \iftoggle{english}{Species}{}%
+}
+\newcommand{\pixieTermAlignment}{%
+    \iftoggle{deutsch}{Gesinnung}{}%
+    \iftoggle{english}{Alignment}{}%
+}
+\newcommand{\pixieTermExperiencePoints}{%
+    \iftoggle{deutsch}{Erfahrungspunkte}{}%
+    \iftoggle{english}{Experience Points}{}%
+}
+\newcommand{\pixieTermXP}{%
+    \iftoggle{deutsch}{EP}{}%
+    \iftoggle{english}{XP}{}%
+}
+\newcommand{\pixieTermAge}{%
+    \iftoggle{deutsch}{Alter}{}%
+    \iftoggle{english}{Age}{}%
+}
+\newcommand{\pixieTermHeight}{%
+    \iftoggle{deutsch}{Grösse}{}%
+    \iftoggle{english}{Height}{}%
+}
+\newcommand{\pixieTermWeight}{%
+    \iftoggle{deutsch}{Gewicht}{}%
+    \iftoggle{english}{Weight}{}%
+}
+\newcommand{\pixieTermEyes}{%
+    \iftoggle{deutsch}{Augenfarbe}{}%
+    \iftoggle{english}{Eyes}{}%
+}
+\newcommand{\pixieTermSkin}{%
+    \iftoggle{deutsch}{Hautfarbe}{}%
+    \iftoggle{english}{Skin}{}%
+}
+\newcommand{\pixieTermHair}{%
+    \iftoggle{deutsch}{Haarfarbe}{}%
+    \iftoggle{english}{Hair}{}%
+}
+% MAIN STATS TERMS
+\newcommand{\pixieTermInspiration}{%
+    \iftoggle{deutsch}{Inspiration}{}%
+    \iftoggle{english}{Inspiration}{}%
+}
+\newcommand{\pixieTermProficiencyBonus}{%
+    \iftoggle{deutsch}{Übungsbonus}{}%
+    \iftoggle{english}{Proficiency Bonus}{}%
+}
+\newcommand{\pixieTermPassiveWisdomPerception}{%
+    \iftoggle{deutsch}{Passive Weisheit (Wahrnehmung)}{}%
+    \iftoggle{english}{Passive Wisdom (Perception)}{}%
+}
+\newcommand{\pixieTermPassivePerception}{%
+    \iftoggle{deutsch}{Passive Wahrnehmung}{}%
+    \iftoggle{english}{Passive Perception}{}%
+}
+\newcommand{\pixieTermPassivePerceptionWisdom}{%
+    \iftoggle{deutsch}{Passive Wahrnehmung (Weisheit)}{}%
+    \iftoggle{english}{Passive Perception (Wisdom}{}%
+}
+\newcommand{\pixieTermSavingThrows}{%
+    \iftoggle{deutsch}{Rettungswürfe}{}%
+    \iftoggle{english}{Saving Throws}{}%
+}
+\newcommand{\pixieTermSkills}{%
+    \iftoggle{deutsch}{Fertigkeiten}{}%
+    \iftoggle{english}{Skills}{}%
+}
+\newcommand{\pixieTermModifier}{%
+    \iftoggle{deutsch}{Modifikator}{}%
+    \iftoggle{english}{Modifier}{}%
+}
+\newcommand{\pixieTermScore}{%
+    \iftoggle{deutsch}{Wert}{}%
+    \iftoggle{english}{Score}{}%
+}
+\newcommand{\pixieTermSavingThrow}{%
+    \iftoggle{deutsch}{Rettungswurf}{}%
+    \iftoggle{english}{Saving Throw}{}%
+}
+% ATTRIBUTES
+\newcommand{\pixieTermStrength}{%
+    \iftoggle{deutsch}{Stärke}{}%
+    \iftoggle{english}{Strength}{}%
+}
+\newcommand{\pixieTermStr}{%
+    \iftoggle{deutsch}{Str}{}%
+    \iftoggle{english}{Str}{}%
+}
+\newcommand{\pixieTermDexterity}{%
+    \iftoggle{deutsch}{Geschicklichkeit}{}%
+    \iftoggle{english}{Dexterity}{}%
+}
+\newcommand{\pixieTermDexteritySplitUpper}{%
+    \iftoggle{deutsch}{\pixieLineSplitUpper{Geschick-}{lichkeit}}{}%
+    \iftoggle{english}{\MakeUppercase{Dexterity}}{}%
+}
+\newcommand{\pixieTermDex}{%
+    \iftoggle{deutsch}{Ges}{}%
+    \iftoggle{english}{Dex}{}%
+}
+\newcommand{\pixieTermConstitution}{%
+    \iftoggle{deutsch}{Konstitution}{}%
+    \iftoggle{english}{Constitution}{}%
+}
+\newcommand{\pixieTermCon}{%
+    \iftoggle{deutsch}{Kon}{}%
+    \iftoggle{english}{Con}{}%
+}
+\newcommand{\pixieTermIntelligence}{%
+    \iftoggle{deutsch}{Intelligenz}{}%
+    \iftoggle{english}{Intelligence}{}%
+}
+\newcommand{\pixieTermInt}{%
+    \iftoggle{deutsch}{Int}{}%
+    \iftoggle{english}{Int}{}%
+}
+\newcommand{\pixieTermWisdom}{%
+    \iftoggle{deutsch}{Weisheit}{}%
+    \iftoggle{english}{Wisdom}{}%
+}
+\newcommand{\pixieTermWis}{%
+    \iftoggle{deutsch}{Wei}{}%
+    \iftoggle{english}{Wis}{}%
+}
+\newcommand{\pixieTermCharisma}{%
+    \iftoggle{deutsch}{Charisma}{}%
+    \iftoggle{english}{Charisma}{}%
+}
+\newcommand{\pixieTermCha}{%
+    \iftoggle{deutsch}{Cha}{}%
+    \iftoggle{english}{Cha}{}%
+}
+% SKILLS
+\newcommand{\pixieTermAcrobatics}{%
+    \iftoggle{deutsch}{Akrobatik}{}%
+    \iftoggle{english}{Acrobatics}{}%
+}
+\def\pixieSkillOrderAcrobatics{%
+    \iftoggle{deutsch}{0}{}%
+    \iftoggle{english}{0}{}%
+    \iftoggle{showText}{}{0}%
+}
+\newcommand{\pixieTermAnimalHandling}{%
+    \iftoggle{deutsch}{Umgang mit Tieren}{}%
+    \iftoggle{english}{Animal Handling}{}%
+}
+\def\pixieSkillOrderAnimalHandling{%
+    \iftoggle{deutsch}{9}{}%
+    \iftoggle{english}{1}{}%
+    \iftoggle{showText}{}{1}%
+}
+\newcommand{\pixieTermArcana}{%
+    \iftoggle{deutsch}{Arkane Kunde}{}%
+    \iftoggle{english}{Arcana}{}%
+}
+\def\pixieSkillOrderArcana{%
+    \iftoggle{deutsch}{1}{}%
+    \iftoggle{english}{2}{}%
+    \iftoggle{showText}{}{2}%
+}
+\newcommand{\pixieTermAthletics}{%
+    \iftoggle{deutsch}{Athletik}{}%
+    \iftoggle{english}{Athletics}{}%
+}
+\def\pixieSkillOrderAthletics{%
+    \iftoggle{deutsch}{2}{}%
+    \iftoggle{english}{3}{}%
+    \iftoggle{showText}{}{3}%
+}
+\newcommand{\pixieTermDeception}{%
+    \iftoggle{deutsch}{Täuschen}{}%
+    \iftoggle{english}{Deception}{}%
+}
+\def\pixieSkillOrderDeception{%
+    \iftoggle{deutsch}{14}{}%
+    \iftoggle{english}{4}{}%
+    \iftoggle{showText}{}{4}%
+}
+\newcommand{\pixieTermHistory}{%
+    \iftoggle{deutsch}{Geschichte}{}%
+    \iftoggle{english}{History}{}%
+}
+\def\pixieSkillOrderHistory{%
+    \iftoggle{deutsch}{6}{}%
+    \iftoggle{english}{5}{}%
+    \iftoggle{showText}{}{5}%
+}
+\newcommand{\pixieTermInsight}{%
+    \iftoggle{deutsch}{Motiv erkennen}{}%
+    \iftoggle{english}{Insight}{}%
+}
+\def\pixieSkillOrderInsight{%
+    \iftoggle{deutsch}{10}{}%
+    \iftoggle{english}{6}{}%
+    \iftoggle{showText}{}{6}%
+}
+\newcommand{\pixieTermIntimidation}{%
+    \iftoggle{deutsch}{Einschüchtern}{}%
+    \iftoggle{english}{Intimidation}{}%
+}
+\def\pixieSkillOrderIntimidation{%
+    \iftoggle{deutsch}{4}{}%
+    \iftoggle{english}{7}{}%
+    \iftoggle{showText}{}{7}%
+}
+\newcommand{\pixieTermInvestigation}{%
+    \iftoggle{deutsch}{Nachforschungen}{}%
+    \iftoggle{english}{Investigation}{}%
+}
+\def\pixieSkillOrderInvestigation{%
+    \iftoggle{deutsch}{11}{}%
+    \iftoggle{english}{8}{}%
+    \iftoggle{showText}{}{8}%
+}
+\newcommand{\pixieTermMedicine}{%
+    \iftoggle{deutsch}{Heilkunde}{}%
+    \iftoggle{english}{Medicine}{}%
+}
+\def\pixieSkillOrderMedicine{%
+    \iftoggle{deutsch}{7}{}%
+    \iftoggle{english}{9}{}%
+    \iftoggle{showText}{}{9}%
+}
+\newcommand{\pixieTermNature}{%
+    \iftoggle{deutsch}{Naturkunde}{}%
+    \iftoggle{english}{Nature}{}%
+}
+\def\pixieSkillOrderNature{%
+    \iftoggle{deutsch}{12}{}%
+    \iftoggle{english}{10}{}%
+    \iftoggle{showText}{}{10}%
+}
+\newcommand{\pixieTermPerception}{%
+    \iftoggle{deutsch}{Wahrnehmung}{}%
+    \iftoggle{english}{Perception}{}%
+}
+\def\pixieSkillOrderPerception{%
+    \iftoggle{deutsch}{17}{}%
+    \iftoggle{english}{11}{}%
+    \iftoggle{showText}{}{11}%
+}
+\newcommand{\pixieTermPerformance}{%
+    \iftoggle{deutsch}{Auftreten}{}%
+    \iftoggle{english}{Performance}{}%
+}
+\def\pixieSkillOrderPerformance{%
+    \iftoggle{deutsch}{3}{}%
+    \iftoggle{english}{12}{}%
+    \iftoggle{showText}{}{12}%
+}
+\newcommand{\pixieTermPersuasion}{%
+    \iftoggle{deutsch}{Überzeugen}{}%
+    \iftoggle{english}{Persuasion}{}%
+}
+\def\pixieSkillOrderPersuasion{%
+    \iftoggle{deutsch}{16}{}%
+    \iftoggle{english}{13}{}%
+    \iftoggle{showText}{}{13}%
+}
+\newcommand{\pixieTermReligion}{%
+    \iftoggle{deutsch}{Religion}{}%
+    \iftoggle{english}{Religion}{}%
+}
+\def\pixieSkillOrderReligion{%
+    \iftoggle{deutsch}{13}{}%
+    \iftoggle{english}{14}{}%
+    \iftoggle{showText}{}{14}%
+}
+\newcommand{\pixieTermSleightOfHand}{%
+    \iftoggle{deutsch}{Fingerfertigkeit}{}%
+    \iftoggle{english}{Sleight of Hand}{}%
+}
+\def\pixieSkillOrderSleightOfHand{%
+    \iftoggle{deutsch}{5}{}%
+    \iftoggle{english}{15}{}%
+    \iftoggle{showText}{}{15}%
+}
+\newcommand{\pixieTermStealth}{%
+    \iftoggle{deutsch}{Heimlichkeit}{}%
+    \iftoggle{english}{Stealth}{}%
+}
+\def\pixieSkillOrderStealth{%
+    \iftoggle{deutsch}{8}{}%
+    \iftoggle{english}{16}{}%
+    \iftoggle{showText}{}{16}%
+}
+\newcommand{\pixieTermSurvival}{%
+    \iftoggle{deutsch}{Überlebenskunst}{}%
+    \iftoggle{english}{Survival}{}%
+}
+\def\pixieSkillOrderSurvival{%
+    \iftoggle{deutsch}{15}{}%
+    \iftoggle{english}{17}{}%
+    \iftoggle{showText}{}{17}%
+}
+% BATTLE STATS TERMS
+\newcommand{\pixieTermArmorClass}{%
+    \iftoggle{deutsch}{Rüstungsklasse}{}%
+    \iftoggle{english}{Armor Class}{}%
+}
+\newcommand{\pixieTermArmorClassSplit}{%
+    \iftoggle{deutsch}{\pixieLineSplit{Rüstungs-}{klasse}}{}%
+    \iftoggle{english}{Armor Class}{}%
+}
+\newcommand{\pixieTermArmorClassSplitUpper}{%
+    \iftoggle{deutsch}{\pixieLineSplitUpper{Rüstungs-}{klasse}}{}%
+    \iftoggle{english}{\pixieLineSplitUpper{Armor}{Class}}{}%
+}
+\newcommand{\pixieTermAC}{%
+    \iftoggle{deutsch}{RK}{}%
+    \iftoggle{english}{AC}{}%
+}
+\newcommand{\pixieTermInitiative}{%
+    \iftoggle{deutsch}{Initiative}{}%
+    \iftoggle{english}{Initiative}{}%
+}
+\newcommand{\pixieTermSpeed}{%
+    \iftoggle{deutsch}{Bewegungsrate}{}%
+    \iftoggle{english}{Speed}{}%
+}
+\newcommand{\pixieTermSpeedSplit}{%
+    \iftoggle{deutsch}{\pixieLineSplit{Bewegungs-}{rate}}{}%
+    \iftoggle{english}{Speed}{}%
+}
+\newcommand{\pixieTermSpeedSplitUpper}{%
+    \iftoggle{deutsch}{\pixieLineSplitUpper{Bewegungs-}{rate}}{}%
+    \iftoggle{english}{Speed}{}%
+}
+\newcommand{\pixieTermSize}{%
+    \iftoggle{deutsch}{Grösse}{}%
+    \iftoggle{english}{Size}{}%
+}
+\newcommand{\pixieTermHitPoints}{%
+    \iftoggle{deutsch}{Trefferpunkte}{}%
+    \iftoggle{english}{Hit Points}{}%
+}
+\newcommand{\pixieTermHitPointMaximum}{%
+    \iftoggle{deutsch}{Trefferpunkte Maximum}{}%
+    \iftoggle{english}{Hit Point Maximum}{}%
+}
+\newcommand{\pixieTermMax}{%
+    \iftoggle{deutsch}{Max.}{}%
+    \iftoggle{english}{MAX}{}%
+}
+\newcommand{\pixieTermCurrentHitPoints}{%
+    \iftoggle{deutsch}{Aktuelle Trefferpunkte}{}%
+    \iftoggle{english}{Current Hit Points}{}%
+}
+\newcommand{\pixieTermCurrent}{%
+    \iftoggle{deutsch}{Aktuell}{}%
+    \iftoggle{english}{CURRENT}{}%
+}
+\newcommand{\pixieTermTemporaryHitPoints}{%
+    \iftoggle{deutsch}{Temporäre Trefferpunkte}{}%
+    \iftoggle{english}{Temporary Hit Points}{}%
+}
+\newcommand{\pixieTermTemp}{%
+    \iftoggle{deutsch}{Temp.}{}%
+    \iftoggle{english}{TEMP}{}%
+}
+\newcommand{\pixieTermHitDice}{%
+    \iftoggle{deutsch}{Trefferwürfel}{}%
+    \iftoggle{english}{Hit Dice}{}%
+}
+\newcommand{\pixieTermTotal}{%
+    \iftoggle{deutsch}{Gesamt}{}%
+    \iftoggle{english}{Total}{}%
+}
+\newcommand{\pixieTermSpent}{%
+    \iftoggle{deutsch}{Verbr.}{}%
+    \iftoggle{english}{SPENT}{}%
+}
+\newcommand{\pixieTermDeathSaves}{%
+    \iftoggle{deutsch}{Todesrettungen}{}%\iftoggle{deutsch}{Rettungswürfe gegen Tod}{}%
+    \iftoggle{english}{Death Saves}{}%
+}
+\newcommand{\pixieTermDeathSavesSplitUpper}{%
+    \iftoggle{deutsch}{\pixieLineSplitUpperLeft{Todes-}{Rettungen}}{}%\iftoggle{deutsch}{\pixieLineSplitLeft{Todes-}{Rettungswürfe}}{}%
+    \iftoggle{english}{\pixieLineSplitUpperLeft{Death}{Saves}}{}%
+}
+\newcommand{\pixieTermSuccesses}{%
+    \iftoggle{deutsch}{Erfolge}{}%
+    \iftoggle{english}{SUCCESSES}{}%
+}
+\newcommand{\pixieTermFailures}{%
+    \iftoggle{deutsch}{Misserfolge}{}%
+    \iftoggle{english}{FAILURES}{}%
+}
+\newcommand{\pixieTermFailuresSplitUpper}{%
+    \iftoggle{deutsch}{\pixieLineSplitUpperRight{Miss-}{erfolge}}{}%
+    \iftoggle{english}{Failures}{}%
+}
+% WEAPON TERMS
+\newcommand{\pixieTermName}{%
+    \iftoggle{deutsch}{Name}{}%
+    \iftoggle{english}{Name}{}%
+}
+\newcommand{\pixieTermAtkBonusDC}{%
+    \iftoggle{deutsch}{Ang.-Bonus/SG}{}%
+    \iftoggle{english}{Atk Bonus/DC}{}%
+}
+\newcommand{\pixieTermAtkBonus}{%
+    \iftoggle{deutsch}{Bonus}{}%
+    \iftoggle{english}{Atk Bonus}{}%
+}
+\newcommand{\pixieTermDamageType}{%
+    \iftoggle{deutsch}{Schaden \& Art}{}%
+    \iftoggle{english}{Damage \& Type}{}%
+}
+\newcommand{\pixieTermNotes}{%
+    \iftoggle{deutsch}{Notizen}{}%
+    \iftoggle{english}{Notes}{}%
+}
+% OTHER PROFICIENCIES TERMS
+\newcommand{\pixieTermArmorTraining}{%
+    \iftoggle{deutsch}{Rüstungsvertrautheit}{}%
+    \iftoggle{english}{Armor Training}{}%
+}
+\newcommand{\pixieTermArmorTrainingSplit}{%
+    \iftoggle{deutsch}{\pixieLineSplitLeft{Rüstungs-}{vertrautheit}}{}%
+    \iftoggle{english}{\pixieLineSplitLeft{Armor}{Training}}{}%
+}
+\newcommand{\pixieTermLight}{%
+    \iftoggle{deutsch}{Leicht}{}%
+    \iftoggle{english}{Light}{}%
+}
+\newcommand{\pixieTermMedium}{%
+    \iftoggle{deutsch}{Mittelschwer}{}%
+    \iftoggle{english}{Medium}{}%
+}
+\newcommand{\pixieTermHeavy}{%
+    \iftoggle{deutsch}{Schwer}{}%
+    \iftoggle{english}{Heavy}{}%
+}
+\newcommand{\pixieTermShields}{%
+    \iftoggle{deutsch}{Schilde}{}%
+    \iftoggle{english}{Shields}{}%
+}
+\newcommand{\pixieTermWeapons}{%
+    \iftoggle{deutsch}{Waffen}{}%
+    \iftoggle{english}{Weapons}{}%
+}
+\newcommand{\pixieTermTools}{%
+    \iftoggle{deutsch}{Werkzeug}{}%
+    \iftoggle{english}{Tools}{}%
+}
+\newcommand{\pixieTermLanguages}{%
+    \iftoggle{deutsch}{Sprachen}{}%
+    \iftoggle{english}{Languages}{}%
+}
+% SPELLCASTING TERMS
+\newcommand{\pixieTermSpellcastingAbility}{%
+    \iftoggle{deutsch}{Attribut zum Zauberwirken}{}%
+    \iftoggle{english}{Spellcasting Ability}{}%
+}
+\newcommand{\pixieTermSpellcastingAbilitySplit}{%
+    \iftoggle{deutsch}{\pixieLineSplit{Attribut zum}{Zauberwirken}}{}%
+    \iftoggle{english}{\pixieLineSplitUpper{Spellcasting}{Ability}}{}%
+}
+\newcommand{\pixieTermSpellcastingModifier}{%
+    \iftoggle{deutsch}{Zaubermodifikator}{}%
+    \iftoggle{english}{Spellcasting Modifier}{}%
+}
+\newcommand{\pixieTermSpellcastingModifierSplit}{%
+    \iftoggle{deutsch}{\pixieLineSplit{Zauber-}{modifikator}}{}%
+    \iftoggle{english}{\pixieLineSplitUpper{Spellcasting}{Modifier}}{}%
+}
+\newcommand{\pixieTermSpellSaveDC}{%
+    \iftoggle{deutsch}{SG für Zauberrettungswurf}{}%
+    \iftoggle{english}{Spell Save DC}{}%
+}
+\newcommand{\pixieTermSpellSaveDCSplit}{%
+    \iftoggle{deutsch}{\pixieLineSplit{SG für Zauber-}{rettungswurf}}{}%
+    \iftoggle{english}{Spell Save DC}{}%
+}
+\newcommand{\pixieTermSpellAttackBonus}{%
+    \iftoggle{deutsch}{Zauberangriffsbonus}{}%
+    \iftoggle{english}{Spell Attack Bonus}{}%
+}
+\newcommand{\pixieTermSpellAttackBonusSplit}{%
+    \iftoggle{deutsch}{\pixieLineSplit{Zauber-}{angriffsbonus}}{}%
+    \iftoggle{english}{\pixieLineSplitUpper{Spell Attack}{Bonus}}{}%
+}
+\newcommand{\pixieTermSpellcastingClass}{%
+    \iftoggle{deutsch}{Zauberwirkende Klasse}{}%
+    \iftoggle{english}{Spellcasting Class}{}%
+}
+\newcommand{\pixieTermSpellcastingClassSplit}{%
+    \iftoggle{deutsch}{\pixieLineSplitLeft{Zauberwirkende}{Klasse}}{}%
+    \iftoggle{english}{\pixieLineSplitUpperLeft{Spellcasting}{Class}}{}%
+}
+\newcommand{\pixieTermCantrips}{%
+    \iftoggle{deutsch}{Zaubertricks}{}%
+    \iftoggle{english}{Cantrips}{}%
+}
+% SPELL SLOT & LIST TERMS
+\newcommand{\pixieTermLevelspell}{%
+    \iftoggle{deutsch}{Grad}{}%
+    \iftoggle{english}{Level}{}%
+}
+\newcommand{\pixieTermExpended}{%
+    \iftoggle{deutsch}{Verbraucht}{}%
+    \iftoggle{english}{Expended}{}%
+}
+\newcommand{\pixieTermExpendedShort}{%
+    \iftoggle{deutsch}{Verbr.}{}%
+    \iftoggle{english}{Exp.}{}%
+}
+\newcommand{\pixieTermCastingTime}{%
+    \iftoggle{deutsch}{Zeitaufwand}{}%
+    \iftoggle{english}{Casting Time}{}%
+}
+\newcommand{\pixieTermCastingTimeSplitUnderline}{%
+    \iftoggle{deutsch}{\pixieLineSplitLeft{Zeit-}{\myuline{aufwand}}}{}%
+    \iftoggle{english}{\pixieLineSplitLeft{Casting}{\myuline{Time}}}{}%
+}
+\newcommand{\pixieTermRange}{%
+    \iftoggle{deutsch}{Reichweite}{}%
+    \iftoggle{english}{Range}{}%
+}
+\newcommand{\pixieTermConcentrationRitualRequiredMaterialsSplitUnderline}{%
+    \iftoggle{deutsch}{\pixieLineSplitLeft{Konzentration, Ritual}{\myuline{\& erf. Materialien}}}{}%
+    \iftoggle{english}{\pixieLineSplitLeft{Concentration, Ritual}{\myuline{\& Required Materials}}}{}%
+}
+\newcommand{\pixieTermConcentrationInitial}{%
+    \iftoggle{deutsch}{K}{}%
+    \iftoggle{english}{C}{}
+}
+\newcommand{\pixieTermRitualInitial}{%
+    \iftoggle{deutsch}{R}{}%
+    \iftoggle{english}{R}{}
+}
+\newcommand{\pixieTermMaterialInitial}{%
+    \iftoggle{deutsch}{M}{}%
+    \iftoggle{english}{M}{}
+}
+% EQUIPMENT & INVENTORY TERMS
+\newcommand{\pixieTermMagicItemAttunement}{%
+    \iftoggle{deutsch}{Einstimmung auf magische Gegenstände}{}%
+    \iftoggle{english}{Magic Item Attunement}{}%
+}
+\newcommand{\pixieTermCoins}{%
+    \iftoggle{deutsch}{Münzen}{}%
+    \iftoggle{english}{Coins}{}%
+}
+\newcommand{\pixieTermCP}{%
+    \iftoggle{deutsch}{KM}{}%
+    \iftoggle{english}{CP}{}%
+}
+\newcommand{\pixieTermSP}{%
+    \iftoggle{deutsch}{SM}{}%
+    \iftoggle{english}{SP}{}%
+}
+\newcommand{\pixieTermEP}{%
+    \iftoggle{deutsch}{EM}{}%
+    \iftoggle{english}{EP}{}%
+}
+\newcommand{\pixieTermGP}{%
+    \iftoggle{deutsch}{GM}{}%
+    \iftoggle{english}{GP}{}%
+}
+\newcommand{\pixieTermPP}{%
+    \iftoggle{deutsch}{PM}{}%
+    \iftoggle{english}{PP}{}%
+}
+\newcommand{\pixieTermTreasure}{%
+    \iftoggle{deutsch}{Schätze}{}%
+    \iftoggle{english}{Treasure}{}%
+}
+% PERSONALITY TERMS
+\newcommand{\pixieTermPersonalityTraits}{%
+    \iftoggle{deutsch}{Persönlichkeitsmerkmale}{}%
+    \iftoggle{english}{Personality Traits}{}%
+}
+\newcommand{\pixieTermIdeals}{%
+    \iftoggle{deutsch}{Ideale}{}%
+    \iftoggle{english}{Ideals}{}%
+}
+\newcommand{\pixieTermBonds}{%
+    \iftoggle{deutsch}{Bindungen}{}%
+    \iftoggle{english}{Bonds}{}%
+}
+\newcommand{\pixieTermFlaws}{%
+    \iftoggle{deutsch}{Makel}{}%
+    \iftoggle{english}{Flaws}{}%
+}
+% OTHER TERMS
+\newcommand{\pixieTermCharacterAppearance}{%
+    \iftoggle{deutsch}{Aussehen}{}%
+    \iftoggle{english}{Character Appearance}{}%
+}
+\newcommand{\pixieTermAlliesOrganizations}{%
+    \iftoggle{deutsch}{Verbündete \& Organisationen}{}%
+    \iftoggle{english}{Allies \& Organizations}{}%
+}
+\newcommand{\pixieTermAdditionalFeaturesTraits}{%
+    \iftoggle{deutsch}{Weitere Merkmale}{}%
+    \iftoggle{english}{Additional Features \& Traits}{}%
+}
+\newcommand{\pixieTermCharacterBackstory}{%
+    \iftoggle{deutsch}{Hintergrundgeschichte}{}%
+    \iftoggle{english}{Character Backstory}{}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% SECTION LABELS
+\newcommand{\pixieSectionLabelTextAppearance}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{AUSSEHEN}{}%
+    \iftoggle{english}{APPEARANCE}{}%
+}}}
+\newcommand{\pixieSectionLabelTextBackground}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{HINTERGRUND}{}%
+    \iftoggle{english}{BACKGROUND}{}%
+}}}
+\newcommand{\pixieSectionLabelTextClass}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{KLASSENMERKMALE}{}%
+    \iftoggle{english}{CLASS FEATURES}{}%
+}}}
+\newcommand{\pixieSectionLabelTextEquipment}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{AUSRÜSTUNG}{}%
+    \iftoggle{english}{EQUIPMENT}{}%
+}}}
+\newcommand{\pixieSectionLabelTextFeats}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{TALENTE}{}%
+    \iftoggle{english}{FEATS}{}%
+}}}
+\newcommand{\pixieSectionLabelTextOtherProfs}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{VERTRAUTHEIT UND ÜBUNG}{}%
+    \iftoggle{english}{EQUIPMENT TRAINING \& PROFICIENCIES}{}%
+}}}
+
+\newcommand{\pixieSectionLabelTextSpecies}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{maxlevel3}{%
+        \iftoggle{deutsch}{SPEZIES-MERKMALE}{}%
+        \iftoggle{english}{SPECIES TRAITS}{}%
+    }{%
+        \iftoggle{deutsch}{SPEZIES- \& HINTERGRUND-MERKMALE}{}%
+        \iftoggle{english}{SPECIES \& BACKGROUND TRAITS}{}%
+    }%
+}}}
+\newcommand{\pixieSectionLabelTextSpellList}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{ZAUBERTRICKS \& VORBEREITETE ZAUBER}{}%
+    \iftoggle{english}{CANTRIPS \& PREPARED SPELLS}{}%
+}}}
+\newcommand{\pixieSectionLabelTextSpellSlots}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{ZAUBERPLÄTZE}{}%
+    \iftoggle{english}{SPELL SLOTS}{}%
+}}}
+\newcommand{\pixieSectionLabelTextPersonality}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{GESCHICHTE \& PERSÖNLICHKEIT}{}%
+    \iftoggle{english}{BACKSTORY \& PERSONALITY}{}%
+}}}
+\newcommand{\pixieSectionLabelTextPersonalGoal}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{PERSÖNLICHES ZIEL}{}%
+    \iftoggle{english}{PERSONAL GOAL}{}%
+}}}
+\newcommand{\pixieSectionLabelTextWeapon}{\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{%
+    \iftoggle{deutsch}{WAFFEN UND SCHADENSZAUBERTRICKS}{}%
+    \iftoggle{english}{WEAPONS \& DAMAGE CANTRIPS}{}%
+}}}
+% UPDATE LABEL BOX LENGTHS
+\setlength{\pixieLabelLengthPtAppearance}{\widthof{\pixieSectionLabelTextAppearance}}
+\setlength{\pixieLabelLengthPtBackground}{\widthof{\pixieSectionLabelTextBackground}}
+\setlength{\pixieLabelLengthPtClass}{\widthof{\pixieSectionLabelTextClass}}
+\setlength{\pixieLabelLengthPtFeats}{\widthof{\pixieSectionLabelTextFeats}}
+\setlength{\pixieLabelLengthPtEquipment}{\widthof{\pixieSectionLabelTextEquipment}}
+\setlength{\pixieLabelLengthPtOtherProfs}{\widthof{\pixieSectionLabelTextOtherProfs}}
+\setlength{\pixieLabelLengthPtSpecies}{\widthof{\pixieSectionLabelTextSpecies}}
+\setlength{\pixieLabelLengthPtSpellList}{\widthof{\pixieSectionLabelTextSpellList}}
+\setlength{\pixieLabelLengthPtSpellSlots}{\widthof{\pixieSectionLabelTextSpellSlots}}
+\setlength{\pixieLabelLengthPtPersonality}{\widthof{\pixieSectionLabelTextPersonality}}
+\setlength{\pixieLabelLengthPtPersonalGoal}{\widthof{\pixieSectionLabelTextPersonalGoal}}
+\setlength{\pixieLabelLengthPtWeapon}{\widthof{\pixieSectionLabelTextWeapon}}

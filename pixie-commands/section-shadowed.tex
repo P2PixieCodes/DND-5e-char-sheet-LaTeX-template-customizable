@@ -1,0 +1,94 @@
+% SEE p2pixie-drawing-commands.tex FOR DETAILS ON USAGE
+
+% DEFINE VALUES FOR VARIABLE LENGTH CALCULATIONS OF ONE SHADOWED-SECTION-CORNER (SSC)
+% to be used for drawing corners
+    \def\pixieSSCxA{10}  % X-axis section A: center base width
+    \def\pixieSSCxb{1/6} % X-axis section b: 1/6 of additional width
+    \def\pixieSSCxC{10}  % X-axis section C: fixed size between middle and outer edge of circle
+    \def\pixieSSCxD{10}  % X-axis section D: middle base width
+    \def\pixieSSCxe{5/6} % X-axis section e: 5/6 of additional width
+    \def\pixieSSCxF{60}  % X-axis section F: fixed width of corner design (64)
+    \def\pixieSSCyA{10}  % Y-axis section A: center base height
+    \def\pixieSSCyb{1}   % Y-axis section B: additional height % unused
+    \def\pixieSSCyC{114} % Y-axis section C: fixed size of corner design (114)
+    \def\pixieSSCxMinimum{\fpeval{\pixieSSCxA+\pixieSSCxC+\pixieSSCxD+\pixieSSCxF}} % minimum total of entire width (X-axis)
+    \def\pixieSSCyMinimum{\fpeval{\pixieSSCyA+\pixieSSCyC}}                         % minimum total of entire height (Y-axis)
+% to be used by main draw command
+    \def\pixieSSCscale{4}
+    \newcommand{\pixieSSwidthHalf}[1]{\fpeval{max(#1/2,(\pixieSSCxMinimum/\pixieSSCscale))*\pixieSSCscale}}  % called to calculate the used width
+    \newcommand{\pixieSSheightHalf}[1]{\fpeval{max(#1/2,(\pixieSSCyMinimum/\pixieSSCscale))*\pixieSSCscale}} % called to calculate the used height
+
+% COMMAND FOR DRAWING ONE HALF OF A SECTION BACKGROUND
+% DANGER: ONLY CALL WITH \fpeval{max(#length,\pixieSSCaxisMinimum)} for parameters! If a length is too small, you run the risk of the design breaking
+\newcommand{\pixieShadowedSectionCornerMain}[2]{% #1 = width-half; #2 = height-half
+    %%%%%%%%%%%%%%%%%%%% FIRST CORNER
+    % starting at middle of width -> x: |AbCDeF
+    \rlineto(\fpeval{#1-\pixieSSCxF},0) % move outwards horizontally until you meet the design edge -> x: AbCDe|F
+    \rcurveto(24.666667,8.666667)(44.666667,21.666667)(60,39) % FIXED: follow design
+    \rlineto(0,11)                                            % FIXED: follow design
+    \rcurveto(-16,-22.666667)(-34,-34.666667)(-54,-36)        % FIXED: follow design
+    \rlineto(-6,0)                                            % FIXED: follow design -> x:AbCDe|F
+    \rlineto(-\fpeval{\pixieSSCxD+((#1-\pixieSSCxMinimum)*\pixieSSCxe)},0) % move inwards horizontally until you meet the circle edge -> x:AbC|DeF
+    \psarcn[arcsep=\pslinewidth](\fpeval{\pixieSSCxA+((#1-\pixieSSCxMinimum)*\pixieSSCxb)+\pixieSSCxC-3.5},\fpeval{16-#2}){4}{335}{25} % draw circle -> x:AbC|DeF
+    \rlineto(\fpeval{\pixieSSCxD+((#1-\pixieSSCxMinimum)*\pixieSSCxe)},0) % move outwards horizontally until you meet the design edge -> x:AbCDe|F
+    \rlineto(3,0)                                           % FIXED: follow design
+    \rcurveto(17.333333,0)(33.333333,8.666667)(48,26)       % FIXED: follow design
+    \rcurveto(2,18.666667)(1.333333,30.333333)(-2,35)       % FIXED: follow design
+    \rcurveto(2.666667,4.666667)(6.333333,16.333333)(11,35) % FIXED: follow design -> y:Ab|C
+    \rlineto(0,\fpeval{#2-\pixieSSCyC}) % move inwards vertically until you meet the center of the height -> y:|AbC
+    %%%%%%%%%%%%%%%%%%%% SECOND CORNER
+    % starting at middle of height -> y: |AbC
+    \rlineto(0,\fpeval{#2-\pixieSSCyC}) % move outwards vertically until you meet the design edge -> y:Ab|C
+    \rcurveto(-4.666667,18.666667)(-8.333333,30.333333)(-11,35) % FIXED: follow design
+    \rcurveto(3.333333,4.666667)(4,16.333333)(2,35)             % FIXED: follow design
+    \rcurveto(-14.666667,17.333333)(-30.666667,26)(-48,26)      % FIXED: follow design
+    \rlineto(-3,0)                                              % FIXED: follow design -> x:AbCDe|F
+    \rlineto(-\fpeval{\pixieSSCxD+((#1-\pixieSSCxMinimum)*\pixieSSCxe)},0) % move inwards horizontally until you meet the circle edge -> x:AbC|DeF
+    \psarcn[arcsep=\pslinewidth](\fpeval{((#1-\pixieSSCxMinimum)*\pixieSSCxb)+\pixieSSCxA+\pixieSSCxC-3.5},\fpeval{#2-16}){4}{335}{25} % draw circle -> x:AbC|DeF
+    \rlineto(\fpeval{\pixieSSCxD+((#1-\pixieSSCxMinimum)*\pixieSSCxe)},0) % move outwards horizontally until you meet design edge -> x:AbCDe|F
+    \rlineto(6,0)                                                 % FIXED: follow design
+    \rcurveto(20,-1.333333)(38,-13.333333)(54,-36)                % FIXED: follow design
+    \rlineto(0,11)                                                % FIXED: follow design
+    \rcurveto(-15.333333,17.333333)(-35.333333,30.333333)(-60,39) % FIXED: follow design -> x: AbCDe|F
+    \rlineto(-\fpeval{#1-\pixieSSCxF},0) % move inwards horizontally until you meet the middle
+}
+% COMMAND FOR DRAWING DECORATIONS IN A SECTION BACKGROUND CORNER
+\newcommand{\pixieShadowedSectionCornerDeco}[2]{% #1 = width-half; #2 = height-half
+    \moveto(#1,\fpeval{22-#2})
+    \rcurveto(-12.666667,-8)(-20.666667,-15.333333)(-24,-22) % FIXED: follow design
+    \rlineto(-30,0)                                          % FIXED: follow design
+    \rcurveto(21.333333,8)(39.333333,20)(54,36)              % FIXED: follow design
+    \closepath
+    \moveto(#1,\fpeval{56-#2})
+    \rcurveto(-2,-3.333333)(-4.333333,-6.666667)(-7,-10)   % FIXED: follow design
+    \rcurveto(2.666667,17.333333)(2,28.333333)(-2,33)      % FIXED: follow design
+    \rcurveto(2.666667,3.333333)(5.666667,12.666667)(9,28) % FIXED: follow design
+    \closepath
+}
+
+% ACTUAL COMMAND TO BE CALLED
+\newcommand{\pixieShadowedSection}[2]{% #1 = width; #2 = height
+    \scale{\fpeval{1/\pixieSSCscale}} % adjust scale to match the original template's layout
+    \translate(\pixieSSwidthHalf{#1},\pixieSSheightHalf{#2}) % move coordinates origin to center of section
+    
+    % DRAW MAIN SECTIONS
+    \moveto(0,-\pixieSSheightHalf{#2})
+    \pixieShadowedSectionCornerMain{\pixieSSwidthHalf{#1}}{\pixieSSheightHalf{#2}}
+    \scale{-1 -1}
+    \pixieShadowedSectionCornerMain{\pixieSSwidthHalf{#1}}{\pixieSSheightHalf{#2}}
+    \closepath
+    \scale{-1 -1} % reset to original
+    
+    % DRAW CORNER DECORATIONS
+    \pixieShadowedSectionCornerDeco{\pixieSSwidthHalf{#1}}{\pixieSSheightHalf{#2}}
+    \scale{-1 1}
+    \pixieShadowedSectionCornerDeco{\pixieSSwidthHalf{#1}}{\pixieSSheightHalf{#2}}
+    \scale{1 -1}
+    \pixieShadowedSectionCornerDeco{\pixieSSwidthHalf{#1}}{\pixieSSheightHalf{#2}}
+    \scale{-1 1}
+    \pixieShadowedSectionCornerDeco{\pixieSSwidthHalf{#1}}{\pixieSSheightHalf{#2}}
+    \scale{1 -1} % reset to original
+    
+    \translate(-\pixieSSwidthHalf{#1},-\pixieSSheightHalf{#2}) % reset coordinates origin
+    \scale{\pixieSSCscale} % reverse scale adjustment
+}

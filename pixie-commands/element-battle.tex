@@ -1,0 +1,226 @@
+% COMMANDS FOR DRAWING BATTLE STATS ELEMENTS - copied from template/character-sheet/battle-stats.tex
+% MODIFIED to be drawn using relative positioning
+
+% MAIN COMMANDS
+\newcommand{\pixieMakeAC}[2]{}
+\newcommand{\pixieMakeInitiative}[2]{}
+\newcommand{\pixieMakeSpeed}[2]{}
+\newcommand{\pixieMakeHitPoints}[2]{}
+\newcommand{\pixieMakeTempHP}[2]{}
+\newcommand{\pixieMakeHitDice}[2]{}
+\newcommand{\pixieMakeDeathSaves}[2]{}
+
+%%%% DEFAULT ELEMENTS
+\renewcommand{\pixieMakeAC}[2]{ % (#1,#2) = coordinates
+    \pixiePSsetBattleSubsectionBackground\pscustom{\translate(#1,#2)\pixieGraphicArmorClassBackground}
+    \pixiePSsetBattleSubsectionOutlines\pscustom{\translate(#1,#2)\pixieGraphicArmorClass}
+    %%%% TEXT
+    \rput(\iftoggle{deutsch}{\fpeval{#1+32.2},\fpeval{#2+24.2558}}{\fpeval{#1+32},\fpeval{#2+24.2354977}})
+        {\pixieTextBold\pixieColorShortcutTwo{\pixieTermArmorClassSplitUpper}}
+    %%%% FILLABLE FIELD
+    \iftoggle{interactive}{\put(\fpeval{#1+22.46},\fpeval{#2+38.7558}){\pixieACField}}{}
+}
+\renewcommand{\pixieMakeInitiative}[2]{ % (#1,#2) = coordinates
+    \pixiePSsetBattleSubsectionBackground\pscustom{\translate(#1,#2)\pixieOutlinedSectionSimpleBackground{69.6533}{65.704}}
+    \pixiePSsetBattleSubsectionOutlines\pscustom{\translate(#1,#2)\pixieOutlinedSectionSimple{69.6533}{65.704}}
+    %%%% TEXT
+    \rput(\fpeval{#1+35.53138402},\fpeval{#2+8.7753647}){\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{\pixieTermInitiative}}}
+    %%%% FILLABLE FIELD
+    \iftoggle{interactive}{\put(\fpeval{#1+18},\fpeval{#2+29.8882}){\pixieBattleStatField[MaxLen=3,width=25pt]{initiative}}}{}
+}
+\renewcommand{\pixieMakeSpeed}[2]{ % (#1,#2) = coordinates
+    \pixiePSsetBattleSubsectionBackground\pscustom{\translate(#1,#2)\pixieOutlinedSectionSimpleBackground{69.6533}{65.704}}
+    \pixiePSsetBattleSubsectionOutlines\pscustom{\translate(#1,#2)\pixieOutlinedSectionSimple{69.6533}{65.704}}
+    %%%% TEXT
+    \rput(\fpeval{#1+35.94696187},\iftoggle{deutsch}{\fpeval{#2+10.8882}}{\fpeval{#2+8.7753646}}){\pixieTextBold\pixieColorShortcutTwo{\pixieTermSpeedSplitUpper}}
+    %%%% FILLABLE FIELD
+    \iftoggle{interactive}{\put(\fpeval{#1+10},\fpeval{#2+29.8882}){\pixieBattleStatField[width=40pt]{speed}}}{}
+}
+
+\renewcommand{\pixieMakeHitPoints}[2]{  % (#1,#2) = coordinates % CURRENTLY UNUSED, MUST BE ADDED TO EVERY \pscustom CALL
+    % CURRENT HIT POINTS
+    \pixiePSsetBattleSubsectionBackground\pscustom{
+        \translate(#1,#2)
+        \pixieOutlinedSectionStackTopBackground{219.684500008}{82.449300003}
+    }
+    \pixiePSsetBattleSubsectionOutlines\pscustom{
+        \translate(#1,#2)
+        \pixieOutlinedSectionStackTop{219.684500008}{82.449300003}
+    }
+    % HIT POINT MAX LINE
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+    	\moveto(\fpeval{#1+97,42715698},\fpeval{#2+00358052})
+        \lineto(\fpeval{#1+209.33648732},\fpeval{#2+00358052})
+    }
+
+    %%%% TEXT
+    \rput[l](\fpeval{#1+9.22317461},\fpeval{#2+66.967605935}){\pixieTextBold\pixieColorShortcutTwo{\textmd{\pixieTermHitPointMaximum}}}
+    \rput(\fpeval{#1+110.47192872},\fpeval{#2+8.9558336}){\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{\pixieTermCurrentHitPoints}}}
+    
+    %%%% FILLABLE FIELDS
+    % Work In Progress
+}
+\renewcommand{\pixieMakeTempHP}[2]{  % (#1,#2) = coordinates
+    % TEMPORARY HIT POINTS BACKGROUND
+    \pixiePSsetBattleSubsectionBackground\pscustom{
+        \translate(#1,\fpeval{#2-70.3584})
+        \pixieOutlinedSectionStackBottomBackground{220}{66.5}
+    }
+    % TEMPORARY HIT POINTS OUTLINE
+    \pixiePSsetBattleSubsectionOutlines\pscustom{
+        \translate(-1,\fpeval{#2-70.3584})
+        \pixieOutlinedSectionStackBottom{220}{66.5}
+    }
+    %%%% TEXT
+    \rput(\fpeval{#1+110.47192872},\fpeval{#2+8.7201021}){\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{\pixieTermTemporaryHitPoints}}}
+    
+    %%%% FILLABLE FIELDS
+    % Work In Progress
+}
+\renewcommand{\pixieMakeHitDice}[2]{  % (#1,#2) = coordinates; default: (298.0395, 570.3)
+    % HIT DICE BACKGROUND
+    \pixiePSsetBattleSubsectionBackground\pscustom{
+        \translate(#1,#2)\pixieOutlinedSectionSimpleBackground{105.4}{65.8}
+    }
+    % HIT DICE OUTLINE
+    \pixiePSsetBattleSubsectionOutlines\pscustom{
+        \translate(#1,#2)\pixieOutlinedSectionSimple{105.4}{65.8}
+    }
+    % HIT DICE TOTAL LINE
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+    	\moveto(\fpeval{#1+34.18715844},\fpeval{#2+48.2834512})\lineto(392.92265684,618.5834512)
+    }
+    %%%% DEFAULT TEXT
+    \rput[l](\fpeval{#1+9.22317461},\fpeval{#2+52.247876625}){\smallerInGerman\pixieColorShortcutTwo{\pixieTermTotal}}
+    \rput(\fpeval{#1+53.18048412},\fpeval{#2+9.9,47462366}){\smallerInGerman\pixieColorShortcutTwo{\MakeUppercase{\pixieTermHitDice}}}
+    %%%% FILLABLE FIELDS
+    % Work In Progress
+}
+\renewcommand{\pixieMakeDeathSaves}[2]{ % (#1,#2) = coordinates; default: (411.4, 570.3)
+    % DEATH SAVES BACKGROUND
+    \pixiePSsetBattleSubsectionBackground\pscustom{
+        \translate(#1,#2)\pixieOutlinedSectionSimpleBackground{105.4}{65.8} % DEFAULT
+    }
+    % DEATH SAVES OUTLINE
+    \pixiePSsetBattleSubsectionOutlines\pscustom{
+        \translate(#1,#2)\pixieOutlinedSectionSimple{105.4}{65.8} % DEFAULT
+    }
+    % DEATH SAVE SUCCESS ROW
+    \pixiePSsetBattleDeathSavingThrows\pscustom{\translate(\fpeval{#1+90.23038746},\fpeval{#2+56.17611767})\pixieGraphicDeathSavingThrowRow}
+    % DEATH SAVE FAILURE ROW
+    \pixiePSsetBattleDeathSavingThrows\pscustom{\translate(\fpeval{#1+90.23038746},\fpeval{#2+36.17691772})\pixieGraphicDeathSavingThrowRow}
+    %%%% TEXT
+    \rput(\fpeval{#1+53.29891458},\fpeval{#2+9.47462366}){\smallerInGerman\pixieColorShortcutTwo{\MakeUppercase{\pixieTermDeathSaves}}}
+    \rput[r](\fpeval{#1+47.6},\fpeval{#2+49.7}){\tiny \pixieColorShortcutTwo{\MakeUppercase{\pixieTermSuccesses}}}
+    \rput[r](\iftoggle{deutsch}{\fpeval{#1+47.6},\fpeval{#2+28.7}}{\fpeval{#1+47.6},\fpeval{#2+29.7}}){\tiny \pixieColorShortcutTwo{\pixieTermFailuresSplitUpper}}
+    
+    %%%% FILLABLE FIELDS
+    % Work In Progress
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% CUSTOM ELEMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\pixieMakeHitPoints}[2]{  % (#1,#2) = coordinates
+    % HIT POINTS
+    \pixiePSsetBattleSubsectionBackground\pscustom{
+        \translate(#1,#2)\rotate{90}\pixieOutlinedSectionStackTopBackground{65.704}{95}
+    }
+    \pixiePSsetBattleSubsectionOutlines\pscustom{
+        \translate(#1,#2)\rotate{90}\pixieOutlinedSectionStackTop{65.704}{95}
+    }
+    % HIT POINTS SEPARATOR
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+        \moveto(\fpeval{#1-50},\fpeval{#2+7.8882})\rlineto(0,40)
+    }
+    % TEMPORARY HITS LINE
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+        \moveto(\fpeval{#1-87.5},\fpeval{#2+35.3882})\rlineto(32.5,0)
+    }
+    % HIT POINT MAX LINE
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+        \moveto(\fpeval{#1-87.5},\fpeval{#2+15.3882})\rlineto(32.5,0)
+    }
+    % HIT POINTS CURRENT LINE
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+        \moveto(\fpeval{#1-45},\fpeval{#2+15.3882})\rlineto(37.5,0)
+    }
+
+    %%%% CUSTOM TEXT
+    \rput[B](\fpeval{#1-47.5},\fpeval{#2+53.2882}){\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{\pixieTermHitPoints}}}
+    \rput[l](\fpeval{#1-87.5},\fpeval{#2+30.3882}){\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}\tiny\pixieColorShortcutTwo{\pixieTermTemp}}
+    \rput[l](\fpeval{#1-87.5},\fpeval{#2+10.3882}){\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}\tiny\pixieColorShortcutTwo{\pixieTermMax}}
+    \rput[l](\fpeval{#1-45},\fpeval{#2+10.3882}){\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}\tiny\pixieColorShortcutTwo{\pixieTermCurrent}}
+    
+    %%%% FILLABLE FIELDS
+    \iftoggle{interactive}{
+        \put(\fpeval{#1-87.5},\fpeval{#2+35.3552}){\pixieSmallNumField[width=25pt,MaxLen=4]{hpTemp}}
+        \put(\fpeval{#1-87.5},\fpeval{#2+15.3552}){\pixieSmallNumField[width=25pt,MaxLen=4]{hpMax}}
+        \put(\fpeval{#1-45},\fpeval{#2+15.3552}){\pixieTextField[fontsize=13pt,height=23pt,width=29pt,MaxLen=3]{hpCurrent}}
+    }{}
+}
+\renewcommand{\pixieMakeHitDice}[2]{  % (#1,#2) = coordinates
+    % HIT DICE BACKGROUND
+    \pixiePSsetBattleSubsectionBackground\pscustom{
+        \translate(#1,#2)\rotate{90}\pixieOutlinedSectionStackMiddleBackground{65.704}{80}
+    }
+    % HIT DICE OUTLINE
+    \pixiePSsetBattleSubsectionOutlines\pscustom{
+        \translate(#1,#2)\rotate{90}\pixieOutlinedSectionStackMiddle{65.704}{80} % CUSTOM
+    }
+    % HIT DICE TOTAL LINE
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+        \moveto(\fpeval{#1-72.5},\fpeval{#2+15.3882})\rlineto(27.5,0)
+    }
+    
+    %%%% CUSTOM ELEMENTS ADDED
+    % HIT DICE USED LINE
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+        \moveto(\fpeval{#1-35},\fpeval{#2+15.3882})\rlineto(27.5,0)
+    }
+    % HIT POINTS SEPARATOR
+    \pscustom[linestyle=solid,linewidth=0.33333333,linecolor=\iftoggle{pixiedraft}{battle-draft-secondary}{secondary-indicator-color},fillstyle=none]{
+        \moveto(\fpeval{#1-40},\fpeval{#2+7.8882})\rlineto(0,40)
+    }
+
+    %%%% CUSTOM TEXT
+    \rput[B](\fpeval{#1-40},\fpeval{#2+53.2882}){\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{\pixieTermHitDice}}}
+    \rput[l](\fpeval{#1-72.5},\fpeval{#2+10.3882}){\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}\tiny\pixieColorShortcutTwo{\pixieTermMax}}
+    \rput[l](\fpeval{#1-35},\fpeval{#2+10.3882}){\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}\tiny\pixieColorShortcutTwo{\pixieTermSpent}}
+    
+    %%%% FILLABLE FIELDS
+    \iftoggle{interactive}{
+        \put(\fpeval{#1-72.5},\fpeval{#2+15.3552}){\pixieTextField[fontsize=10pt,height=12pt,width=22pt]{hitDiceMax}}
+        \put(\fpeval{#1-35},\fpeval{#2+15.3552}){\pixieTextField[fontsize=10pt,height=15pt,width=22pt]{hitDiceSpent}}
+    }{}
+}
+\renewcommand{\pixieMakeDeathSaves}[2]{ % (#1,#2) = coordinates % CURRENTLY UNUSED, MUST BE ADDED TO EVERY \pscustom CALL
+    % DEATH SAVES BACKGROUND
+    \pixiePSsetBattleSubsectionBackground\pscustom{
+        \translate(#1,#2)\rotate{90}\pixieOutlinedSectionStackBottomBackground{65.704}{60}
+    }
+    % DEATH SAVES OUTLINE
+    \pixiePSsetBattleSubsectionOutlines\pscustom{
+        \translate(#1,#2)\rotate{90}\pixieOutlinedSectionStackBottom{65.704}{60}
+    }
+    % DEATH SAVE SUCCESS ROW
+    \pixiePSsetBattleDeathSavingThrows\pscustom{\translate(\fpeval{#1-23.35872},\fpeval{#2+40.42147})\scale{.7}\pixieGraphicDeathSavingThrowRow}
+    % DEATH SAVE FAILURE ROW
+    \pixiePSsetBattleDeathSavingThrows\pscustom{\translate(\fpeval{#1-23.35872},\fpeval{#2+23.17147})\scale{.7}\pixieGraphicDeathSavingThrowRow}
+    
+    %%%% CUSTOM TEXT
+    \rput[tl](\iftoggle{deutsch}{\fpeval{#1-52}}{\fpeval{#1-52}},\fpeval{#2+59.7882}){\pixieTextBold\iftoggle{english}{\notsotiny}{}\pixieColorShortcutTwo{\pixieTermDeathSavesSplitUpper}}
+    \rput[l](\fpeval{#1-51.5},\fpeval{#2+27.8882}){\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}\tiny\pixieColorShortcutTwo{\pixieTermSuccesses}}
+    \rput[l](\fpeval{#1-51.5},\fpeval{#2+10.3882}){\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}\tiny\pixieColorShortcutTwo{\pixieTermFailures}}
+    
+    %%%% FILLABLE FIELDS
+    \iftoggle{interactive}{
+        \put(\fpeval{#1-50},\fpeval{#2+32.3882}){\pixieProfCheckBox{deathSaveSuccessOne}}
+        \put(\fpeval{#1-37.9},\fpeval{#2+32.3882}){\pixieProfCheckBox{deathSaveSuccessTwo}}
+        \put(\fpeval{#1-25.8},\fpeval{#2+32.3882}){\pixieProfCheckBox{deathSaveSuccessThree}}
+        \put(\fpeval{#1-50},\fpeval{#2+14.8882}){\pixieProfCheckBox{deathSaveFailureOne}}
+        \put(\fpeval{#1-37.9},\fpeval{#2+14.8882}){\pixieProfCheckBox{deathSaveFailureTwo}}
+        \put(\fpeval{#1-25.8},\fpeval{#2+14.8882}){\pixieProfCheckBox{deathSaveFailureThree}}
+    }{}
+}

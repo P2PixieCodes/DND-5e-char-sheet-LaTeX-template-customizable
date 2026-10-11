@@ -1,0 +1,38 @@
+\newrgbcolor{header-banner-background}{1 1 1}
+\newrgbcolor{header-details-bg-color}{1 1 1}
+\newrgbcolor{header-title-color}{0 0 0}
+\newrgbcolor{header-banner-switchback-shadow-color}{0.7647059 0.76862746 0.7764706}
+
+% DRAFT COLORS
+\newrgbcolor{text-draft-primary}{0.859 0.388 0}
+\newrgbcolor{text-draft-secondary}{0.859 0.643 0}
+\newrgbcolor{text-draft-tertiary}{1 0.812 0.576}
+\newrgbcolor{header-draft-outline}{0 0 1}
+\newrgbcolor{header-draft-background}{0 1 0}
+\newrgbcolor{header-draft-primary}{.5 .7 .7}
+\newrgbcolor{header-draft-secondary}{.8 .5 .5}
+\newrgbcolor{header-draft-tertiary}{.5 0 0}
+\newrgbcolor{header-draft-dragon}{1 1 .2}
+\newrgbcolor{header-draft-eye}{1 0 1}
+\newrgbcolor{money-outlines-draft-outline}{0 .8 .8}
+\newrgbcolor{money-outlines-draft-background}{.5 1 1}
+%\newrgbcolor{money-outlines-draft-primary}{.7 1 1}
+\newrgbcolor{money-outlines-draft-secondary}{.3 .7 .7}
+%\newrgbcolor{money-outlines-draft-tertiary}{0 .5 .5}
+\newrgbcolor{prof-mark-draft-outline}{.8 .2 .8}
+\newrgbcolor{prof-mark-draft-background}{1 .5 1}
+\newrgbcolor{prof-mark-draft-primary}{1 .7 1}
+\newrgbcolor{prof-mark-draft-secondary}{.7 .3 .7}
+\newrgbcolor{battle-draft-outline}{1 0 0}
+\newrgbcolor{battle-draft-background}{1 .5 .5}
+\newrgbcolor{battle-draft-secondary}{1 .3 .3}
+\newrgbcolor{stats-draft-outline}{0 0 1}
+\newrgbcolor{stats-draft-background}{.5 .5 1}
+\newrgbcolor{stat-bg-color}{0.87058824 0.87450981 0.87450981}
+\newrgbcolor{stat-attr-bg-color}{1 1 1}
+\newrgbcolor{stat-mod-bg-color}{1 1 1}
+
+% use shortcuts for the colors
+\newcommand{\pixieColorShortcutOne}[1]{\textcolor{\iftoggle{pixiedraft}{text-draft-primary}{primary-indicator-color}}{#1}}
+\newcommand{\pixieColorShortcutTwo}[1]{\textcolor{\iftoggle{pixiedraft}{text-draft-secondary}{secondary-indicator-color}}{#1}}
+\newcommand{\pixieColorShortcutThree}[1]{\textcolor{\iftoggle{pixiedraft}{text-draft-tertiary}{gray!80!black}}{#1}}%tertiary-indicator-color}}}

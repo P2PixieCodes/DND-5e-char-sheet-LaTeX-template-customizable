@@ -1,0 +1,23 @@
+\newcommand{\pixiePlaceCoinsSection}{
+    \pixieStyleSectionBackground\pscustom[fillcolor=black,opacity=0.2]{\translate(40,30)\pixieOutlinedSectionSimpleBackground{290}{90}}
+    \pixieStyleSectionOutline\pscustom[fillcolor=white]{\translate(40,30)\pixieOutlinedSectionSimple{290}{90}}
+    {\pixieTextRegular
+        \pixieMakeCoinCopper{-222.5}{-150.5} % {321.4189}{252.5872}
+        \rput(67,95){\tiny\pixieColorShortcutTwo{\pixieTermCP}}
+        \pixieMakeCoinSilver{-132.5}{-115.8927} % {321.4189}{217.9799}
+        \rput(157,95){\tiny\pixieColorShortcutTwo{\pixieTermSP}}
+        \pixieMakeCoinElectrum{-42.5}{-81.2839} % {321.4189}{183.3711}
+        \rput(247,95){\tiny\pixieColorShortcutTwo{\pixieTermEP}}
+        \pixieMakeCoinGold{-177.5}{-86.6781} % {321.4189}{148.7653}
+        \rput(112,55){\tiny\pixieColorShortcutTwo{\pixieTermGP}}
+        \pixieMakeCoinPlatinum{-87.5}{-52.0707} % {321.4189}{114.1579}
+        \rput(202,55){\tiny\pixieColorShortcutTwo{\pixieTermPP}}
+        \iftoggle{interactive}{
+            \put(85,85){\pixieTextField[fontsize=10pt,height=15pt,width=30pt]{copperCount}}
+            \put(175,85){\pixieTextField[fontsize=10pt,height=15pt,width=30pt]{silverCount}}{5}
+            \put(265,85){\pixieTextField[fontsize=10pt,height=15pt,width=30pt]{electrumCount}}{20}
+            \put(130,45){\pixieTextField[fontsize=10pt,height=15pt,width=30pt]{goldCount}}{15}
+            \put(220,45){\pixieTextField[fontsize=10pt,height=15pt,width=30pt]{platinumCount}}{0}
+        }{}
+    }
+}

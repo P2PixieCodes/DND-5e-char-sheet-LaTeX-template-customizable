@@ -1,0 +1,76 @@
+\def\pixieOtherSectionBaseWidth{8.2173}
+\def\pixieOtherSectionBaseHeight{14.7987}
+\newcommand{\pixieOtherSectionBackground}[2]{
+    \moveto(1,0.5)
+	\rlineto(3.1093,0)
+	\rlineto(\fpeval{max(#1,\pixieOtherSectionBaseWidth)-\pixieOtherSectionBaseWidth},0) % ADD WIDTH
+	\rlineto(3.2693,0)
+	\rlineto(0,6.7213)
+	\rlineto(0,\fpeval{max(#2,\pixieOtherSectionBaseHeight)-\pixieOtherSectionBaseHeight}) % ADD HEIGHT
+	\rlineto(0,6.5787)
+	\rlineto(-3.2693,0)
+	\rlineto(-\fpeval{max(#1,\pixieOtherSectionBaseWidth)-\pixieOtherSectionBaseWidth},0) % ADD WIDTH
+	\rlineto(-3.1093,0)
+	\closepath
+}
+\newcommand{\pixieOtherSectionOutline}[2]{
+	\moveto(-0,3.4346)
+	\rlineto(0,-4.3947)
+	\rlineto(1.6667,0)
+	\rlineto(0,8.1814)
+	\rlineto(0,\fpeval{max(#2,\pixieOtherSectionBaseHeight)-\pixieOtherSectionBaseHeight}) % ADD HEIGHT
+	\rlineto(0,5.5066)
+	\rlineto(2.4426,0)
+	\rlineto(\fpeval{max(#1,\pixieOtherSectionBaseWidth)-\pixieOtherSectionBaseWidth},0) % ADD WIDTH
+	\rlineto(2.4413,0)
+	\rlineto(0,-5.5066)
+	\rlineto(0,-\fpeval{max(#2,\pixieOtherSectionBaseHeight)-\pixieOtherSectionBaseHeight}) % ADD HEIGHT
+	\rlineto(0,-6.1107)
+	\rlineto(-2.4413,0)
+	\rlineto(-\fpeval{max(#1,\pixieOtherSectionBaseWidth)-\pixieOtherSectionBaseWidth},0) % ADD WIDTH    
+	\rlineto(-2.4413,0)
+	\rlineto(0,-2.0707)
+	\rcurveto(0,0)(0.6627,0.96)(2.4413,0.96)
+	\rlineto(\fpeval{max(#1,\pixieOtherSectionBaseWidth)-\pixieOtherSectionBaseWidth},0) % ADD WIDTH
+	\rlineto(0.0013,0)
+	\rcurveto(1.7693,0)(2.4333,-0.948)(2.44,-0.9587)
+	\rlineto(0,-0.0013)
+	\rlineto(1.6667,0)
+	\rlineto(0,4.3947)
+	\rlineto(2.168,0)
+	\rlineto(1.6627,0)
+	\rlineto(0,1.204)
+	\rcurveto(-1.576,0)(-1.6627,2.5827)(-1.6627,2.5827)
+	\rlineto(0,\fpeval{max(#2,\pixieOtherSectionBaseHeight)-\pixieOtherSectionBaseHeight}) % ADD HEIGHT
+	\rlineto(0,0.9987)
+	\rcurveto(0,0.9987)(0.0867,3.5814)(1.6627,3.5814)
+	\rlineto(0,1.204)
+	\rlineto(-3.8307,0)
+	\rlineto(0,2.792)
+	\rlineto(-1.6667,0)
+	\rcurveto(0,0)(-0.6627,-0.96)(-2.4413,-0.96)
+	\rlineto(-\fpeval{max(#1,\pixieOtherSectionBaseWidth)-\pixieOtherSectionBaseWidth},0) % ADD WIDTH    
+	\rlineto(-0.0013,0)
+	\rcurveto(-1.7787,0)(-2.4413,0.96)(-2.4413,0.96)
+	\rlineto(-1.6667,0)
+	\rlineto(0,-2.792)
+	\rlineto(-3.8307,0)
+	\rlineto(0,-1.204)
+	\rcurveto(1.576,0)(1.6627,-2.5827)(1.6627,-2.5827)
+	\rlineto(0,-1.9974)
+	\rlineto(0,-\fpeval{max(#2,\pixieOtherSectionBaseHeight)-\pixieOtherSectionBaseHeight}) % ADD HEIGHT
+	\rcurveto(0,0)(-0.0867,-2.5827)(-1.6627,-2.5827)
+	\rlineto(0,-1.204)
+	\rlineto(1.6627,0)
+	\closepath
+	\moveto(0.0001,7.2213)
+	\rlineto(-1.168,0)
+	\rlineto(0,\fpeval{max(#2,\pixieOtherSectionBaseHeight)-\pixieOtherSectionBaseHeight}) % ADD HEIGHT
+	\rlineto(1.168,0)
+	\closepath
+	\moveto(\fpeval{#1+1.168},7.2213)
+	\rlineto(-1.168,0)
+	\rlineto(0,\fpeval{max(#2,\pixieOtherSectionBaseHeight)-\pixieOtherSectionBaseHeight}) % ADD HEIGHT
+	\rlineto(1.168,0)
+	\closepath
+}

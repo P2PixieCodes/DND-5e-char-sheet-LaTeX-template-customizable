@@ -1,0 +1,28 @@
+\makebox[\paperwidth][s]{%
+\thispagestyle{empty}%
+\psset{unit=0.75pt}% sets xunit, yunit, and runit
+%\begin{pspicture}(816,1056)\psframe[fillstyle=solid,fillcolor=blue!20,linewidth=3pt,linecolor=black](0,0)(816,1056) % ORIGINAL VALUES
+\begin{pspicture}(796.75,1126.5)% you can easily tell if the height is correct bc the PDF layout gets messed up if it's too big for the page
+    \pixieStyleDefault
+
+    \pixiePlaceHeaderDefaultTwo{}{}
+
+    \pixieStyleDefault
+
+    \pixiePlaceAppearanceSection{40}{770}{290}{180} % appearance
+    \pixiePlacePersonalitySection{40}{540}{290}{220} % background & personality
+    \pixiePlaceEquipmentSection{40}{130}{290}{400} % equipment
+    \pixiePlaceCoinsSection % coins
+
+    \pixieStyleDefault
+    \pixiePlaceSpellSection{340}{30}{420}{920} % spell list and slots
+
+    %\psframe[fillstyle=solid,fillcolor=blue!20,linestyle=solid,linewidth=.75pt,linecolor=black](0,0)(796.75,1126.5) % entire A4 page
+    %\psframe[fillstyle=solid,fillcolor=blue!20,opacity=.3,linestyle=solid,linewidth=.75pt,linecolor=black](18.9684,18.9684)(777.7816,1107.5316) % printable area of A4 page
+        % 5mm space for printing border -> 5mm = 5*(1/0.75)*2.84526 pt = 18.9684 units
+    %\psaxes[linewidth=.75pt,dx=10,dy=10](796.75,1126.5)
+    %\psgrid[unit=75pt,strokeopacity=.1,gridwidth=.75pt,subgriddiv=10](8,12)
+
+\end{pspicture}
+}
+\restoregeometry

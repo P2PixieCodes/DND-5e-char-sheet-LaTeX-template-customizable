@@ -1,0 +1,72 @@
+% SECTION CUSTOMISATION COMMANDS
+\newcommand{\pixieSelectedOtherProfsSectionOutline}[2]{\pixieOtherSectionOutline{#1}{#2}}
+\newcommand{\pixieSelectedOtherProfsSectionBackground}[2]{\pixieOtherSectionBackground{#1}{#2}}
+
+% MAIN COMMAND
+\newcommand{\pixiePlaceOtherProfsSection}[4]{ % (#1,#2) = coords; #3 = width; #4 = height
+    \pixieStyleSectionBackground\pscustom{\translate(#1,#2)\pixieSelectedOtherProfsSectionBackground{#3}{#4}}
+    \rput[b]
+        (\fpeval{#1+(#3/2)},\fpeval{#2+#4-14})
+        {\pixieTextHeader\iftoggle{deutsch}{\footnotesize}{}\pixieTermArmorTraining}
+    
+    {\pixieTextRegular
+        \pixieGraphicCheckStarLine[\iftoggle{armorLight}{gray}{white}]
+            {\iftoggle{deutsch}{\fpeval{#1+8+1*(max(#4-274.9,0)/5)}}{\fpeval{#1+17+1*(max(#4-274.9,0)/5)}}}
+            {\fpeval{#2+#4-33.5}}
+        \pixieRput[Bl]
+            {\iftoggle{deutsch}{\fpeval{#1+30+1*(max(#4-274.9,0)/5)}}{\fpeval{#1+38+1*(max(#4-274.9,0)/5)}}}
+            {\fpeval{#2+#4-30}}
+            {\pixieTermLight}
+        \iftoggle{interactive}{\put(\iftoggle{deutsch}{\fpeval{#1+16.75+1*(max(#4-274.9,0)/5)}}{\fpeval{#1+25.75+1*(max(#4-274.9,0)/5)}},\fpeval{#2+#4-31}){\pixieProfCheckBox{profArmorLight}}}{}
+        
+        \pixieGraphicCheckStarLine[\iftoggle{armorMedium}{gray}{white}]
+            {\iftoggle{deutsch}{\fpeval{#1+55.8334+2*(max(#4-274.9,0)/5)}}{\iftoggle{showText}{\fpeval{#1+63.8334+2*(max(#4-274.9,0)/5)}}{\fpeval{#1+69.8334+2*(max(#4-274.9,0)/5)}}}}
+            {\fpeval{#2+#4-33.5}}
+        \pixieRput[Bl]
+            {\iftoggle{deutsch}{\fpeval{#1+76.8334+2*(max(#4-274.9,0)/5)}}{\fpeval{#1+84.8334+2*(max(#4-274.9,0)/5)}}}
+            {\fpeval{#2+#4-30}}
+            {\pixieTermMedium}
+        \iftoggle{interactive}{\put(\iftoggle{deutsch}{\fpeval{#1+64.5834+2*(max(#4-274.9,0)/5)}}{\iftoggle{showText}{\fpeval{#1+72.5834+2*(max(#4-274.9,0)/5)}}{\fpeval{#1+77.5834+2*(max(#4-274.9,0)/5)}}},\fpeval{#2+#4-31}){\pixieProfCheckBox{profArmorMedium}}}{}
+        
+        \pixieGraphicCheckStarLine[\iftoggle{armorHeavy}{gray}{white}]
+            {\iftoggle{deutsch}{\fpeval{#1+128.6668+3*(max(#4-274.9,0)/5)}}{\iftoggle{showText}{\fpeval{#1+123.6668+3*(max(#4-274.9,0)/5)}}{\fpeval{#1+122.6668+2*(max(#4-274.9,0)/5)}}}}
+            {\fpeval{#2+#4-33.5}}
+        \pixieRput[Bl]
+            {\iftoggle{deutsch}{\fpeval{#1+149.6668+3*(max(#4-274.9,0)/5)}}{\fpeval{#1+144.6668+3*(max(#4-274.9,0)/5)}}}
+            {\fpeval{#2+#4-30}}
+            {\pixieTermHeavy}
+        \iftoggle{interactive}{\put(\iftoggle{deutsch}{\fpeval{#1+137.4168+3*(max(#4-274.9,0)/5)}}{\iftoggle{showText}{\fpeval{#1+132.4168+3*(max(#4-274.9,0)/5)}}{\fpeval{#1+133.4168+3*(max(#4-274.9,0)/5)}}},\fpeval{#2+#4-31}){\pixieProfCheckBox{profArmorHeavy}}}{}
+        
+        \pixieGraphicCheckStarLine[\iftoggle{shields}{gray}{white}]
+            {\iftoggle{deutsch}{\fpeval{#1+178.5002+4*(max(#4-274.9,0)/5)}}{\fpeval{#1+175.5002+4*(max(#4-274.9,0)/5)}}}
+            {\fpeval{#2+#4-33.5}}
+        \pixieRput[Bl]
+            {\iftoggle{deutsch}{\fpeval{#1+199.5002+4*(max(#4-274.9,0)/5)}}{\fpeval{#1+194.5002+4*(max(#4-274.9,0)/5)}}}
+            {\fpeval{#2+#4-30}}
+            {\pixieTermShields}
+        \iftoggle{interactive}{\put(\iftoggle{deutsch}{\fpeval{#1+187.25+4*(max(#4-274.9,0)/5)}}{\fpeval{#1+184.25+4*(max(#4-274.9,0)/5)}},\fpeval{#2+#4-31}){\pixieProfCheckBox{profShields}}}{}
+    }
+    \psclip{\pscustom[linestyle=none,fillstyle=none]{\translate(#1,#2)\pixieSelectedOtherProfsSectionBackground{#3}{#4}}}
+        \pixieMakeSectionGridReverseNonClip{#1}{#2}{#3}{\fpeval{#4-40}}
+    \endpsclip
+    {\pixieTextHeader\iftoggle{deutsch}{\footnotesize}{}
+        \psset{linestyle=solid,linecolor=black,linewidth=0.5,strokeopacity=1,fillstyle=none}
+        
+        \psline(\fpeval{#1+5},\fpeval{#2+#4-37.5})(\fpeval{#1+#3-5},\fpeval{#2+#4-37.5})
+        \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-40}){\pixieHeaderTerm{\pixieTermWeapons}}
+        
+        \psline(\fpeval{#1+5},\fpeval{#2+#4-122-1*(max(#4-274.9,0)/3)})(\fpeval{#1+#3-5},\fpeval{#2+#4-122-1*(max(#4-274.9,0)/3)})
+        \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-125.5-1*(max(#4-274.9,0)/3)}){\pixieHeaderTerm{\pixieTermTools}}
+        
+        \psline(\fpeval{#1+5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)})(\fpeval{#1+#3-5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)})
+        \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-197.5-2*(max(#4-274.9,0)/3)}){\pixieHeaderTerm{\pixieTermLanguages}}
+    }
+    \pixieStyleSectionOutline\pscustom{\translate(#1,#2)\pixieSelectedOtherProfsSectionOutline{#3}{#4}}
+    \pixieMakeLabelBox{#1}{#2}{#3}{\pixieLabelLengthOtherProfs}{\pixieSectionLabelTextOtherProfs}
+    \iftoggle{interactive}{
+        \put(\fpeval{#1+5},\fpeval{#2+#4-122-1*(max(#4-274.9,0)/3)}){\pixieTextField[fontsize=8pt,height=\fpeval{(69.5+1*(max(#4-274.9,0)/3))*0.75}pt,width=\fpeval{(#3-10)*0.75}pt,setFf=Multiline]{weaponProfs}}
+        \put(\fpeval{#1+5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)}){\pixieTextField[fontsize=8pt,height=\fpeval{(57+1*(max(#4-274.9,0)/3))*0.75}pt,width=\fpeval{(#3-10)*0.75}pt,setFf=Multiline]{toolProfs}}
+        \put(\fpeval{#1+5},\fpeval{#2+12}){\pixieTextField[fontsize=8pt,height=\fpeval{(53.9+1*(max(#4-274.9,0)/3))*0.75}pt,width=\fpeval{(#3-10)*0.75}pt,setFf=Multiline]{languageProfs}}
+    }{}
+    \pixieStyleDefault
+}

@@ -1,0 +1,51 @@
+% SECTION CUSTOMISATION COMMANDS
+\newcommand{\pixieSelectedWeaponSectionOutline}[2]{\pixieOutlinedSectionFancyBottomUp{#1}{#2}}
+\newcommand{\pixieSelectedWeaponSectionBackground}[2]{\pixieOutlinedSectionFancyBottomUpBackground{#1}{#2}}
+
+\newcommand{\pixieWeaponEntry}[5]{
+    \put(\fpeval{#3+15-3.75},\fpeval{#4+15+(6-#2)*24}){\pixieTextField[fontsize=9pt,height=11pt,width=\fpeval{((35*#5/100)-15-2)*0.75}pt]{weapon#1Name}}
+    \put(\fpeval{#3+(35*#5/100)-1.5},\fpeval{#4+15+(6-#2)*24}){\pixieTextField[fontsize=9pt,height=11pt,width=\fpeval{((12*#5/100)-4)*0.75}pt]{weapon#1Hit}}
+    \put(\fpeval{#3+(47*#5/100)-1.25},\fpeval{#4+15+(6-#2)*24}){\pixieTextField[fontsize=9pt,height=11pt,width=\fpeval{((20.5*#5/100)-6)*0.75}pt]{weapon#1Dmg}}
+    \put(\fpeval{#3+(67.5*#5/100)-1},\fpeval{#4+15+(6-#2)*24}){\pixieTextField[setFf=Multiline,fontsize=6pt,height=17pt,width=\fpeval{((32.5*#5/100)-8)*0.75}pt]{weapon#1Notes}}
+}
+
+% MAIN COMMAND
+\newcommand{\pixiePlaceWeaponSection}[4]{ % (#1,#2) = coords; #3 = width; #4 = height
+    % default: x = 288, y = 283.5, width = 240, height = 248.8
+    \pixieStyleSectionBackground\pscustom{\translate(#1,#2)\pixieSelectedWeaponSectionBackground{#3}{#4}}
+    \psclip{\pscustom[linestyle=none,fillstyle=none]{\translate(#1,#2)\pixieSelectedWeaponSectionBackground{#3}{#4}}}
+        \pixieStyleWeaponTable
+        \pscustom{
+            \moveto(\fpeval{#1+(35*#3/100)},\fpeval{#2+15})\rlineto(0,\fpeval{#4-18})
+            \moveto(\fpeval{#1+(47*#3/100)},\fpeval{#2+15})\rlineto(0,\fpeval{#4-18})
+            \moveto(\fpeval{#1+(67.5*#3/100)},\fpeval{#2+15})\rlineto(0,\fpeval{#4-18})
+        }
+        \multips(\fpeval{#1+15},\fpeval{#2+15})(0,24){\fpeval{floor((#4-18)/24)}}{
+            \psline(0,0)(\fpeval{(35*#3/100)-15-2},0)
+            % vertical line at 450
+            \psline(\fpeval{(35*#3/100)-15+2},0)(\fpeval{(47*#3/100)-15-2},0)
+            % vertical line at 510
+            \psline(\fpeval{(47*#3/100)-15+2},0)(\fpeval{(67.5*#3/100)-15-2},0)
+            % vertical line at 610
+            \psline(\fpeval{(67.5*#3/100)-15+2},0)(\fpeval{#3-21.5},0)
+        }
+        {\pixieTextRegular\smallerInGerman\color{gray!60!black}
+            \rput[tl](\fpeval{#1+16},\fpeval{#2+#4-4.5}){\myuline{\pixieTermName}}
+            \rput[tl](\fpeval{#1+(35*#3/100)+2.5},\fpeval{#2+#4-4.5}){\myuline{\pixieTermAtkBonusDC}}
+            \rput[tl](\fpeval{#1+(47*#3/100)+2.5},\fpeval{#2+#4-4.5}){\myuline{\pixieTermDamageType}}
+            \rput[tl](\fpeval{#1+(67.5*#3/100)+2.5},\fpeval{#2+#4-4.5}){\myuline{\pixieTermNotes}}
+        }
+    \endpsclip
+    \pixieStyleSectionOutline\pscustom{\translate(#1,#2)\pixieSelectedWeaponSectionOutline{#3}{#4}}
+    \pixieMakeLabelBox{#1}{#2}{#3}{\pixieLabelLengthWeapon}{\pixieSectionLabelTextWeapon}
+    
+    \iftoggle{interactive}{
+        \pixieWeaponEntry{One}{1}{#1}{#2}{#3}
+        \pixieWeaponEntry{Two}{2}{#1}{#2}{#3}
+        \pixieWeaponEntry{Three}{3}{#1}{#2}{#3}
+        \pixieWeaponEntry{Four}{4}{#1}{#2}{#3}
+        \pixieWeaponEntry{Five}{5}{#1}{#2}{#3}
+        \pixieWeaponEntry{Six}{6}{#1}{#2}{#3}
+    }{}
+    \pixieStyleDefault
+}

@@ -1,0 +1,116 @@
+% COPY OF /template/character-sheet/proficiency-markers.tex
+
+% INTERNAL COMMANDS
+\newcommand{\pixieMakeSaveProfSingle}[5]{
+    \pscustom[fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-secondary}{#4proficiency}]{\translate(#1,\fpeval{#2-18*#3})\pixieGraphicProfCircle}
+    \pscustom[fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-primary}{#4proficiencyhalf}]{\translate(#1,\fpeval{#2-18*#3})\pixieGraphicProfHalf}
+    \pscustom[fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-background}{black}]{\translate(#1,\fpeval{#2-0.4779-18*#3})\pixieGraphicProfFull}
+    \pscustom[fillstyle=none,linestyle=solid,linewidth=0.66666665,linecolor=\iftoggle{pixiedraft}{prof-mark-draft-outline}{primary-indicator-color},strokeopacity=1]{\translate(\fpeval{#1+11.5611629},\fpeval{#2-1.4789-18*#3})\pixieGraphicProfUnderline}
+    \rput[l](\iftoggle{deutsch}{\fpeval{#1+33.1764}}{\fpeval{#1+34.1764}},\fpeval{#2+3.96068-18*#3}){\pixieColorShortcutOne{}#5}
+    \iftoggle{interactive}{
+        \put(\fpeval{#1-3.1055},\fpeval{#2+0.2051-18*#3}){\pixieProfCheckBox{save#4Check}}
+        \put(\fpeval{#1+11.8945},\fpeval{#2-1.4789-18*#3}){\pixieProfNumField{save#4}}
+        }{}
+}
+\newcommand{\pixieMakeSkillProfSingle}[4]{
+    \pscustom[fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-secondary}{color#3proficiency}]{
+        \translate(#1,\fpeval{#2-18*\csuse{pixieSkillOrder#3}})
+        \pixieGraphicProfCircle
+    }
+    \pscustom[fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-primary}{color#3proficiencyhalf}]{
+        \translate(#1,\fpeval{#2-18*\csuse{pixieSkillOrder#3}})
+        \pixieGraphicProfHalf
+    }
+    \pscustom[fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-background}{black}]{
+        \translate(#1,\fpeval{#2-0.47786665-18*\csuse{pixieSkillOrder#3}})
+        \pixieGraphicProfFull
+    }
+    \pscustom[fillstyle=none,linestyle=solid,linewidth=0.66666665,linecolor=\iftoggle{pixiedraft}{prof-mark-draft-outline}{primary-indicator-color},strokeopacity=1]{
+        \translate(\fpeval{#1+10.22786641},\fpeval{#2-0.47786665-18*\csuse{pixieSkillOrder#3}})
+        \pixieGraphicProfUnderline}
+    \rput[l]
+        (\iftoggle{deutsch}{\fpeval{#1+33.1764}}{\fpeval{#1+34.1764}},\fpeval{#2+3.96064875-18*\csuse{pixieSkillOrder#3}})
+        {\pixieColorShortcutOne{\csuse{pixieTerm#3}} \pixieColorShortcutThree{\csuse{pixieTerm#4}}}
+    \iftoggle{interactive}{
+        \put(\fpeval{#1-3.1055},\fpeval{#2+0.38414875-18*\csuse{pixieSkillOrder#3}}){\pixieProfCheckBox{prof#3Check}}
+        \put(\fpeval{#1+10.5945},\fpeval{#2-0.47786665-18*\csuse{pixieSkillOrder#3}}){\pixieProfNumField{prof#3}}
+    }{}
+}
+
+% MAIN COMMANDS
+
+\newcommand{\pixiePlaceSaveProfs}[2]{ % #1 = width; #2 = height
+    % default for letter: 144.1055, 840.7949
+    %     default for a4: 134.1055, 840.7949
+    % \pixieDrawSaveProfs{139.1055}{840.7949} % DEFAULT??
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-outline}{outline-color}]{
+        \translate(\fpeval{#1-16.2986},\fpeval{#2-116.9554})
+        \pixieOutlinedSectionFancy{153}{136.2}
+    }
+    \rput(\fpeval{#1+61.098878405},\fpeval{#2-106.95544967}){\pixieTextBold\pixieColorShortcutTwo{\pixieTermSavingThrows}}
+    \psset{linestyle=none,fillstyle=solid}
+    {\pixieTextRegular
+        % STRENGTH
+        \pixieMakeSaveProfSingle{#1}{#2}{0}{strength}{\pixieTermStrength}
+        % DEXTERITY
+        \pixieMakeSaveProfSingle{#1}{#2}{1}{dexterity}{\pixieTermDexterity}
+        % CONSTITUTION
+        \pixieMakeSaveProfSingle{#1}{#2}{2}{constitution}{\pixieTermConstitution}
+        % INTELLIGENCE
+        \pixieMakeSaveProfSingle{#1}{#2}{3}{intelligence}{\pixieTermIntelligence}
+        % WISDOM
+        \pixieMakeSaveProfSingle{#1}{#2}{4}{wisdom}{\pixieTermWisdom}
+        % CHARISMA
+        \pixieMakeSaveProfSingle{#1}{#2}{5}{charisma}{\pixieTermCharisma}
+    }
+    \pixieStyleDefault
+}
+
+\newcommand{\pixiePlaceSkillProfs}[2]{ % #1 = width; #2 = height
+    % \pixieDrawSkillProfs{139.1055}{687.11585125} % DEFAULT??
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=\iftoggle{pixiedraft}{prof-mark-draft-outline}{outline-color}]{
+        \translate(\fpeval{#1-16.2986},\fpeval{#2-333.27635125})
+        \pixieOutlinedSectionFancy{153}{358}
+    }
+    \rput(\fpeval{#1+61.098878405},\fpeval{#2-322.61805131}){\pixieTextBold\pixieColorShortcutTwo{\MakeUppercase{\pixieTermSkills}}}
+    \psset{linestyle=none,fillstyle=solid}
+    {\pixieTextRegular
+        % ACROBATICS
+        \pixieMakeSkillProfSingle{#1}{#2}{Acrobatics}{Dex}
+        % ANIMAL HANDLING
+        \pixieMakeSkillProfSingle{#1}{#2}{AnimalHandling}{Wis}
+        % ARCANA
+        \pixieMakeSkillProfSingle{#1}{#2}{Arcana}{Int}
+        % ATHLETICS
+        \pixieMakeSkillProfSingle{#1}{#2}{Athletics}{Str}
+        % DECEPTION
+        \pixieMakeSkillProfSingle{#1}{#2}{Deception}{Cha}
+        % HISTORY
+        \pixieMakeSkillProfSingle{#1}{#2}{History}{Int}
+        % INSIGHT
+        \pixieMakeSkillProfSingle{#1}{#2}{Insight}{Wis}
+        % INTIMIDATION
+        \pixieMakeSkillProfSingle{#1}{#2}{Intimidation}{Cha}
+        % INVESTIGATION
+        \pixieMakeSkillProfSingle{#1}{#2}{Investigation}{Int}
+        % MEDICINE
+        \pixieMakeSkillProfSingle{#1}{#2}{Medicine}{Wis}
+        % NATURE
+        \pixieMakeSkillProfSingle{#1}{#2}{Nature}{Int}
+        % PERCEPTION
+        \pixieMakeSkillProfSingle{#1}{#2}{Perception}{Wis}
+        % PERFORMANCE
+        \pixieMakeSkillProfSingle{#1}{#2}{Performance}{Cha}
+        % PERSUASION
+        \pixieMakeSkillProfSingle{#1}{#2}{Persuasion}{Cha}
+        % RELIGION
+        \pixieMakeSkillProfSingle{#1}{#2}{Religion}{Int}
+        % SLEIGHT OF HAND
+        \pixieMakeSkillProfSingle{#1}{#2}{SleightOfHand}{Dex}
+        % STEALTH
+        \pixieMakeSkillProfSingle{#1}{#2}{Stealth}{Dex}
+        % SURVIVAL
+        \pixieMakeSkillProfSingle{#1}{#2}{Survival}{Wis}
+    }
+    \pixieStyleDefault
+}

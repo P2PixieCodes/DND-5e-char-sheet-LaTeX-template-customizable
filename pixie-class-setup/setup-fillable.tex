@@ -1,0 +1,68 @@
+%%%% BASIC INPUT FIELDS
+
+\ExplSyntaxOn
+\pdffield_setup:n{preset-checkbox={setF=Print},preset-textfield={setF={Print,Invisible}}}
+
+% text input field
+\pdffield_appearance:nn {pixieTextField}{{}} % no background
+\newcommand{\pixieTextField}[3][unsetFf=Multiline]
+    %{\TextField[#1,name=#2,value={#3},bordercolor={},backgroundcolor={},bordersep=0pt,borderwidth=0pt]{}}
+    {\pdffield_textfield:n{fontcolor=black,name={#2},appearance={pixieTextField},#1}}
+    
+    % NOTE: all text fields have padding that is decided by the PDF viewer -> don't bother trying to perfectly align stuff, just let all text fields start at the border
+    % NOTE: fields with the same name are synchronised
+% checkbox input field
+\pdffield_appearance:nn {pixieCheckBox/default/Yes}
+    {\parbox[c][15pt][c]{15pt}{\normalsize\centering\ding{108}}}
+\pdffield_appearance:nn {pixieCheckBox/default/Off}
+    {\parbox[c][15pt][c]{15pt}{\normalsize\centering\phantom{\ding{108}}}}
+\pdffield_appearance:nn {pixieCheckBox/inspiration/Yes}
+    {\parbox[c][20pt][c]{20pt}{\LARGE\centering\ding{108}}}
+\pdffield_appearance:nn {pixieCheckBox/inspiration/Off}
+    {\parbox[c][20pt][c]{20pt}{\LARGE\centering\phantom{\ding{108}}}}
+\pdffield_appearance:nn {pixieCheckBox/proficiency/Yes}
+    {\parbox[c][5pt][c]{5pt}{\tiny\centering\ding{108}}}
+\pdffield_appearance:nn {pixieCheckBox/proficiency/Off}
+    {\parbox[c][5pt][c]{5pt}{\tiny\centering\phantom{\ding{108}}}}
+\newcommand{\pixieCheckBox}[3][height=15pt,width=15pt]
+    %{\CheckBox[#1,name={#2},bordercolor={},bordersep=0pt,borderwidth=0pt]{}} % using hyperref fields
+    {\pdffield_checkbox:n{name=#2,appearance=#3,#1}} % using l3pdffield
+\ExplSyntaxOff
+
+%%%% SPECIALISED INPUT FIELDS (with font size, alignment, height, and/or width)
+
+% header main field
+\newcommand{\pixieHeaderBigField}[2][]
+    {\pixieTextField[#1,width=165pt,height=16pt,fontsize=14pt]{#2}}
+% header details
+\newcommand{\pixieHeaderField}[2][]
+    {\pixieTextField[height=13pt,fontsize=11pt,#1]{#2}}
+
+% skill bonuses
+\newcommand{\pixieProfNumField}[2][]
+    {\pixieTextField[#1,fontsize=7pt,height=7pt,width=14pt,MaxLen=3]{#2}}
+% skill proficiencies
+\newcommand{\pixieProfCheckBox}[2][]
+    {\pixieCheckBox[height=5pt,width=5pt,#1]{#2}{pixieCheckBox/proficiency}}
+
+% various number fields for attributes and HP
+\newcommand{\pixieSmallNumField}[2][]
+    {\pixieTextField[#1,fontsize=8pt,height=8pt]{#2}}
+% attribute values
+\newcommand{\pixieAttrField}[2][]
+    {\pixieSmallNumField[#1,width=15pt,MaxLen=2]{#2}}
+
+% attribute modifiers
+\newcommand{\pixieModField}[2][]
+    {\pixieTextField[#1,fontsize=16pt,height=18pt,width=25pt,MaxLen=2]{#2}}
+
+% heroic inspiration checkbox
+\newcommand{\pixieInspirationCheckBox}
+    {\pixieCheckBox[height=20pt,width=20pt]{inspiration}{pixieCheckBox/inspiration}}
+
+% armor class
+\newcommand{\pixieACField}[1][]
+    {\pixieTextField[#1,fontsize=13pt,height=13pt,width=20pt,MaxLen=2]{armorClass}}
+% battle stat like initiative and speed
+\newcommand{\pixieBattleStatField}[2][]
+    {\pixieTextField[#1,fontsize=13pt,height=13pt]{#2}}

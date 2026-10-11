@@ -1,0 +1,47 @@
+% USE % TO PREVENT ADDED SPACE INSIDE OF MAKEBOX OR SIMILAR ISSUES
+\newgeometry{left=\iftoggle{a4paper}{0cm}{0.6cm},right=0cm,top=0cm,bottom=0cm}%
+\newpage%
+\makebox[\paperwidth][s]{%
+\thispagestyle{empty}%
+\psset{unit=0.75pt}% sets xunit, yunit, and runit
+%\begin{pspicture}(816,1056)%\psframe[fillstyle=solid,fillcolor=blue!20,linewidth=3pt,linecolor=black](0,0)(816,1056) % ORIGINAL VALUES
+\begin{pspicture}(796.75,1126.5) % you can easily tell if the height is correct bc the PDF layout gets messed up if it's too big for the page
+    \pixieStyleDefault
+
+    % header (automatically adjusts to a4/letter width)
+    \pixiePlaceHeaderDefaultOne{}{} % TODO: customizable positioning
+
+    % default sections (use default coodinates -5 for a4 width)
+    \pixiePlaceStatBlock{\iftoggle{a4paper}{-5}{0}}{0} % attributes and modifiers % TODO: absolute positioning
+    \pixiePlacePassWisdom{\iftoggle{a4paper}{31.2277}{36.2277}}{309.2228} % passive wisdom
+    \pixiePlaceInspiration{\iftoggle{a4paper}{119.4251}{124.4251}}{921.5568} % inspiration field
+    \pixiePlaceProfBonus{\iftoggle{a4paper}{118.6379}{123.6379}}{870} % proficiency bonus
+    \pixiePlaceSaveProfs{\iftoggle{a4paper}{134.1055}{139.1055}}{840.7949} % saving throws
+    \pixiePlaceSkillProfs{\iftoggle{a4paper}{134.1055}{139.1055}}{687.11585125} % skills 
+
+    % custom sections
+    \pixiePlaceOtherProfsSection{30}{25.1}{229}{274.9} % OTHER PROFICIENCIES
+    \pixiePlaceBattleSection{280}{867} % BATTLE STATS
+    \pixiePlaceWeaponSection{280}{692}{488.25}{170} % WEAPONS & CANTRIPS
+    \pixiePlaceClassSection{280}{404.5}{488.25}{277.5} % CLASS FEATURES
+    \pixiePlaceSpeciesSection{280}{110.9}{241.5}{284} % SPECIES TRAITS
+    \iftoggle{maxlevel3}{
+        \pixiePlaceBackgroundSection{526.75}{110.9}{241.5}{284} % FOR LEVELS <4 (e.g. Starter Set)
+    }{
+        \pixiePlaceFeatsSection{526.75}{110.9}{241.5}{284} % FOR LEVELS >=4
+    }
+    % FOR STARTER SET PERSONAL GOAL - USUALLY PUT ??? HERE
+    \pixiePlacePersonalGoalSection{280}{25.1}{488.25}{76}
+
+
+    %%%% visual aids for layout editing
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %\psframe[fillstyle=solid,fillcolor=blue!20,linestyle=solid,linewidth=.75pt,linecolor=black](0,0)(796.75,1126.5) % entire A4 page
+    %\psframe[fillstyle=solid,fillcolor=blue!20,linestyle=solid,linewidth=.75pt,linecolor=black](18.9684,18.9684)(777.7816,1107.5316) % printable area of A4 page
+        % 5mm space for printing border -> 5mm = 5*(1/0.75)*2.84526 pt = 18.9684 units
+    %\psaxes[linewidth=.75pt,dx=10,dy=10](796.75,1126.5)
+    %\psgrid[unit=75pt,strokeopacity=1,gridwidth=.75pt,subgriddiv=10](8,12)
+\end{pspicture}
+}
+
+\restoregeometry

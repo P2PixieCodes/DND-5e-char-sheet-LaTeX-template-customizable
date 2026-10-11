@@ -1,0 +1,198 @@
+% CUSTOM COMMANDS FOR BETTER READABILITY
+\def\slotsRightAligned{\iftoggle{slotsrightaligned}{1}{0}} % 1 = true; 0 = false
+\newcommand{\pixieMakeSpellSlotCheckBox}[3]{
+    \iftoggle{interactive}{\put(#1,#2){\pixieProfCheckBox{#3}}}{}
+}
+
+% EASIER MODIFICATIONS: COLUMN WIDTHS
+% TODO: change to \newcommand for easier redefinition?
+\def\pixieSlotsALeftOffset{10}
+\def\pixieSlotAColWidth{151}
+\def\pixieSlotACheckWidth{15}
+\def\pixieSlotACola{42}
+\def\pixieSlotAColb{38}
+
+% EASIER MODIFICATIONS: ROW HEIGHTS
+% TODO: change to \newcommand for easier redefinition?
+\def\pixieSlotsARowOffset{7.5}
+\def\pixieSlotsARowHeight{20}
+\def\pixieSlotsAHeaderOffset{85}
+
+% MAIN COMMANDS
+\newcommand{\pixieMakeSpellSlotsA}[3]{
+    % SLOTS TABLE
+    \togglefalse{expendedShort}
+    \multido{\iA=0+1}{3}{
+        \pixieRput[lb]
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*\iA-\pixieSlotACheckWidth*floor(\iA/2)}}
+            {\fpeval{#2+\pixieSlotsAHeaderOffset}}
+            {\pixieFontSimple\scriptsize\pixieColorShortcutThree{\myuline{\pixieTermTotal }}}
+        \pixieRput[lb]
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+\pixieSlotAColWidth*\iA-\pixieSlotACheckWidth*floor(\iA/2)}}
+            {\fpeval{#2+\pixieSlotsAHeaderOffset}}
+            {\pixieFontSimple\scriptsize\pixieColorShortcutThree{\myuline{\iftoggle{expendedShort}{\pixieTermExpendedShort }{\pixieTermExpended}}}}
+        \global\toggletrue{expendedShort}
+        \multido{\iB=1+1}{3}{
+            \pixieRput[lb]
+                {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotAColWidth*\iA-\pixieSlotACheckWidth*floor(\iA/2)}}
+                {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-\iB)}}
+                {\footnotesize\pixieFontGermanCaps \iftoggle{deutsch}{\fpeval{\iB+\iA*3}. }{}\pixieTermLevelspell\iftoggle{english}{ \fpeval{\iB+\iA*3}}{}}
+            \psline[fillstyle=none,linestyle=solid,linewidth=0.66666665,linecolor=gray!80,strokeopacity=1]
+                (\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*\iA-\pixieSlotACheckWidth*floor(\iA/2)},\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-\iB)})
+                (\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb-8+\pixieSlotAColWidth*\iA-\pixieSlotACheckWidth*floor(\iA/2)},\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-\iB)})
+            \multido{\iC=0+1}{\fpeval{4-\iA-floor((\iB-min(1,\iA))/2)}}{
+                \pixieGraphicCheckStar
+                    {\fpeval{#1++\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+\pixieSlotAColWidth*\iA-\pixieSlotACheckWidth*floor(\iA/2)+15*\iC}}
+                    {\fpeval{#2+5+\pixieSlotsARowHeight*(4-\iB)}}
+            }
+        }
+    }
+    % SECTION LABEL (CUSTOM)
+    \iftoggle{showText}{
+        \pixieStyleSectionLabelBox\pscustom[fillcolor=white]{
+            \translate(\fpeval{#1+(#3/2)-(\pixieLabelLengthSpellSlots{}*1.3333/2)-7},\fpeval{#2+100})
+            \pixieGraphicLabelBox{\fpeval{\pixieLabelLengthSpellSlots{}*1.3333+14}}{14}
+        }
+        \rput[B](\fpeval{#1+(#3/2)},\fpeval{#2+104}){\pixieSectionLabelTextSpellSlots}
+    }{}
+    % FILLABLE FIELDS - must be placed individually unless we can figure out how to get characters from integers (loop variables)
+    \iftoggle{interactive}{
+        % LEVEL 1
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxOne}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*0+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*3}}{spellslotOneA}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*1}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotOneB}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*2}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotOneC}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*3}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotOneD}
+        % LEVEL 2
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxTwo}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}{spellslotTwoA}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*1}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}{spellslotTwoB}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*2}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}{spellslotTwoC}
+        % LEVEL 3
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxThree}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}{spellslotThreeA}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*1}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}{spellslotThreeB}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*0-\pixieSlotACheckWidth*floor(0/2)+15*2}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}{spellslotThreeC}
+        % LEVEL 4
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxFour}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotFourA}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*1}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotFourB}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*2}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotFourC}
+        % LEVEL 5
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxFive}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}{spellslotFiveA}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*1}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}{spellslotFiveB}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*2}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}{spellslotFiveC}
+        % LEVEL 6
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxSix}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}{spellslotSixA}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*1-\pixieSlotACheckWidth*floor(1/2)+15*1}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}{spellslotSixB}
+        % LEVEL 7
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*2-\pixieSlotACheckWidth*floor(2/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxSeven}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*2-\pixieSlotACheckWidth*floor(2/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotSevenA}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*2-\pixieSlotACheckWidth*floor(2/2)+15*1}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-1)}}{spellslotSevenB}
+        % LEVEL 8
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*2-\pixieSlotACheckWidth*floor(2/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxEight}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*2-\pixieSlotACheckWidth*floor(2/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-2)}}{spellslotEight}
+        % LEVEL 9
+        \pixiePut
+        	{\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColWidth*2-\pixieSlotACheckWidth*floor(2/2)}}
+        	{\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}
+        	{\pixieTextField[fontsize=9pt,height=12pt,width=22pt]{spellSlotsMaxNine}}
+        \pixieMakeSpellSlotCheckBox
+            {\fpeval{#1+\pixieSlotsALeftOffset+\pixieSlotACola+\pixieSlotAColb+2.5+\pixieSlotAColWidth*2-\pixieSlotACheckWidth*floor(2/2)+15*0}}
+            {\fpeval{#2+\pixieSlotsARowOffset+\pixieSlotsARowHeight*(4-3)}}{spellslotNine}
+    }{}
+    % RESET STYLING
+    \pixieStyleDefault
+}
+\newcommand{\pixieMakeSpellSlotsB}[2]{
+    \pscustom{\translate(#1,#2)\pixieOutlinedSectionSimpleBackground{135}{220}}
+    \pscustom[fillcolor=green!40!black!40!white]{\translate(#1,\fpeval{#2+17.5})\pixieOutlinedSectionSimpleBackground{135}{202.5}}
+    \pscustom[fillcolor=pink!40!black!20!white]{
+        \translate(\fpeval{#1+5},\fpeval{#2+15})\pixieOutlinedSectionSimpleBackground{60}{192.5}
+        \translate(0,180)\moveto(0,0)\rlineto(125,0)\rlineto(0,12.5)\rlineto(-125,0)\closepath
+    }
+    % calculating each line
+    \multido{\iA=0+1}{9}{
+        \multips(\fpeval{#1+72},\fpeval{#2+15+\pixieSlotsARowHeight*(9-\iA)})(\fpeval{(1-2*\slotsRightAligned)*15},0){
+            \fpeval{4-floor(\iA/2)} % TODO: figure out how to reduce this number for levels >=2, >=6, and >=8
+        }{\pixieGraphicCheckStar{0}{0}}
+    }
+    % drawing each line
+    % \multips(\fpeval{#1+72},\fpeval{#2+175})(15,0){4}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*15},\fpeval{#2+155})(15,0){3}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*15},\fpeval{#2+135})(15,0){3}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*15},\fpeval{#2+115})(15,0){3}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*15},\fpeval{#2+95})(15,0){3}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*30},\fpeval{#2+75})(15,0){2}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*30},\fpeval{#2+55})(15,0){2}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*45},\fpeval{#2+35})(15,0){1}{\pixieGraphicCheckStar{0}{0}}
+    % \multips(\fpeval{#1+72+\slotsRightAligned*45},\fpeval{#2+15})(15,0){1}{\pixieGraphicCheckStar{0}{0}}
+}

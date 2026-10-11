@@ -1,0 +1,16 @@
+% SECTION CUSTOMISATION COMMANDS
+\newcommand{\pixieSelectedEquipmentSectionOutline}[2]{\pixieOutlinedSectionSimple{#1}{#2}}
+\newcommand{\pixieSelectedEquipmentSectionBackground}[2]{\pixieOutlinedSectionSimpleBackground{#1}{#2}}
+
+% MAIN COMMAND
+\newcommand{\pixiePlaceEquipmentSection}[4]{ % (#1,#2) = coords; #3 = width; #4 = height
+    \pixieStyleSectionBackground\pscustom{\translate(#1,#2)\pixieSelectedEquipmentSectionBackground{#3}{#4}}
+    \pixieMakeSectionGrid{#1}{#2}{#3}{#4}{\pixieSelectedEquipmentSectionBackground{#3}{#4}}
+    \pixieStyleSectionOutline\pscustom{\translate(#1,#2)\pixieSelectedEquipmentSectionOutline{#3}{#4}}
+    \pixieMakeLabelBox{#1}{#2}{#3}{\pixieLabelLengthEquipment}{\pixieSectionLabelTextEquipment}
+    
+    \iftoggle{interactive}{
+        \put(\fpeval{#1+7},\fpeval{#2+13.5}){\pixieTextField[fontsize=6pt,height=\fpeval{(#4-16)*0.75}pt,width=\fpeval{(#3-14)*0.75}pt,setFf=Multiline]{equipment}}
+    }{}
+    \pixieStyleDefault
+}

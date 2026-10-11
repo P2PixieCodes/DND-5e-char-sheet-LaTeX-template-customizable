@@ -1,0 +1,125 @@
+% SEE p2pixie-drawing-commands.tex FOR DETAILS ON USAGE
+
+% DEFINE VALUES FOR VARIABLE LENGTH CALCULATIONS OF OUTLINED SECTION
+\def\pixieOSsimpleMinimumWidth{28}
+\def\pixieOSsimpleMinimumHeight{32}
+
+% DRAW OUTLINED SECTION BACKGROUND
+\newcommand{\pixieOutlinedSectionSimpleBackground}[2]{ % #1 = width; #2 = height
+    \moveto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-6.684},\fpeval{max(#2,\pixieOSsimpleMinimumHeight)}) % M 62.9693 65.704 
+    %\rlineto(-56.2867,0) % l -56.2867 0 
+        \rlineto(-7.316,0)
+        \rlineto(-\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-\pixieOSsimpleMinimumWidth},0) % additional width here
+        \rlineto(-7.3174,0)
+    \rlineto(-6.6827,-6.684) % l -6.6827 -6.684 
+    %\rlineto(0,-52.3373) % l 0 -52.3373 
+        \rlineto(0,-9.316)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,-9.3173)
+    \rlineto(6.6827,-6.6827) % l 6.6827 -6.6827 
+    %\rlineto(56.2867,0) % l 56.2867 0 
+        \rlineto(7.3174,0)
+        \rlineto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-\pixieOSsimpleMinimumWidth},0)
+        \rlineto(7.316,0)
+    \rlineto(6.684,6.6827) % l 6.684 6.6827 
+    %\rlineto(0,52.3373) % l 0 52.3373 
+        \rlineto(0,9.3173)
+        \rlineto(0,\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,9.316)
+    \closepath % z 
+}
+% DRAW OUTLINED SECTION
+\newcommand{\pixieOutlinedSectionSimple}[2]{ % #1 = width; #2 = height
+    \moveto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-6.684},\fpeval{max(#2,\pixieOSsimpleMinimumHeight)}) % M 62.9693 65.704 
+    %\rlineto(-56.2867,0) % l -56.2867 0 
+        \rlineto(-7.316,0)
+        \rlineto(-\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-\pixieOSsimpleMinimumWidth},0) % additional width here
+        \rlineto(-7.3174,0)
+    \rlineto(-6.6827,-6.684) % l -6.6827 -6.684 
+    %\rlineto(0,-52.3373) % l 0 -52.3373 
+        \rlineto(0,-9.316)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,-9.3173)
+    \rlineto(6.6827,-6.6827) % l 6.6827 -6.6827 
+    %\rlineto(56.2867,0) % l 56.2867 0 
+        \rlineto(7.3174,0)
+        \rlineto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-\pixieOSsimpleMinimumWidth},0)
+        \rlineto(7.316,0)
+    \rlineto(6.684,6.6827) % l 6.684 6.6827 
+    %\rlineto(0,52.3373) % l 0 52.3373 
+        \rlineto(0,9.3173)
+        \rlineto(0,\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,9.316)
+    \closepath % z 
+    \moveto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-1.8333},\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-7.444}) % M 67.82 58.26 
+    \rlineto(0,-5.1667) % l 0 -5.1667 
+    \rcurveto(-0.544,1.6293)(-1.316,3.3667)(-2.3987,5.008) % c -0.544 1.6293 -1.316 3.3667 -2.3987 5.008 
+    \rlineto(0,0.0947) % l 0 0.0947 
+    \rlineto(-0.0613,0) % l -0.0613 0 
+    \rcurveto(-1.54,2.3027)(-3.7093,4.392)(-6.76,5.6747) % c -1.54 2.3027 -3.7093 4.392 -6.76 5.6747 
+    \rlineto(3.6093,0) % l 3.6093 0 
+    \closepath % z 
+    \moveto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-13.636},1.8334) % M 56.0173 1.8334 
+    %\rlineto(-42.416,0) % l -42.416 0 
+        \rlineto(-0.364,0)
+        \rlineto(-\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-\pixieOSsimpleMinimumWidth},0)
+        \rlineto(-0.3987,0)
+    \rcurveto(-3.4853,0.8427)(-6.2747,2.7627)(-8.3707,5.7053) % c -3.4853 0.8427 -6.2747 2.7627 -8.3707 5.7053 
+    %\rlineto(0,50.596) % l 0 50.596 
+        \rlineto(0,8.4613)
+        \rlineto(0,\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,8.4307)
+    \rcurveto(1.8227,2.5533)(4.4933,4.772)(8.404,5.736) % c 1.8227 2.5533 4.4933 4.772 8.404 5.736 
+    %\rlineto(42.416,0) % l 42.416 0 
+        \rlineto(0.3654,0)
+        \rlineto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-\pixieOSsimpleMinimumWidth},0)
+        \rlineto(0.3973,0)
+    \rcurveto(3.4853,-0.8427)(6.2747,-2.7613)(8.3707,-5.704) % c 3.4853 -0.8427 6.2747 -2.7613 8.3707 -5.704 
+    %\rlineto(0,-50.5973) % l 0 -50.5973 
+        \rlineto(0,-8.4627)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,-8.4306)
+    \rcurveto(-1.8213,-2.5533)(-4.4933,-4.772)(-8.404,-5.736) % c -1.8213 -2.5533 -4.4933 -4.772 -8.404 -5.736 
+    \moveto(1.8333,\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-15.6386}) % M 1.8333 50.0654 
+    \rcurveto(0.4027,1.8893)(1.1227,4.2413)(2.3973,6.4973) % c 0.4027 1.8893 1.1227 4.2413 2.3973 6.4973 
+    %\rlineto(0,-47.4413) % l 0 -47.4413 
+        \rlineto(0,-6.8587)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,-6.8786)
+    \rcurveto(-0.2227,0.396)(-0.4573,0.772)(-0.66,1.1987) % c -0.2227 0.396 -0.4573 0.772 -0.66 1.1987 
+    \rcurveto(-0.876,1.8453)(-1.4093,3.7)(-1.7373,5.252) % c -0.876 1.8453 -1.4093 3.7 -1.7373 5.252 
+    \closepath % z 
+    \moveto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-4.232},\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-9.1213}) % M 65.4213 56.5827 
+    \rcurveto(0.2227,-0.396)(0.4587,-0.772)(0.66,-1.1973) % c 0.2227 -0.396 0.4587 -0.772 0.66 -1.1973 
+    \rcurveto(0.876,-1.8467)(1.4107,-3.7013)(1.7387,-5.2533) % c 0.876 -1.8467 1.4107 -3.7013 1.7387 -5.2533 
+    %\rlineto(0,-34.492) % l 0 -34.492 
+        \rlineto(0,-0.4281)
+        \rlineto(0,-\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-\pixieOSsimpleMinimumHeight})
+        \rlineto(0,-0.3599)
+    \rcurveto(-0.404,-1.8907)(-1.124,-4.2427)(-2.3987,-6.4973) % c -0.404 -1.8907 -1.124 -4.2427 -2.3987 -6.4973 
+    \closepath % z 
+    \moveto(7.444,\fpeval{max(#2,\pixieOSsimpleMinimumHeight)-1.8333}) % M 7.444 63.8707 
+    \rlineto(3.6093,0) % l 3.6093 0 
+    \rcurveto(-3.052,-1.2827)(-5.22,-3.372)(-6.7613,-5.6747) % c -3.052 -1.2827 -5.22 -3.372 -6.7613 -5.6747 
+    \rlineto(-0.0613,0) % l -0.0613 0 
+    \rlineto(0,-0.0947) % l 0 -0.0947 
+    \rcurveto(-1.0827,-1.6413)(-1.8547,-3.3787)(-2.3973,-5.008) % c -1.0827 -1.6413 -1.8547 -3.3787 -2.3973 -5.008 
+    \rlineto(0,5.1667) % l 0 5.1667 
+    \closepath % z 
+    \moveto(1.8333,7.4427) % M 1.8333 7.4427 
+    \rlineto(0,5.168) % l 0 5.168 
+    \rcurveto(0.5427,-1.628)(1.3147,-3.3667)(2.3973,-5.0067) % c 0.5427 -1.628 1.3147 -3.3667 2.3973 -5.0067 
+    \rlineto(0,-0.096) % l 0 -0.096 
+    \rlineto(0.0613,0) % l 0.0613 0 
+    \rcurveto(1.5413,-2.3013)(3.7093,-4.392)(6.7613,-5.6747) % c 1.5413 -2.3013 3.7093 -4.392 6.7613 -5.6747 
+    \rlineto(-3.6093,0) % l -3.6093 0 
+    \closepath % z 
+    \moveto(\fpeval{max(#1,\pixieOSsimpleMinimumWidth)-7.444},1.8334) % M 62.2093 1.8334 
+    \rlineto(-3.6093,0) % l -3.6093 0 
+    \rcurveto(3.0507,1.2827)(5.22,3.3733)(6.76,5.6747) % c 3.0507 1.2827 5.22 3.3733 6.76 5.6747 
+    \rlineto(0.0613,0) % l 0.0613 0 
+    \rlineto(0,0.096) % l 0 0.096 
+    \rcurveto(1.0827,1.64)(1.8547,3.3787)(2.3987,5.0067) % c 1.0827 1.64 1.8547 3.3787 2.3987 5.0067 
+    \rlineto(0,-5.168) % l 0 -5.168 
+    \closepath % z
+}

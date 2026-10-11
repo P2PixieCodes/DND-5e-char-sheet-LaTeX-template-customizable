@@ -1,0 +1,26 @@
+\newcommand{\pixieGraphicCheckStar}[3][white]{
+    \pscustom[linestyle=solid,linecolor=black,linejoin=2,linewidth=1,strokeopacity=1,fillstyle=solid,fillcolor=#1,opacity=1]{
+        \translate(#2,#3)
+        \scale{1.2}
+    	\moveto(5,10)
+    	\rcurveto(1.000000,-2.333333)(2.666667,-4.000000)(5.0,-5.0)
+    	\rcurveto(-2.333333,-1.000000)(-4.000000,-2.666667)(-5.0,-5.0)
+    	\rcurveto(-1.000000,2.333333)(-2.666667,4.000000)(-5.0,5.0)
+    	\rcurveto(2.333333,1.000000)(4.000000,2.666667)(5.0,5.0)
+    	\closepath
+    }
+}
+
+\newcommand{\pixieGraphicCheckStarLine}[3][white]{
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=gray,opacity=.6]{
+        \translate(#2,#3)
+        \scale{1.2}
+        \moveto(10,10)
+        \rcurveto(1.000000,-3.000000)(3.666667,-4.666667)(7.0,-5.0)
+    	\rcurveto(-3.333333,-0.333333)(-7.000000,-2.000000)(-7.0,-5.0)
+    	\rcurveto(0.000000,3.333333)(-2.5,4.8)(-10.0,5.0)
+    	\rcurveto(7.5,0.2)(10.000000,1.666667)(10.0,5.0)
+    	\closepath
+    }
+    \pixieGraphicCheckStar[#1]{\fpeval{#2+(5*1.2)}}{#3}
+}

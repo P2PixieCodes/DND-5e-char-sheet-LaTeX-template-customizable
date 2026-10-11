@@ -1,0 +1,306 @@
+\def\pixieOSfancyBottombaseWidth{29.5}
+\def\pixieOSfancyBottombaseHeight{51}
+\newcommand{\pixieOutlinedSectionFancyBottomUpBackground}[2]{
+	\moveto(0,5.25)
+	\rcurveto(4,-1.3333)(6,-3.0833)(6,-5.25)
+	\rlineto(8.75,0)
+	\rlineto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+	\rlineto(8.75,0)
+	\rcurveto(0,2.1667)(2,3.9167)(6,5.25)
+	\rlineto(0,31)
+	\rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+	\rlineto(0,9.5)
+	\rcurveto(-4,1.3333)(-6,3.0833)(-6,5.25)
+	\rlineto(-8.75,0)
+	\rlineto(-\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+	\rlineto(-8.75,0)
+	\rcurveto(0,-2.1667)(-2,-3.9167)(-6,-5.25)
+	\rlineto(0,-9.5)
+	\rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+	\closepath
+}
+\newcommand{\pixieOutlinedSectionFancyBottomUp}[2]{ % #1 = width; #2 = height
+    % THICK LINE
+    \moveto(0,5.25)
+    \rcurveto(4.000000,-1.333333)(6.000000,-3.083333)(6.0,-5.25)
+    \rlineto(8.75,0)
+    \rlineto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(8.75,0)
+    \rcurveto(0.000000,2.166667)(2.000000,3.916667)(6.0,5.25)
+    \rlineto(0,31)
+    \rlineto(-1.25,0)
+    \rlineto(0,-30)
+    \rcurveto(-3.666667,-1.500000)(-5.583333,-3.166667)(-5.75,-5.0)
+    \rlineto(-7.75,0)
+    \rlineto(-\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(-7.75,0)
+    \rcurveto(-0.166667,1.833333)(-2.083333,3.500000)(-5.75,5.0)
+    \rlineto(0,30)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,8.5)
+    \rcurveto(3.666667,1.500000)(5.583333,3.166667)(5.75,5.0)
+    \rlineto(7.75,0)
+    \rlineto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(7.75,0)
+    \rcurveto(0.166667,-1.833333)(2.083333,-3.500000)(5.75,-5.0)
+    \rlineto(0,-8.5)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(1.25,0)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,9.5)
+    \rcurveto(-4.000000,1.333333)(-6.000000,3.083333)(-6.0,5.25)
+    \rlineto(-8.75,0)
+    \rlineto(-\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(-8.75,0)
+    \rcurveto(0.000000,-2.166667)(-2.000000,-3.916667)(-6.0,-5.25)
+    \rlineto(0,-9.5)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \closepath
+    % LINE LEFT
+    \moveto(14.75,1.25)
+    \rlineto(-1.5,0)
+    \rcurveto(-10.000000,5.166667)(-15.083333,13.583333)(-15.25,25.25)
+    \rcurveto(1.833333,0.500000)(2.916667,2.333333)(3.25,5.5)
+    \rlineto(0,4.25)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,0.5)
+    \rcurveto(3.833333,7.666667)(8.333333,12.000000)(13.5,13.0)
+    \rlineto(0,1.25)
+    \rlineto(-0.75,0)
+    \rcurveto(-5.833333,-1.333333)(-10.500000,-6.000000)(-14.0,-14.0)
+    \rlineto(0,-0.75)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,-3.25)
+    \rcurveto(-0.333333,-3.666667)(-1.416667,-5.500000)(-3.25,-5.5)
+    \rcurveto(0.000000,-12.166667)(4.666667,-20.916667)(14.0,-26.25)
+    \closepath
+    % LINE RIGHT
+    \moveto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-14.75},1.25)
+    \rlineto(4,0)
+    \rcurveto(9.333333,5.333333)(14.000000,14.083333)(14.0,26.25)
+    \rcurveto(-1.833333,0.000000)(-2.916667,1.833333)(-3.25,5.5)
+    \rlineto(0,3.25)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,0.75)
+    \rcurveto(-3.500000,8.000000)(-8.166667,12.666667)(-14.0,14.0)
+    \rlineto(-0.75,0)
+    \rlineto(0,-1.25)
+    \rcurveto(5.166667,-1.000000)(9.666667,-5.333333)(13.5,-13.0)
+    \rlineto(0,-0.5)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,-3.25)
+    \rlineto(0,-1)
+    \rcurveto(0.333333,-3.166667)(1.416667,-5.000000)(3.25,-5.5)
+    \rcurveto(-0.166667,-11.666667)(-5.250000,-20.083333)(-15.25,-25.25)
+    \closepath
+    % THIN LINE LEFT
+    \moveto(1,16)
+    \rlineto(0,-1)
+    \rcurveto(1.333333,2.333333)(2.083333,9.416667)(2.25,21.25)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,4.25)
+    \rlineto(-0.5,0)
+    \rlineto(0,-4.25)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rcurveto(-0.166667,-9.666667)(-0.750000,-16.416667)(-1.75,-20.25)
+    \closepath
+    % THIN LINE RIGHT
+    \moveto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-1},15)
+    \rlineto(0,1)
+    \rcurveto(-1.000000,3.833333)(-1.583333,10.583333)(-1.75,20.25)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,4.25)
+    \rlineto(-0.5,0)
+    \rlineto(0,-4.25)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rcurveto(0.166667,-11.833333)(0.916667,-18.916667)(2.25,-21.25)
+    \closepath
+}
+\newcommand{\pixieOutlinedSectionFancyBottomDownBackground}[2]{
+	\moveto(0,5.25)
+	\rcurveto(4,-1.3333)(6,-3.0833)(6,-5.25)
+	\rlineto(8.75,0)
+	\rlineto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+	\rlineto(8.75,0)
+	\rcurveto(0,2.1667)(2,3.9167)(6,5.25)
+	\rlineto(0,31)
+	\rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+	\rlineto(0,9.5)
+	\rcurveto(-4,1.3333)(-6,3.0833)(-6,5.25)
+	\rlineto(-8.75,0)
+	\rlineto(-\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+	\rlineto(-8.75,0)
+	\rcurveto(0,-2.1667)(-2,-3.9167)(-6,-5.25)
+	\rlineto(0,-9.5)
+	\rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+	\closepath
+}
+\newcommand{\pixieOutlinedSectionFancyBottomDown}[2]{ % #1 = width; #2 = height
+    \moveto(0,5.25)
+    \rcurveto(4.000000,-1.333333)(6.000000,-3.083333)(6.0,-5.25)
+    \rlineto(8.75,0)
+    \rlineto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(8.75,0)
+    \rcurveto(0.000000,2.166667)(2.000000,3.916667)(6.0,5.25)
+    \rlineto(0,31)
+    \rlineto(-1.25,0)
+    \rlineto(0,-30)
+    \rcurveto(-3.666667,-1.500000)(-5.583333,-3.166667)(-5.75,-5.0)
+    \rlineto(-7.75,0)
+    \rlineto(-\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(-7.75,0)
+    \rcurveto(-0.166667,1.833333)(-2.083333,3.500000)(-5.75,5.0)
+    \rlineto(0,30)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,8.5)
+    \rcurveto(3.666667,1.500000)(5.583333,3.166667)(5.75,5.0)
+    \rlineto(7.75,0)
+    \rlineto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(7.75,0)
+    \rcurveto(0.166667,-1.833333)(2.083333,-3.500000)(5.75,-5.0)
+    \rlineto(0,-8.5)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT)
+    \rlineto(1.25,0)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,9.5)
+    \rcurveto(-4.000000,1.333333)(-6.000000,3.083333)(-6.0,5.25)
+    \rlineto(-8.75,0)
+    \rlineto(-\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-\pixieOSfancyBottombaseWidth},0) % ADD WIDTH
+    \rlineto(-8.75,0)
+    \rcurveto(0.000000,-2.166667)(-2.000000,-3.916667)(-6.0,-5.25)
+    \rlineto(0,-9.5)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \closepath
+    \moveto(14.75,1.25)
+    \rlineto(-4.25,0)
+    \rcurveto(-0.333333,3.833333)(-4.500000,7.250000)(-12.5,10.25)
+    \rcurveto(-0.333333,6.666667)(0.750000,14.416667)(3.25,23.25)
+    \rlineto(0,1.5)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,0.5)
+    \rcurveto(3.833333,7.666667)(8.333333,12.000000)(13.5,13.0)
+    \rlineto(0,1.25)
+    \rlineto(-0.75,0)
+    \rcurveto(-5.833333,-1.333333)(-10.500000,-6.000000)(-14.0,-14.0)
+    \rlineto(0,-0.75)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,-0.75)
+    \rcurveto(-2.666667,-9.666667)(-3.750000,-17.916667)(-3.25,-24.75)
+    \rcurveto(7.666667,-3.000000)(11.833333,-6.166667)(12.5,-9.5)
+    \closepath
+    \moveto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-9.25},1.25)
+    \rcurveto(0.666667,3.333333)(4.833333,6.500000)(12.5,9.5)
+    \rcurveto(0.500000,6.833333)(-0.583333,15.083333)(-3.25,24.75)
+    \rlineto(0,0.75)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,0.75)
+    \rcurveto(-3.500000,8.000000)(-8.166667,12.666667)(-14.0,14.0)
+    \rlineto(-0.75,0)
+    \rlineto(0,-1.25)
+    \rcurveto(5.166667,-1.000000)(9.666667,-5.333333)(13.5,-13.0)
+    \rlineto(0,-0.5)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,-1.5)
+    \rcurveto(2.500000,-8.833333)(3.583333,-16.583333)(3.25,-23.25)
+    \rcurveto(-8.000000,-3.000000)(-12.166667,-6.416667)(-12.5,-10.25)
+    \rlineto(-4.25,0)
+    \closepath
+    \moveto(1,16)
+    \rlineto(0,-1)
+    \rcurveto(1.333333,2.333333)(2.083333,9.416667)(2.25,21.25)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,4.25)
+    \rlineto(-0.5,0)
+    \rlineto(0,-4.25)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rcurveto(-0.166667,-9.666667)(-0.750000,-16.416667)(-1.75,-20.25)
+    \closepath
+    \moveto(\fpeval{max(#1,\pixieOSfancyBottombaseWidth)-1},15)
+    \rlineto(0,1)
+    \rcurveto(-1.000000,3.833333)(-1.583333,10.583333)(-1.75,20.25)
+    \rlineto(0,\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rlineto(0,4.25)
+    \rlineto(-0.5,0)
+    \rlineto(0,-4.25)
+    \rlineto(0,-\fpeval{max(#2,\pixieOSfancyBottombaseHeight)-\pixieOSfancyBottombaseHeight}) % ADD HEIGHT
+    \rcurveto(0.166667,-11.833333)(0.916667,-18.916667)(2.25,-21.25)
+    \closepath
+}
+
+\def\pixieOSfancyBaseWidth{36}
+\def\pixieOSfancyBaseHeightHalf{62}
+\newcommand{\pixieOutlinedSectionFancyHalf}[2]{ % #1 = width; #2 = height-half
+    \scale{1 -1} % flip around to start drawing from the middle
+    % THICK LINE
+    \moveto(3.2129,0)
+    \rlineto(0,-\fpeval{#2-\pixieOSfancyBaseHeightHalf})% ADD HALF HEIGHT HERE
+    \rlineto(0,-10.5944)
+    \rcurveto(0.685400,-15.250333)(0.000000,-25.445767)(-2.0562,-30.5863)
+    \rlineto(1.2851,-15.4217)
+    \rcurveto(3.941067,-1.028133)(5.911600,-2.827333)(5.9116,-5.3976)
+    \rlineto(9.6466,0)
+    \rlineto(\fpeval{#1-\pixieOSfancyBaseWidth},0)% ADD WIDTH HERE
+    \rlineto(9.6466,0)
+    \rcurveto(0.000000,2.570267)(1.970533,4.369467)(5.9116,5.3976)
+    \rlineto(1.2851,15.4217)
+    \rcurveto(-2.056200,5.140533)(-2.741600,15.335967)(-2.0562,30.5863)
+    \rlineto(0,10.5944)
+    \rlineto(0,\fpeval{#2-\pixieOSfancyBaseHeightHalf})% ADD HALF HEIGHT HERE
+    \rlineto(-1.5421,0)
+    \rlineto(0,-\fpeval{#2-\pixieOSfancyBaseHeightHalf})% ADD HALF HEIGHT HERE
+    \rlineto(0,-10.5944)
+    \rcurveto(-0.642600,-15.507333)(0.085633,-25.788467)(2.1847,-30.8434)
+    \rlineto(-1.1566,-13.8795)
+    \rcurveto(-3.769733,-1.113800)(-5.740267,-2.827333)(-5.9116,-5.1406)
+    \rlineto(-8.3615,0)
+    \rlineto(-\fpeval{#1-\pixieOSfancyBaseWidth},0)% ADD WIDTH HERE
+    \rlineto(-8.3615,0)
+    \rcurveto(-0.171333,2.313267)(-2.141867,4.026800)(-5.9116,5.1406)
+    \rlineto(-1.1566,13.8795)
+    \rcurveto(2.099067,5.054867)(2.827300,15.336000)(2.1847,30.8434)
+    \rlineto(0,10.5944)
+    \rlineto(0,\fpeval{#2-\pixieOSfancyBaseHeightHalf})% ADD HALF HEIGHT HERE
+    \closepath
+    % THIN LINE LEFT
+    \moveto(3.2129,-\fpeval{#2-\pixieOSfancyBaseHeightHalf})
+    \rlineto(0,-0.3133)
+    \rcurveto(-0.771133,-18.677400)(-1.842100,-29.986633)(-3.2129,-33.9277)
+    \rcurveto(7.9679,-6.1687)(2.8273,-8.2249)(2.5703,-13.3655)
+    \rlineto(0.5141,-1.0281)
+    \rcurveto(0.5141,5.6546)(5.9116,8.7389)(-2.0562,14.9076)
+    \rcurveto(1.285200,3.598400)(2.356167,14.736300)(3.2129,33.4137)
+    \rlineto(0,0.3133)
+    \closepath
+    % THIN LINE RIGHT
+    \moveto(\fpeval{#1-4.2411},-\fpeval{#2-\pixieOSfancyBaseHeightHalf})
+    \rlineto(0,-0.3133)
+    \rcurveto(0.856733,-18.677400)(1.927700,-29.815300)(3.2129,-33.4137)
+    \rcurveto(-7.9679,-6.1687)(-2.5703,-9.253)(-2.0562,-14.9076)
+    \rlineto(0.5141,1.0281)
+    \rcurveto(-0.257,5.1406)(-5.3976,7.1968)(2.5703,13.3655)
+    \rcurveto(-1.370800,3.941067)(-2.441767,15.250300)(-3.2129,33.9277)
+    \rlineto(0,0.3133)
+    \closepath
+    % CORNER LINE LEFT
+    \moveto(3.984,-\fpeval{#2-18.506})
+    \rcurveto(-0.514067,-8.396267)(3.512700,-14.050900)(12.0803,-16.9639)
+    \rlineto(1.5422,0)
+    \rcurveto(-9.253000,2.913000)(-13.622467,8.738967)(-13.1084,17.4779)
+    \closepath
+    % CORNER LINE RIGHT
+    \moveto(\fpeval{#1-4.4981},-\fpeval{#2-19.02})
+    \rcurveto(0.514067,-8.738933)(-3.855400,-14.564900)(-13.1084,-17.4779)
+    \rlineto(1.5422,0)
+    \rcurveto(8.567600,2.913000)(12.594367,8.567633)(12.0803,16.9639)
+    \closepath
+    \scale{1 -1}
+}
+
+\newcommand{\pixieOutlinedSectionFancy}[2]{ % #1 = width; #2 = height
+    \translate(0,\fpeval{max(#2/2,\pixieOSfancyBaseHeightHalf)}) % move coordinates to the middle
+    \pixieOutlinedSectionFancyHalf{\fpeval{max(#1,\pixieOSfancyBaseWidth)}}{\fpeval{max(#2/2,\pixieOSfancyBaseHeightHalf)}}
+    \scale{1 -1}
+    \pixieOutlinedSectionFancyHalf{max(#1,\pixieOSfancyBaseWidth)}{\fpeval{max(#2/2,\pixieOSfancyBaseHeightHalf)}}
+    \scale{1 -1} % reset scale
+    \translate(0,-\fpeval{max(#2/2,\pixieOSfancyBaseHeightHalf)}) % reset coordinates
+}

@@ -1,0 +1,23 @@
+
+\newcommand{\pixieGraphicLabelBox}[2]{
+    \moveto(1.5,0)
+    \rlineto(\fpeval{#1-3},0)
+    \rlineto(1.5,1.5)
+    \rlineto(0,\fpeval{#2-3})
+    \rlineto(-1.5,1.5)
+    \rlineto(-\fpeval{#1-3},0)
+    \rlineto(-1.5,-1.5)
+    \rlineto(0,-\fpeval{#2-3})
+    \closepath
+}
+\newcommand{\pixieMakeLabelBox}[5]{
+    \iftoggle{showText}{
+        \pixieStyleSectionLabelBox\pscustom[fillcolor=white]{
+            \translate(\fpeval{#1+(#3/2)-(#4{}*1.3333/2)-7},\fpeval{#2-2})
+            \pixieGraphicLabelBox{\fpeval{#4{}*1.3333+14}}{14}
+        }
+        \rput[B](\fpeval{#1+(#3/2)},\fpeval{#2+2}){#5}
+    }{}
+}
+% regex search: \\pixieStyleSectionLabelBox\\pscustom\{\n\s*\\translate\(\\fpeval\{#1\+\(#3/2\)-\(\\pixie([a-zA-Z]*)\{\}\*\d*\.\d*/2\)-7\},\\fpeval\{#2-2\}\)\n\s*\\pixieGraphicLabelBox\{\\fpeval\{\\pixie[a-zA-Z]*\{\}\*\d*\.\d*\+14\}\}\{14\}\n\s*\}\n\s*\\rput\[B\]\(\\fpeval\{#1\+\(#3/2\)\},\\fpeval\{#2\+2\}\)\{\\pixie([a-zA-Z]*)\}
+% regex replace: 

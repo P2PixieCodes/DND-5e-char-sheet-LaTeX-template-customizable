@@ -1,0 +1,181 @@
+% TODO: move this to the svg commands. maybe even fully at the end of header-elements.tex?
+% TODO: separate background from outline for elements that have inner lines - FOR COLOR PURPOSES SHOULD BE DRAWN BETWEEN BACKGROUND AND OUTLINE
+
+% COMMANDS TO CALL:
+%   \pixieMakeHeaderDefaultOne{x-position}{y-position}
+%   \pixieMakeHeaderDefaultTwo{x-position}{y-position}
+
+% DEFINE VARIABLES COMMANDS TO BE USED HERE
+\def\pixieFireballTranslateX{400}
+\def\pixieFireballTranslateY{1910.10661774}
+
+% MAIN COMMANDS
+\newcommand{\pixiePlaceHeaderDefaultOne}[2]{ % (#1,#2) = coordinates % CURRENTLY UNUSED, MUST BE ADDED TO EVERY \pscustom CALL AND SUBTRACTED FROM THE SVG MOVEMENTS AND ALSO THE TEXT/FIELDS
+    %%%% BEHIND BANNER
+    % HEADER BACKGROUND - Z:0
+    \pixieStyleHeaderBackground\pscustom{\pixieGraphicHeaderDefaultBG{\iftoggle{a4paper}{128.7908}{123.7908}}{\iftoggle{a4paper}{982.3796}{911.8796}}} %header background top + bottom + top right
+    % DRAGON BEHIND BANNER - Z:1
+    \pixieStyleHeaderDragonMain\pscustom{\pixieGraphicDragonNeck} %dragon top left
+
+    %%%% MAIN BANNER
+    % BANNER > LEFT AND RIGHT END - Z:2
+    \pixieStyleBannerMain\pscustom{
+        \pixieGraphicBannerLeft %banner left background + outer outline
+        \pixieGraphicBannerRight %banner right background + outer outline
+    }
+    \pixieStyleHeaderInner\pscustom{
+        \pixieGraphicBannerLeftInner  %banner left inner outline
+        \pixieGraphicBannerRightInner %banner right inner outline
+    }
+    % BANNER > SWITCHBACK - Z:3
+    \pixieStyleBannerMain\pscustom[fillcolor=\iftoggle{pixiedraft}{header-draft-primary}{header-banner-switchback-shadow-color}]{\pixieGraphicBannerSwitchback} %banner switchback shadow + outline
+    % BANNER > MIDDLE - Z:4
+    \pixieStyleBannerMain\pscustom{\pixieGraphicBannerMiddle} %banner middle background + outer outline
+    \pixieStyleHeaderInner\pscustom{\pixieGraphicBannerMiddleInner} %banner inner outline middle
+
+    %%%% ON TOP OF BANNER
+    % DETAILS - Z:5
+    \pixieStyleHeaderDetailsMain
+    \pscustom{\pixieGraphicHeaderDetails} %header details background + outer outline, including trapezoids
+    \pscustom[fillstyle=none]{\pixieGraphicHeaderDetailsFancyOutlines} %header details fancy outlines left + right
+    \pixieStyleHeaderInner\pscustom{\pixieGraphicHeaderDetailsInner} %header details inner line detail
+    \pixieStyleHeaderDetailsLines\pscustom{\pixieGraphicHeaderDetailsLines} % UNDERLINES
+    % DRAGON - Z:5
+    \pscustom[linestyle=none,fillstyle=\iftoggle{pixiedraft}{solid}{\headerdragonfill},fillcolor=\iftoggle{pixiedraft}{header-draft-eye}{character-sheet-dragon-eye-color},opacity=\iftoggle{pixiedraft}{.3}{\headerdragonopacity}]{\pixieGraphicDragonEye} %dragon eye
+    \pixieStyleHeaderDragonMain\pscustom{
+        \pixieGraphicDragonTail %dragon tail
+        \pixieGraphicDragonFront %dragon head + ear + right/middle/left fingers
+    }
+    % TITLE - Z:5
+    \pixieStyleHeaderTitle\pscustom{
+        \pixieGraphicHeaderTitleR %headertext: (R)
+        \pixieGraphicHeaderTitleText %headertext: dungeons & dragons
+    }
+
+    %%%% TEXT
+    {\pixieTextHeader
+        % character name
+        \rput[l](92.61541956,1000){\pixieColorShortcutTwo{\pixieHeaderTerm{\pixieTermCharacterName}}}
+        % top left
+        \rput[l](362,1035){\pixieColorShortcutTwo{\pixieHeaderTerm{\pixieTermClassLevel}}}
+        % top middle
+        \rput[l](507,1035){\pixieColorShortcutTwo{\pixieHeaderTerm{\pixieTermBackground}}}
+        % top right
+        \rput[l](631,1035){\pixieColorShortcutTwo{\pixieHeaderTerm{\pixieTermPlayerName}}}
+        % bottom left
+        \rput[l](362,1000){\pixieColorShortcutTwo{\pixieHeaderTerm{\pixieTermSpecies}}}
+        % bottom middle
+        \rput[l](507,1000){\pixieColorShortcutTwo{\pixieHeaderTerm{\pixieTermSize}}}
+        % bottom right
+        \rput[l](631,1000){\pixieColorShortcutTwo{\pixieHeaderTerm{\pixieTermAlignment}}}%\pixieTermExperiencePoints}}
+    }
+    
+    %%%% FILLABLE FIELDS
+    \iftoggle{interactive}{
+        \put(65,1020){\pixieHeaderBigField{charName}}
+        \put(360,1040){\pixieHeaderField[width=105pt]{classLevel}}
+        \put(505,1040){\pixieHeaderField[width=90pt]{background}}
+        \put(629,1040){\pixieHeaderField[width=82.5pt]{playerName}}
+        \put(360,1005){\pixieHeaderField[width=105pt]{species}}
+        \put(505,1005){\pixieHeaderField[width=90pt]{size}}
+        \put(629,1005){\pixieHeaderField[width=82.5pt]{alignment}}
+    }{}
+    \pixieStyleDefault
+}
+
+\newcommand{\pixiePlaceHeaderDefaultTwo}[2]{ % (#1,#2) = coordinates % CURRENTLY UNUSED, MUST BE ADDED TO EVERY \pscustom CALL AND SUBTRACTED FROM THE SVG MOVEMENTS AND ALSO THE TEXT/FIELDS
+    %%%% BEHIND BANNER
+    % HEADER BACKGROUND - Z:0
+    \pixieStyleHeaderBackground\pscustom{
+        % CLOUDS TOP + BOTTOM + RIGHT
+        \pixieGraphicHeaderDefaultBG{\iftoggle{a4paper}{128.7908}{123.7908}}{\iftoggle{a4paper}{982.3796}{911.8796}}
+        % ADDITIONAL CLOUD ADDED BY ME
+        \translate(363.7908,967.3796)\code{reversepath}
+        \pixieGraphicHeaderBGsingle[-.8 1]
+        \translate(-363.7908,-967.3796)
+    }
+    % BATTLE BEHIND BANNER - Z:1
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=black]{\pixieGraphicBattle}
+    %%%% BANNER-SIDES
+    % BANNER > LEFT AND RIGHT END - Z:2
+    \pixieStyleBannerMain\pscustom{
+        \pixieGraphicBannerLeft %banner left background + outer outline
+        \pixieGraphicBannerRight %banner right background + outer outline
+    }
+    \pixieStyleHeaderInner\pscustom{
+        \pixieGraphicBannerLeftInner  %banner left inner outline
+        \pixieGraphicBannerRightInner %banner right inner outline
+    }
+    % BANNER > SWITCHBACK - Z:3
+    \pixieStyleBannerMain\pscustom[fillcolor=\iftoggle{pixiedraft}{header-draft-primary}{header-banner-switchback-shadow-color}]{\pixieGraphicBannerSwitchback} %banner switchback shadow + outline
+    % UPSIDE-DOWN FIREBALL BEHIND BANNER-MIDDLE - Z:4
+    % fireball background main + small section
+    \pscustom[linestyle=none,fillstyle=\headerdragonfill,fillcolor=white,opacity=\headerdragonopacity]{
+        \translate(\pixieFireballTranslateX,\pixieFireballTranslateY)
+        \translate(\iftoggle{a4paper}{-4,150}{0,0})
+        \scale{-1 -1}\pixieGraphicFireballBG
+    }
+    % fireball additional background added by me (for contrast with banner outline)
+    \pscustom[linestyle=none,fillstyle=\headerdragonfill,fillcolor=white,opacity=.8]{
+        \translate(\pixieFireballTranslateX,\pixieFireballTranslateY)
+        \translate(\iftoggle{a4paper}{-4,150}{0,0})
+        \scale{-1 -1}\pixieGraphicFireballBGaddition
+    }
+    % fireball main + details
+    \pscustom[linestyle=none,fillstyle=\headerdragonfill,fillcolor=spell-sheet-fireball-color,opacity=\headerdragonopacity]{
+        \translate(\pixieFireballTranslateX,\pixieFireballTranslateY)
+        \translate(\iftoggle{a4paper}{-4,150}{0,0})
+        \scale{-1 -1}\pixieGraphicFireballOutline
+    }
+    %%%% BANNER-MIDDLE
+    % BANNER > MIDDLE - Z:5
+    \pixieStyleBannerMain\pscustom{\pixieGraphicBannerMiddle} %banner middle background + outer outline
+    \pixieStyleHeaderInner\pscustom{\pixieGraphicBannerMiddleInner} %banner inner outline middle
+    % DETAILS - Z:6
+    \pixieStyleHeaderDetailsMain\newrgbcolor{curcolor}{0.87843138 0.88235295 0.88235295}
+    \pscustom[fillcolor=curcolor]{\pixieGraphicHeaderDetailsBGinsideOnly} % header details background + outer outline
+    \pscustom{\pixieGraphicHeaderDetailsBGtrapsOnly} % header details trapezoids background + outer outline
+    \pscustom[fillstyle=none]{\pixieGraphicHeaderDetailsFancyOutlines} %header details fancy outlines left + right
+    \pixieStyleHeaderInner\pscustom{\pixieGraphicHeaderDetailsInner} %header details inner line detail
+    %%%% ON TOP OF BANNER
+    % SPELLCASTING FIELD -Z:7
+    %spellcasting fields background + outer border
+    \pscustom[linestyle=solid,linewidth=1.83333329,linecolor=header-color,fillstyle=solid,fillcolor=white]{
+        \iftoggle{a4paper}{\translate(64,0)}{}\pixieGraphicSpellcastingField %spellcasting ability
+        \iftoggle{a4paper}{\translate(-39.5,0)}{}\translate(134.28146331,0)\pixieGraphicSpellcastingField %spell save dc
+        \iftoggle{a4paper}{\translate(-47,0)}{}\translate(138.39812987,0)\pixieGraphicSpellcastingField %spell attack
+    }
+    %spellcasting fields inner lines
+    \pscustom[linestyle=solid,linewidth=0.80000001,linecolor=header-color-accent,fillstyle=none]{
+        \iftoggle{a4paper}{\translate(64,0)}{}\pixieGraphicSpellcastingFieldLines %spellcasting ability
+        \iftoggle{a4paper}{\translate(-39.5,0)}{}\translate(134.28146331,0)\pixieGraphicSpellcastingFieldLines %spell save dc
+        \iftoggle{a4paper}{\translate(-47,0)}{}\translate(138.39812987,0)\pixieGraphicSpellcastingFieldLines %spell attack
+    }
+    %spellcasting fields inner dots
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=header-color-accent]{
+        \iftoggle{a4paper}{\translate(64,0)}{}\pixieGraphicSpellcastingFieldDots %spellcasting ability
+        \iftoggle{a4paper}{\translate(-39.5,0)}{}\translate(134.28146331,0)\pixieGraphicSpellcastingFieldDots %spell save dc
+        \iftoggle{a4paper}{\translate(-47,0)}{}\translate(138.39812987,0)\pixieGraphicSpellcastingFieldDots %spell attack
+    }
+    % TITLE - Z:7
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=black]{\pixieGraphicHeaderTitleLogo}
+    
+
+    %%%% TEXT
+    \pixieStyleHeaderDetailsLines\psline(365,1022)(435,1022)
+    \rput(400,1010){\pixieTextHeader\pixieColorShortcutTwo{\pixieTermSpellcastingAbilitySplit}}
+    {\pixieTextBold
+        \rput(500,1005){\pixieColorShortcutTwo{\pixieTermSpellcastingModifierSplit}}
+        \rput(595,1005){\pixieColorShortcutTwo{\pixieTermSpellSaveDCSplit}}
+        \rput(685,1005){\pixieColorShortcutTwo{\pixieTermSpellAttackBonusSplit}}
+    }
+    %%%% FILLABLE FIELDS
+    \iftoggle{interactive}{
+        \put(65,1020){\pixieHeaderBigField{charName}}
+        \put(380,1027.5){\pixieTextField[#1,fontsize=12pt,height=18pt,width=30pt,MaxLen=3]{spellAttr}}
+        \put(482.5,1027.5){\pixieTextField[#1,fontsize=12pt,height=18pt,width=30pt,MaxLen=3]{spellMod}}
+        \put(580,1027.5){\pixieTextField[#1,fontsize=12pt,height=18pt,width=30pt,MaxLen=2]{spellDC}}
+        \put(667.5,1027.5){\pixieTextField[#1,fontsize=12pt,height=18pt,width=30pt,MaxLen=3]{spellAttack}}
+    }{}
+    \pixieStyleDefault
+}

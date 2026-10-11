@@ -1,0 +1,18 @@
+% TEXT STYLING FOR THE ENTIRE DOCUMENT
+
+% use shortcut for conditional or common styling
+\newcommand{\smallerInGerman}{\iftoggle{deutsch}{\notsotiny}{}}
+\newcommand{\pixieTextBold}{\sffamily\pixieFontSimple\scriptsize\bfseries\smallerInGerman} % casual font, bold, smaller in german
+\newcommand{\pixieTextHeader}{\scriptsize\iftoggle{deutsch}{\pixieFontGermanCaps}{\pixieFontSimple}} % change font depending on language
+\newcommand{\pixieTextRegular}{\sffamily\pixieFontSimple\scriptsize}
+
+% use tabular to split lines
+\newcommand{\pixieLineSplit}[2]{\begin{tabular}{@{}c@{}}#1\\#2\end{tabular}}
+\newcommand{\pixieLineSplitRight}[2]{\begin{tabular}{@{}r@{}}#1\\#2\end{tabular}}
+\newcommand{\pixieLineSplitLeft}[2]{\begin{tabular}{@{}l@{}}#1\\#2\end{tabular}}
+\newcommand{\pixieLineSplitUpper}[2]{\begin{tabular}{@{}c@{}}\MakeUppercase{#1}\\\MakeUppercase{#2}\end{tabular}}
+\newcommand{\pixieLineSplitUpperRight}[2]{\begin{tabular}{@{}r@{}}\MakeUppercase{#1}\\\MakeUppercase{#2}\end{tabular}}
+\newcommand{\pixieLineSplitUpperLeft}[2]{\begin{tabular}{@{}l@{}}\MakeUppercase{#1}\\\MakeUppercase{#2}\end{tabular}}
+
+
+

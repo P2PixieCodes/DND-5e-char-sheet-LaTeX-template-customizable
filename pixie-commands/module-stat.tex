@@ -1,0 +1,94 @@
+% COPY OF /template/character-sheet/stats.tex
+
+% MAIN COMMANDS
+\newcommand{\pixiePlaceInspiration}[2]{ % (#1,#2) = coordinates
+    % default for letter = (124.4251,921.5568)
+    % default for a4 = (119.4251,921.5568) 
+    \pixieStyleStatsOutlines\pscustom{\translate(#1,#2)\pixieGraphicInspiration}
+    \rput(\fpeval{#1+93.7812156},\fpeval{#2+18.75931158}){\pixieTextBold\pixieColorShortcutOne{\pixieTermInspiration}}
+    \iftoggle{interactive}{\put(\fpeval{#1+5.5},\fpeval{#2+5}){\pixieInspirationCheckBox}}{}
+    \pixieStyleDefault
+}
+\newcommand{\pixiePlaceProfBonus}[2]{ % (#1,#2) = coordinates
+    % default for letter = (123.6379,870)
+    % default for A4 = (118.6379,870)
+    \pixieStyleStatsOutlines\pscustom{\translate(#1,#2)\pixieGraphicProfBonus}
+    \rput(\fpeval{#1+95.05531135},\fpeval{#2+20.01875100}){\pixieTextBold\pixieColorShortcutOne{\pixieTermProficiencyBonus}}
+    \iftoggle{interactive}{\put(\fpeval{#1+11.3621},\fpeval{#2+16}){\pixieAttrField{profBonus}{+2}}}{}
+    \pixieStyleDefault
+}
+\newcommand{\pixiePlacePassWisdom}[2]{ % (#1,#2) = coordinates
+    % default for letter = (36.2277,309.2228)
+    % default for A4 = (31.2277,309.2228)
+    \pixieStyleStatsOutlines\pscustom{\translate(#1,#2)\pixieGraphicPassWis}
+    \rput(\fpeval{#1+137.89991164},\fpeval{#2+17.65238057}){\pixieTextRegular\smallerInGerman\pixieColorShortcutOne{\pixieTermPassivePerception}}
+    \iftoggle{interactive}{\put(\fpeval{#1+10.7723},\fpeval{#2+12.652388057}){\pixieAttrField{passWis}}}{}
+    \pixieStyleDefault
+}
+\newcommand{\pixiePlaceStatBlock}[2]{ % (#1,#2) = RELATIVE coordinates; 
+    %statblock background
+    \pscustom[linestyle=none,fillstyle=\iftoggle{pixiedraft}{solid}{\statsbackgroundfill},fillcolor=\iftoggle{pixiedraft}{stats-draft-background}{stat-bg-color!90!black},opacity=\iftoggle{pixiedraft}{.3}{\statsbackgroundopacity}]{
+        \translate(#1,#2)
+        \pixieGraphicStatBlockShadow
+    }
+    % MAIN BACKGROUNDS
+    \pscustom[linestyle=none,fillstyle=\iftoggle{pixiedraft}{solid}{\statsscorefill},fillcolor=\iftoggle{pixiedraft}{stats-draft-background}{stat-attr-bg-color},opacity=\iftoggle{pixiedraft}{.5}{\statsscoreopacity}]{
+        \translate(#1,#2)
+        \pixieGraphicStatAttrMainBG{41.7612}{910.7981} % STRENGTH
+        \pixieGraphicStatAttrMainBG{41.7617}{815.0257} % DEXTERITY
+        \pixieGraphicStatAttrMainBG{41.7611}{719.8984)} % CONSTITUTION
+        \pixieGraphicStatAttrMainBG{41.7611}{624.1192} % INTELLIGENCE
+        \pixieGraphicStatAttrMainBG{41.7613}{528.6631} % WISDOM
+    	\pixieGraphicStatAttrMainBG{41.7617}{433.5215} % CHARISMA
+    }
+    % MODIFIER BACKGROUNDS
+    \pscustom[linestyle=none,fillstyle=\iftoggle{pixiedraft}{solid}{\statsmodifierfill},fillcolor=\iftoggle{pixiedraft}{stats-draft-background}{stat-mod-bg-color},opacity=\iftoggle{pixiedraft}{.5}{\statsmodifieropacity}]{
+        \translate(#1,#2)
+        \pixieGraphicStatAttrModBG{76.2508}{880.056} % STRENGTH
+        \pixieGraphicStatAttrModBG{76.2513}{784.2834} % DEXTERITY
+        \pixieGraphicStatAttrModBG{76.2507}{689.1563} % CONSTITUTION
+        \pixieGraphicStatAttrModBG{76.2507}{593.3769} % INTELLIGENCE
+    	\pixieGraphicStatAttrModBG{76.2509}{497.9209} % WISDOM
+    	\pixieGraphicStatAttrModBG{76.2513}{402.7793}
+    }
+    % MODIFIER BACKGROUND RINGS
+    \pscustom[linestyle=none,fillstyle=solid,fillcolor=\iftoggle{pixiedraft}{stats-draft-background}{stat-bg-color}]{
+        \translate(#1,#2)
+        \pixieGraphicStatAttrModRing{76.2508}{859.7526} % STRENGTH
+        \pixieGraphicStatAttrModRing{76.2513}{763.9801} % DEXTERITY
+        \pixieGraphicStatAttrModRing{76.2507}{668.8528} % CONSTITUTION
+        \pixieGraphicStatAttrModRing{76.2507}{573.0736} % INTELLIGENCE
+    	\pixieGraphicStatAttrModRing{76.2509}{477.6175} % WISDOM
+    	\pixieGraphicStatAttrModRing{76.2513}{382.4759} % CHARISMA
+    }
+    % OUTLINES
+    \pixieStyleStatsOutlines\pscustom{
+        \translate(#1,#2)
+        \pixieGraphicStatBlockAttrOutlines
+    }
+    %%%% TEXT
+    {\pixieTextBold
+        \rput(\fpeval{76.251064759+#1},\fpeval{927.77396372+#2}){\pixieColorShortcutOne{\iftoggle{english}{\tiny}{}\MakeUppercase{\pixieTermStrength}}}
+        \rput(\fpeval{76.251064759+#1},\fpeval{827.98126455+#2}){\pixieColorShortcutOne{\iftoggle{english}{\tiny}{}\pixieTermDexteritySplitUpper}}
+        \rput(\fpeval{76.251064759+#1},\fpeval{736.97223516+#2}){\pixieColorShortcutOne{\iftoggle{english}{\tiny}{}\MakeUppercase{\pixieTermConstitution}}}
+        \rput(\fpeval{76.251064759+#1},\fpeval{641.09143756+#2}){\pixieColorShortcutOne{\iftoggle{english}{\tiny}{}\MakeUppercase{\pixieTermIntelligence}}}
+        \rput(\fpeval{76.251064759+#1},\fpeval{545.69063994+#2}){\pixieColorShortcutOne{\iftoggle{english}{\tiny}{}\MakeUppercase{\pixieTermWisdom}}}
+        \rput(\fpeval{76.251064759+#1},\fpeval{450.48170899+#2}){\pixieColorShortcutOne{\iftoggle{english}{\tiny}{}\MakeUppercase{\pixieTermCharisma}}}
+    }
+    %%%% FILLABLE FIELDS
+    \iftoggle{interactive}{
+        \put(\fpeval{62.251064759+#1},\fpeval{889.77396372+#2}){\pixieModField{modStr}}
+        \put(\fpeval{68.251064759+#1},\fpeval{864.77396372+#2}){\pixieAttrField{attrStr}}
+        \put(\fpeval{62.251064759+#1},\fpeval{789.98126455+#2}){\pixieModField{modDex}}
+        \put(\fpeval{68.251064759+#1},\fpeval{768.98126455+#2}){\pixieAttrField{attrDex}}
+        \put(\fpeval{62.251064759+#1},\fpeval{698.97223516+#2}){\pixieModField{modCon}}
+        \put(\fpeval{68.251064759+#1},\fpeval{673.97223516+#2}){\pixieAttrField{attrCon}}
+        \put(\fpeval{62.251064759+#1},\fpeval{603.09143756+#2}){\pixieModField{modInt}}
+        \put(\fpeval{68.251064759+#1},\fpeval{577.09143756+#2}){\pixieAttrField{attrInt}}
+        \put(\fpeval{62.251064759+#1},\fpeval{507.69063994+#2}){\pixieModField{modWis}}
+        \put(\fpeval{68.251064759+#1},\fpeval{482.69063994+#2}){\pixieAttrField{attrWis}}
+        \put(\fpeval{62.251064759+#1},\fpeval{412.48170899+#2}){\pixieModField{modCha}}
+        \put(\fpeval{68.251064759+#1},\fpeval{387.48170899+#2}){\pixieAttrField{attrCha}}
+    }{}
+    \pixieStyleDefault
+}
