@@ -31,14 +31,16 @@ It is recommended to look at pre-existing character sheets in the `characters` d
   
 ### Customization instructions
 
-* **Layout**: see `pixie-template/pixie-page-*.tex` for examples; add your own by  
-  (a) modifying these templates or  
-  (b) creating your own and modfiying the `\input{}`s at the end of `pixiedndtemplate.cls`
-* **Language**
-  1. add your own language toggle + option in `pixiedndtemplate.cls`
+* **Layout**: see `pixie-template/pixie-page-*.tex` for examples; add your own  
+  * by modifying these templates or  
+  * by creating your own and modfiying the `\input{}`s at the end of `pixiedndtemplate.cls`
+* **Language**: use other terms by adding your own language with the following steps
+  1. edit `pixiedndtemplate.cls` to add your own language toggle + class option
   2. edit `pixie-class-setup/setup-language-text.tex` to add the proper terms
-* **Colors**: modify or redefine the colors
-  * all colors originally defined in either: `pixiedndtemplate.cls`, `pixie-class-setup/setup-styling-1-color.tex`, or `fork-original/template/character-sheet-commands.tex`
+* **Colors**: modify or redefine the colors, which are all originally defined in one of the following files:
+  * `pixiedndtemplate.cls`,
+  * `pixie-class-setup/setup-styling-1-color.tex`, or
+  * `fork-original/template/character-sheet-commands.tex`
 
 ## Compilation
 
