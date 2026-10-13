@@ -26,7 +26,8 @@ Note: If you want to use a fillable one and are having trouble seeing the actual
 
 ### Building a character sheet
 
-It is recommended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
+It is recommended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time.  
+~~Each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.~~
   
 ### Customization instructions
 
