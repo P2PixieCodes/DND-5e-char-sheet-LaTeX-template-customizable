@@ -40,7 +40,7 @@
     \pixieMakeLabelBox{#1}{#2}{#3}{\pixieLabelLengthWeapon}{\pixieSectionLabelTextWeapon}
     
     \iftoggle{interactive}{
-        \pixieWeaponEntry{One}{1}{#1}{#2}{#3}
+        \iftoggle{a4paper}{\pixieWeaponEntry{One}{1}{#1}{#2}{#3}}{}
         \pixieWeaponEntry{Two}{2}{#1}{#2}{#3}
         \pixieWeaponEntry{Three}{3}{#1}{#2}{#3}
         \pixieWeaponEntry{Four}{4}{#1}{#2}{#3}

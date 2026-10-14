@@ -2,13 +2,14 @@
 % TODO: change to \newcommand for easier redefinition?
 \def\pixieSpellColOffset{10}
 \def\pixieSpellColA{25} %level
-\def\pixieSpellColB{85} %name % TODO: change to \newcommand for variable width calculation
 \def\pixieSpellColC{40} %casting time
 \def\pixieSpellColD{48} %range
 \def\pixieSpellColEa{28} %concentration
 \def\pixieSpellColEb{56} %concentration + ritual
 \def\pixieSpellColE{90} %concentration + ritual + materials
-\def\pixieSpellColF{110} %notes % TODO: change to \newcommand for variable width calculation
+\newcommand{\pixieSpellColB}[1]{\fpeval{(#1-\pixieSpellColA-\pixieSpellColC-\pixieSpellColD-\pixieSpellColD-\pixieSpellColE)/2}} %name % TODO: change to \newcommand for variable width calculation
+\newcommand{\pixieSpellColF}[1]{\fpeval{(#1-\pixieSpellColA-\pixieSpellColC-\pixieSpellColD-\pixieSpellColD-\pixieSpellColE)/2}}
+%\def\pixieSpellColF{110} %notes % TODO: change to \newcommand for variable width calculation
 
 % EASIER MODIFICATION: ROW HEIGHTS
 % TODO: change to \newcommand for easier redefinition?
@@ -16,39 +17,39 @@
 \def\pixieSpellRowHeight{24} %height of each row
 
 % CUSTOM COMMANDS FOR BETTER READABILITY
-\newcommand{\pixieMakeSpellEntryFillable}[4]{
+\newcommand{\pixieMakeSpellEntryFillable}[5]{
     \pixiePut
         {\fpeval{#1+\pixieSpellColOffset+5}}
-        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#3}}
-        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColA-4)*0.75}pt,MaxLen=1]{spell#4Level}}
+        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#4}}
+        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColA-4)*0.75}pt,MaxLen=1]{spell#5Level}}
     \pixiePut
         {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+2}}
-        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#3}}
-        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColB-4)*0.75}pt]{spell#4Name}}
+        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#4}}
+        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColB{#3}-4)*0.75}pt]{spell#5Name}}
     \pixiePut
-        {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+2}}
-        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#3}}
-        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColC-4)*0.75}pt]{spell#4CastingTime}}
+        {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+2}}
+        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#4}}
+        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColC-4)*0.75}pt]{spell#5CastingTime}}
     \pixiePut
-        {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+2}}
-        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#3}}
-        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColD-4)*0.75}pt]{spell#4Range}}
+        {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+2}}
+        {\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#4}}
+        {\pixieTextField[fontsize=9pt,height=12pt,width=\fpeval{(\pixieSpellColD-4)*0.75}pt]{spell#5Range}}
     \pixiePut
-		{\fpeval{6+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2+2.5}}
-		{\fpeval{#2+\pixieSpellRowOffset+5+2.5+\pixieSpellRowHeight*#3}}
-		{\pixieProfCheckBox{spell#4C}}
+		{\fpeval{6+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2+2.5}}
+		{\fpeval{#2+\pixieSpellRowOffset+5+2.5+\pixieSpellRowHeight*#4}}
+		{\pixieProfCheckBox{spell#5C}}
     \pixiePut
-		{\fpeval{6+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEa+2.5}}
-		{\fpeval{#2+\pixieSpellRowOffset+5+2.5+\pixieSpellRowHeight*#3}}
-		{\pixieProfCheckBox{spell#4R}}
+		{\fpeval{6+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEa+2.5}}
+		{\fpeval{#2+\pixieSpellRowOffset+5+2.5+\pixieSpellRowHeight*#4}}
+		{\pixieProfCheckBox{spell#5R}}
     \pixiePut
-		{\fpeval{6+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEb+2.5}}
-		{\fpeval{#2+\pixieSpellRowOffset+5+2.5+\pixieSpellRowHeight*#3}}
-		{\pixieProfCheckBox{spell#4M}}
+		{\fpeval{6+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEb+2.5}}
+		{\fpeval{#2+\pixieSpellRowOffset+5+2.5+\pixieSpellRowHeight*#4}}
+		{\pixieProfCheckBox{spell#5M}}
     \pixiePut
-		{\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE+2}}
-		{\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#3}}
-		{\pixieTextField[setFf=Multiline,fontsize=6pt,height=18pt,width=\fpeval{(\pixieSpellColF-4)*0.75}pt]{spell#4Notes}}
+		{\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE+2}}
+		{\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*#4}}
+		{\pixieTextField[setFf=Multiline,fontsize=6pt,height=18pt,width=\fpeval{(\pixieSpellColF{#3}-4)}pt]{spell#5Notes}}
 }
 
 % MAIN COMMAND
@@ -59,13 +60,13 @@
         % Grad
         \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
         % Name
-        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
+        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
         % Zeitaufwand
-        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
+        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
         % Reichweite
-        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
+        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
         % Konzentration, Ritual & erf. Materialien
-        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
+        \moveto(\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE},\fpeval{#2+\pixieSpellRowOffset})\rlineto(0,\fpeval{#4-18})
         % Notizen
     }
     % COLUMN TITLES
@@ -79,19 +80,19 @@
 			{\fpeval{#2+#4-20}}
             {\myuline{\pixieTermName}}
         \pixieRput[lb]
-			{\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+2.5}}
+			{\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+2.5}}
 			{\fpeval{#2+#4-20-2.75}}
             {\pixieTermCastingTimeSplitUnderline}
         \pixieRput[lB]
-			{\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+2.5}}
+			{\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+2.5}}
 			{\fpeval{#2+#4-20}}
             {\myuline{\pixieTermRange}}
         \pixieRput[lb]
-            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2.5}}
+            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2.5}}
             {\fpeval{#2+#4-20-2.75}}
             {\pixieTermConcentrationRitualRequiredMaterialsSplitUnderline}
         \pixieRput[lB]
-            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE+2.5}}
+            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE+2.5}}
             {\fpeval{#2+#4-20}}
             {\myuline{\pixieTermNotes}}
     }
@@ -104,79 +105,81 @@
         % Name
         \psline
             (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
-            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB-2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
+            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}-2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
         % Zeitaufwand
         \psline
-            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
-            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC-2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
+            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
+            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC-2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
         % Reichweite
         \psline
-            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
-            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD-2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
+            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
+            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD-2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
         % Konzentration, Ritual & erf. Materialien
         %\psline(\fpeval{25+85+40+48+2},0)(\fpeval{25+85+40+48+80-2},0)
         \pixieGraphicCheckStarLine
-            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2}}
+            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2}}
             {\fpeval{#2+\pixieSpellRowOffset+5+\pixieSpellRowHeight*\iA}}
         \pixieRput[l]
-			{\fpeval{22+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2}}
+			{\fpeval{22+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2}}
 			{\fpeval{#2+\pixieSpellRowOffset+5+6+\pixieSpellRowHeight*\iA}}
 			{\pixieTextRegular\pixieColorShortcutThree{\pixieTermConcentrationInitial}}
         \pixieGraphicCheckStarLine
-            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEa}}
+            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEa}}
             {\fpeval{#2+\pixieSpellRowOffset+5+\pixieSpellRowHeight*\iA}}
         \pixieRput[l]
-			{\fpeval{22+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEa}}
+			{\fpeval{22+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEa}}
 			{\fpeval{#2+\pixieSpellRowOffset+5+6+\pixieSpellRowHeight*\iA}}
 			{\pixieTextRegular\pixieColorShortcutThree{\pixieTermRitualInitial}}
         \pixieGraphicCheckStarLine
-            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEb}}
+            {\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEb}}
             {\fpeval{#2+\pixieSpellRowOffset+5+\pixieSpellRowHeight*\iA}}
         \pixieRput[l]
-			{\fpeval{22+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEb}}
+			{\fpeval{22+#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+2+\pixieSpellColEb}}
 			{\fpeval{#2+\pixieSpellRowOffset+5+6+\pixieSpellRowHeight*\iA}}
 			{\pixieTextRegular\pixieColorShortcutThree{\pixieTermMaterialInitial}}
         % Notizen
         \psline
-            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE+2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
+            (\fpeval{#1+\pixieSpellColOffset+\pixieSpellColA+\pixieSpellColB{#3}+\pixieSpellColC+\pixieSpellColD+\pixieSpellColE+2},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
             (\fpeval{#1+#3-10},\fpeval{#2+\pixieSpellRowOffset+\pixieSpellRowHeight*\iA})
     }
     % SECTION LABEL
     \pixieMakeLabelBox{#1}{\fpeval{#2-2}}{#3}{\pixieLabelLengthSpellList}{\pixieSectionLabelTextSpellList}
     % FILLABLE FIELDS
     \iftoggle{interactive}{
-        \pixieMakeSpellEntryFillable{#1}{#2}{0}{Zero}
-        \pixieMakeSpellEntryFillable{#1}{#2}{1}{One}
-        \pixieMakeSpellEntryFillable{#1}{#2}{2}{Two}
-        \pixieMakeSpellEntryFillable{#1}{#2}{3}{Three}
-        \pixieMakeSpellEntryFillable{#1}{#2}{4}{Four}
-        \pixieMakeSpellEntryFillable{#1}{#2}{5}{Five}
-        \pixieMakeSpellEntryFillable{#1}{#2}{6}{Six}
-        \pixieMakeSpellEntryFillable{#1}{#2}{7}{Seven}
-        \pixieMakeSpellEntryFillable{#1}{#2}{8}{Eight}
-        \pixieMakeSpellEntryFillable{#1}{#2}{9}{Nine}
-        \pixieMakeSpellEntryFillable{#1}{#2}{10}{Ten}
-        \pixieMakeSpellEntryFillable{#1}{#2}{11}{Eleven}
-        \pixieMakeSpellEntryFillable{#1}{#2}{12}{Twelve}
-        \pixieMakeSpellEntryFillable{#1}{#2}{13}{Thirteen}
-        \pixieMakeSpellEntryFillable{#1}{#2}{14}{Fourteen}
-        \pixieMakeSpellEntryFillable{#1}{#2}{15}{Fifteen}
-        \pixieMakeSpellEntryFillable{#1}{#2}{16}{Sixteen}
-        \pixieMakeSpellEntryFillable{#1}{#2}{17}{Seventeen}
-        \pixieMakeSpellEntryFillable{#1}{#2}{18}{Eighteen}
-        \pixieMakeSpellEntryFillable{#1}{#2}{19}{Nineteen}
-        \pixieMakeSpellEntryFillable{#1}{#2}{20}{Twenty}
-        \pixieMakeSpellEntryFillable{#1}{#2}{21}{TwentyOne}
-        \pixieMakeSpellEntryFillable{#1}{#2}{22}{TwentyTwo}
-        \pixieMakeSpellEntryFillable{#1}{#2}{23}{TwentyThree}
-        \pixieMakeSpellEntryFillable{#1}{#2}{24}{TwentyFour}
-        \pixieMakeSpellEntryFillable{#1}{#2}{25}{TwentyFive}
-        \pixieMakeSpellEntryFillable{#1}{#2}{26}{TwentySix}
-        \pixieMakeSpellEntryFillable{#1}{#2}{27}{TwentySeven}
-        \pixieMakeSpellEntryFillable{#1}{#2}{28}{TwentyEight}
-        \pixieMakeSpellEntryFillable{#1}{#2}{29}{TwentyNine}
-        \pixieMakeSpellEntryFillable{#1}{#2}{30}{Thirty}
-        \pixieMakeSpellEntryFillable{#1}{#2}{31}{ThirtyOne}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{0}{Zero}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{1}{One}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{2}{Two}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{3}{Three}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{4}{Four}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{5}{Five}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{6}{Six}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{7}{Seven}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{8}{Eight}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{9}{Nine}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{10}{Ten}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{11}{Eleven}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{12}{Twelve}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{13}{Thirteen}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{14}{Fourteen}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{15}{Fifteen}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{16}{Sixteen}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{17}{Seventeen}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{18}{Eighteen}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{19}{Nineteen}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{20}{Twenty}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{21}{TwentyOne}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{22}{TwentyTwo}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{23}{TwentyThree}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{24}{TwentyFour}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{25}{TwentyFive}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{26}{TwentySix}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{27}{TwentySeven}
+        \pixieMakeSpellEntryFillable{#1}{#2}{#3}{28}{TwentyEight}
+        \iftoggle{a4paper}{
+            \pixieMakeSpellEntryFillable{#1}{#2}{#3}{29}{TwentyNine}
+            \pixieMakeSpellEntryFillable{#1}{#2}{#3}{30}{Thirty}
+            \pixieMakeSpellEntryFillable{#1}{#2}{#3}{31}{ThirtyOne}
+        }{}
     }{}
     % RESET STYLING
     \pixieStyleDefault

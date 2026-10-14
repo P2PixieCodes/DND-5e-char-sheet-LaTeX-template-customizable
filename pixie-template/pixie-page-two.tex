@@ -1,21 +1,26 @@
+\def\pixiePageXOffset{\iftoggle{a4paper}{0}{25}}%
+\def\pixiePageYOffsetLeft{\iftoggle{a4paper}{0}{-72}}%
+\def\pixiePageYOffsetRight{\iftoggle{a4paper}{0}{-70.5}}%
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}%
+\newpage%
 \makebox[\paperwidth][s]{%
 \thispagestyle{empty}%
 \psset{unit=0.75pt}% sets xunit, yunit, and runit
-%\begin{pspicture}(816,1056)\psframe[fillstyle=solid,fillcolor=blue!20,linewidth=3pt,linecolor=black](0,0)(816,1056) % ORIGINAL VALUES
-\begin{pspicture}(796.75,1126.5)% you can easily tell if the height is correct bc the PDF layout gets messed up if it's too big for the page
+\begin{pspicture}(\fpeval{816-\iftoggle{a4paper}{19.25}{0}},\fpeval{1056+\iftoggle{a4paper}{70.5}{0}}) % you can easily tell if the height is correct bc the PDF layout gets messed up if it's too big for the page
+    %\psframe[fillstyle=solid,fillcolor=blue!20,linewidth=3pt,linecolor=black](0,0)(\fpeval{816-\iftoggle{a4paper}{19.25}{0}},\fpeval{1056+\iftoggle{a4paper}{70.5}{0}})
     \pixieStyleDefault
 
     \pixiePlaceHeaderDefaultTwo{}{}
 
     \pixieStyleDefault
 
-    \pixiePlaceAppearanceSection{40}{770}{290}{180} % appearance
-    \pixiePlacePersonalitySection{40}{540}{290}{220} % background & personality
-    \pixiePlaceEquipmentSection{40}{130}{290}{400} % equipment
+    \pixiePlaceAppearanceSection{35}{\fpeval{770+(2*\pixiePageYOffsetLeft/3)}}{290}{\fpeval{180+(\pixiePageYOffsetLeft/3)}} % appearance
+    \pixiePlacePersonalitySection{35}{\fpeval{540+(\pixiePageYOffsetLeft/3)}}{290}{\fpeval{220+(\pixiePageYOffsetLeft/3)}} % background & personality
+    \pixiePlaceEquipmentSection{35}{130}{290}{\fpeval{400+(\pixiePageYOffsetLeft/3)}} % equipment
     \pixiePlaceCoinsSection % coins
 
     \pixieStyleDefault
-    \pixiePlaceSpellSection{340}{30}{420}{920} % spell list and slots
+    \pixiePlaceSpellSection{340}{30}{\fpeval{420+\pixiePageXOffset}}{\fpeval{920+\pixiePageYOffsetRight}} % spell list and slots
 
     %\psframe[fillstyle=solid,fillcolor=blue!20,linestyle=solid,linewidth=.75pt,linecolor=black](0,0)(796.75,1126.5) % entire A4 page
     %\psframe[fillstyle=solid,fillcolor=blue!20,opacity=.3,linestyle=solid,linewidth=.75pt,linecolor=black](18.9684,18.9684)(777.7816,1107.5316) % printable area of A4 page

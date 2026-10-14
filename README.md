@@ -6,10 +6,9 @@
 
 * 2-Page Character Sheet
   * "5.25e": layout combining 5e and 5.5e
-  * "maxlevel3": layout for low-level characters
+  * "maxlevel3": layout for low-level characters, adapted from "5.25e"
   * *(WIP: default 5e layout)*
-* Paper sizes: A4
-  * *(WIP: letter)*
+* Paper sizes: A4 and letter
 * Fillable fields in the generated PDF
 * High degree of customisation: layout, language, colors
   * see below for [instructions](#customization-instructions)

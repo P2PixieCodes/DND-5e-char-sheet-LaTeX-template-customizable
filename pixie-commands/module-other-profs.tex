@@ -56,17 +56,21 @@
         \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-40}){\pixieHeaderTerm{\pixieTermWeapons}}
         
         \psline(\fpeval{#1+5},\fpeval{#2+#4-122-1*(max(#4-274.9,0)/3)})(\fpeval{#1+#3-5},\fpeval{#2+#4-122-1*(max(#4-274.9,0)/3)})
-        \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-125.5-1*(max(#4-274.9,0)/3)}){\pixieHeaderTerm{\pixieTermTools}}
-        
-        \psline(\fpeval{#1+5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)})(\fpeval{#1+#3-5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)})
-        \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-197.5-2*(max(#4-274.9,0)/3)}){\pixieHeaderTerm{\pixieTermLanguages}}
+        \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-125.5-1*(max(#4-274.9,0)/3)}){\pixieHeaderTerm{\pixieTermTools\ \iftoggle{a4paper}{}{\& \pixieTermLanguages}}}
+
+        \iftoggle{a4paper}{
+            \psline(\fpeval{#1+5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)})(\fpeval{#1+#3-5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)})
+            \rput[tl](\fpeval{#1+5},\fpeval{#2+#4-197.5-2*(max(#4-274.9,0)/3)}){\pixieHeaderTerm{\pixieTermLanguages}}
+        }{}
     }
     \pixieStyleSectionOutline\pscustom{\translate(#1,#2)\pixieSelectedOtherProfsSectionOutline{#3}{#4}}
     \pixieMakeLabelBox{#1}{#2}{#3}{\pixieLabelLengthOtherProfs}{\pixieSectionLabelTextOtherProfs}
     \iftoggle{interactive}{
         \put(\fpeval{#1+5},\fpeval{#2+#4-122-1*(max(#4-274.9,0)/3)}){\pixieTextField[fontsize=8pt,height=\fpeval{(69.5+1*(max(#4-274.9,0)/3))*0.75}pt,width=\fpeval{(#3-10)*0.75}pt,setFf=Multiline]{weaponProfs}}
         \put(\fpeval{#1+5},\fpeval{#2+#4-194-2*(max(#4-274.9,0)/3)}){\pixieTextField[fontsize=8pt,height=\fpeval{(57+1*(max(#4-274.9,0)/3))*0.75}pt,width=\fpeval{(#3-10)*0.75}pt,setFf=Multiline]{toolProfs}}
-        \put(\fpeval{#1+5},\fpeval{#2+12}){\pixieTextField[fontsize=8pt,height=\fpeval{(53.9+1*(max(#4-274.9,0)/3))*0.75}pt,width=\fpeval{(#3-10)*0.75}pt,setFf=Multiline]{languageProfs}}
+        \iftoggle{a4paper}{
+            \put(\fpeval{#1+5},\fpeval{#2+12}){\pixieTextField[fontsize=8pt,height=\fpeval{(53.9+1*(max(#4-274.9,0)/3))*0.75}pt,width=\fpeval{(#3-10)*0.75}pt,setFf=Multiline]{languageProfs}}
+        }{}
     }{}
     \pixieStyleDefault
 }

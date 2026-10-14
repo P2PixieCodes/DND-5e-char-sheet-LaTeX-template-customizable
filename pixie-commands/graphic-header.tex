@@ -137,7 +137,7 @@
     \closepath
 }
 \renewcommand{\pixieGraphicBattle}{
-    \translate(\iftoggle{a4paper}{-2,75}{0,0})
+    \translate(\iftoggle{a4paper}{-2,75}{-2,4.5})
     % SOLDIERS RIGHT
     \moveto(348.79732461,985.09490871)
     \curveto(348.64265795,985.2149087)(348.85999128,985.42824203)(349.01332461,985.30957537)
@@ -3564,10 +3564,10 @@
 }
 \renewcommand{\pixieGraphicHeaderDetailsBGinsideOnly}{
     \iftoggle{a4paper}{\translate(549.27465,1030.3186)}{\translate(556.77465,1030.3186)}
-    \moveto(201.76265,-40.428) % -15/2
-    \rlineto(-403.5253,0) % -15/2
+    \moveto(\fpeval{201.76265+\iftoggle{a4paper}{0}{7.5}},-40.428)
+    \rlineto(-\fpeval{403.5253+\iftoggle{a4paper}{0}{15}},0)
     \rlineto(0,80.856)
-    \rlineto(403.253,0) % -15/2
+    \rlineto(\fpeval{403.253+\iftoggle{a4paper}{0}{15}},0)
     \closepath
     \iftoggle{a4paper}{\translate(-549.27465,-1030.3186)}{\translate(-556.77465,-1030.3186)}
 }
@@ -4437,7 +4437,7 @@
     \rcurveto(1.6387,0.1533)(3.0733,-0.996)(3.0733,-2.48)
 }
 \renewcommand{\pixieGraphicHeaderTitleLogo}{
-    \translate(\iftoggle{a4paper}{-2,75}{0,0})
+    \translate(\iftoggle{a4paper}{-2,75}{-2,4.5})
     % DND LOGO R
     \moveto(200.66106165,993.44237516)
     \curveto(201.03439497,993.44237516)(201.03439497,992.89304184)(200.66106165,992.89304184)
